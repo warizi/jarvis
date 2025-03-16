@@ -21,6 +21,7 @@ export const useNavItems = () => {
       url: ROUTE_URL.HOME,
       icon: (
         <HomeIcon
+          size={20}
           color={
             isCurrentLink(ROUTE_URL.HOME)
               ? theme.colors.background.deep
@@ -34,6 +35,7 @@ export const useNavItems = () => {
       url: ROUTE_URL.TASK,
       icon: (
         <TaskIcon
+          size={20}
           color={
             isCurrentLink(ROUTE_URL.TASK)
               ? theme.colors.background.deep
@@ -47,6 +49,7 @@ export const useNavItems = () => {
       url: ROUTE_URL.TEST,
       icon: (
         <MonitorIcon
+          size={20}
           color={
             isCurrentLink(ROUTE_URL.TEST)
               ? theme.colors.background.deep

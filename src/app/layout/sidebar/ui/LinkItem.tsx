@@ -16,8 +16,8 @@ const linkItemStyles =
       flexDirection: "row",
       alignItems: "center",
       justifyContent: "center",
-      width: "45px",
-      height: "45px",
+      width: "40px",
+      height: "40px",
       color: isCurrent
         ? theme.colors.primary.dark
         : theme.colors.text.primary,
