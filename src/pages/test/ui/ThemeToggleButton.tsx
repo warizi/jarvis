@@ -1,26 +1,23 @@
 /** @jsxImportSource @emotion/react */
 
-import { Theme, useTheme } from "@emotion/react";
+import { Theme } from "@emotion/react";
 import { useThemeStore } from "@shared/theme/themeStore";
 
-const buttonStyle = (theme: Theme) => ({
-  backgroundColor: theme.colors.primary,
-  color: theme.colors.text.secondary,
-  border: "none",
-  borderRadius: theme.radius.medium,
-});
+const buttonStyle = (theme: Theme) =>
+  ({
+    backgroundColor: theme.colors.background.deep,
+    color: theme.colors.text.primary,
+    border: "none",
+    borderRadius: theme.radius.medium,
+    padding: "5px 10px",
+  } as const);
 
 function ThemeToggleButton() {
   const { toggleDarkMode, darkMode } = useThemeStore(
     (state) => state
   );
-  const theme = useTheme();
-
   return (
-    <button
-      css={buttonStyle(theme)}
-      onClick={toggleDarkMode}
-    >
+    <button css={buttonStyle} onClick={toggleDarkMode}>
       {darkMode ? "라이트" : "다크"}
     </button>
   );

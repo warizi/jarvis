@@ -3,17 +3,31 @@ import "@emotion/react";
 declare module "@emotion/react" {
   export interface Theme {
     colors: {
-      background: string;
-      surface: string;
-      primary: string;
-      secondary: string;
-      error: string;
+      primary: {
+        light: string;
+        normal: string;
+        dark: string;
+      };
+      secondary: {
+        light: string;
+        normal: string;
+        dark: string;
+      };
+      background: {
+        deep: string;
+        gray: string;
+        hover: string;
+      };
       text: {
         primary: string;
         secondary: string;
-        disabled: string;
       };
-      border: string;
+      important: {
+        heigh: string;
+        meduim: string;
+        low: string;
+      };
+      success: string;
     };
     typography: {
       size: {
@@ -28,6 +42,7 @@ declare module "@emotion/react" {
       large: string;
     };
     shadow: {
+      superSmall: string;
       small: string;
       medium: string;
       large: string;

@@ -9,6 +9,8 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
+import CommonLayout from "./layout/commonLayout";
+import "./app.css";
 
 function App() {
   const darkMode = useThemeStore((state) => state.darkMode);
@@ -19,9 +21,11 @@ function App() {
     >
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/task" element={<TaskPage />} />
-          <Route path="/test" element={<TestPage />} />
+          <Route element={<CommonLayout />}>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/task" element={<TaskPage />} />
+            <Route path="/test" element={<TestPage />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </ThemeProvider>
