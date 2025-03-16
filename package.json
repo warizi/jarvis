@@ -14,6 +14,8 @@
     "@tanstack/react-query": "^5.68.0",
     "@types/jest": "^29.5.14",
     "@types/node": "^22.13.10",
+    "dexie": "^4.0.11",
+    "dexie-react-hooks": "^1.1.7",
     "lodash": "^4.17.21",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
