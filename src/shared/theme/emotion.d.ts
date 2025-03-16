@@ -17,6 +17,7 @@ declare module "@emotion/react" {
         deep: string;
         gray: string;
         hover: string;
+        backdrop: string;
       };
       text: {
         primary: string;

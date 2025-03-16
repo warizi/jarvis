@@ -1,7 +1,8 @@
 /** @jsxImportSource @emotion/react */
 
-import Sidebar from "@app/layout/sidebar";
+import NavBar from "@app/layout/sidebar";
 import { Theme } from "@emotion/react";
+import { SplitModal } from "@shared/components/splitModal";
 import { Outlet } from "react-router-dom";
 
 const commonLayoutStyles = (theme: Theme) =>
@@ -22,10 +23,11 @@ const mainStyles = {
 function CommonLayout() {
   return (
     <div css={commonLayoutStyles}>
-      <Sidebar />
+      <NavBar />
       <div css={mainStyles}>
         <Outlet />
       </div>
+      <SplitModal />
     </div>
   );
 }

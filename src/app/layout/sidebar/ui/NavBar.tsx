@@ -4,7 +4,7 @@ import { Theme } from "@emotion/react";
 import { Logo } from "@shared/components/logo";
 import NavLinkType from "./NavLink";
 
-const sidebarStyle = (theme: Theme) =>
+const navBarStyles = (theme: Theme) =>
   ({
     display: "flex",
     flexDirection: "column",
@@ -17,13 +17,13 @@ const sidebarStyle = (theme: Theme) =>
     height: "100vh",
   } as const);
 
-function Sidebar() {
+function NavBar() {
   return (
-    <div css={sidebarStyle}>
+    <div css={navBarStyles}>
       <Logo size="sm" />
       <NavLinkType />
     </div>
   );
 }
 
-export default Sidebar;
+export default NavBar;

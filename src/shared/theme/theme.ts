@@ -16,6 +16,7 @@ export const lightTheme: Theme = {
       deep: "rgb(255, 255, 255)",
       gray: "rgb(241, 241, 241)",
       hover: "rgba(182, 180, 180, 0.1)",
+      backdrop: "rgba(255, 255, 255, 0.3)",
     },
     text: {
       primary: "rgba(0, 0, 0, 1)",
@@ -63,7 +64,8 @@ export const darkTheme: Theme = {
     background: {
       deep: "rgb(16, 16, 16)",
       gray: "rgb(32, 32, 32)",
-      hover: "rgba(177, 177, 177, 0.1)",
+      hover: "rgba(116, 116, 116, 0.1)",
+      backdrop: "rgba(16, 16, 16, 0.3)",
     },
     text: {
       primary: "rgb(234, 234, 234)",
