@@ -1,7 +1,13 @@
 /** @jsxImportSource @emotion/react */
 
+import ThemeToggleButton from "./ThemeToggleButton";
+
 function TestPage() {
-  return <div>test</div>;
+  return (
+    <div>
+      <ThemeToggleButton />
+    </div>
+  );
 }
 
 export default TestPage;

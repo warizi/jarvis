@@ -2,7 +2,8 @@ import { ThemeProvider } from "@emotion/react";
 import HomePage from "@pages/home";
 import TaskPage from "@pages/task";
 import TestPage from "@pages/test";
-import { lightTheme } from "@shared/theme/theme";
+import { darkTheme, lightTheme } from "@shared/theme/theme";
+import { useThemeStore } from "@shared/theme/themeStore";
 import {
   BrowserRouter,
   Route,
@@ -10,8 +11,12 @@ import {
 } from "react-router-dom";
 
 function App() {
+  const darkMode = useThemeStore((state) => state.darkMode);
+
   return (
-    <ThemeProvider theme={lightTheme}>
+    <ThemeProvider
+      theme={darkMode ? darkTheme : lightTheme}
+    >
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage />} />

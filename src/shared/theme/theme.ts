@@ -32,3 +32,28 @@ export const lightTheme: Theme = {
     large: "0px 8px 16px rgba(0, 0, 0, 0.1)",
   },
 };
+
+export const darkTheme: Theme = {
+  colors: {
+    background: "#121212",
+    surface: "#1e1e1e",
+    primary: "#bb86fc",
+    secondary: "#03dac6",
+    error: "#cf6679",
+    text: {
+      primary: "#ffffff",
+      secondary: "#000000",
+      disabled: "#a9a9a9",
+    },
+    border: "#343434",
+  },
+  typography: {
+    size: { small: "12px", medium: "14px", large: "16px" },
+  },
+  radius: { small: "4px", medium: "8px", large: "12px" },
+  shadow: {
+    small: "0px 2px 4px rgba(0, 0, 0, 0.9)",
+    medium: "0px 4px 8px rgba(0, 0, 0, 0.9)",
+    large: "0px 8px 16px rgba(0, 0, 0, 0.9)",
+  },
+};
