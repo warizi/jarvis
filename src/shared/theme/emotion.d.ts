@@ -23,6 +23,9 @@ declare module "@emotion/react" {
         primary: string;
         secondary: string;
       };
+      border: {
+        gray: string;
+      };
       important: {
         heigh: string;
         meduim: string;

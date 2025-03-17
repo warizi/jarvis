@@ -15,6 +15,7 @@ const navBarStyles = (theme: Theme) =>
     boxShadow: theme.shadow.small,
     width: "80px",
     height: "100vh",
+    zIndex: 1000,
   } as const);
 
 function NavBar() {

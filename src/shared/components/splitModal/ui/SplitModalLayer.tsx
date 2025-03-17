@@ -3,6 +3,7 @@
 import { keyframes, Theme } from "@emotion/react";
 import useSplitModalStore from "../model/splitModalStore";
 import { SPLIT_MODAL_TRANSITION } from "../model/transition";
+import SplitModalTitle from "./SplitModalTitle";
 
 const slideIn = keyframes`
   from {
@@ -29,6 +30,7 @@ const containerStyles = {
   width: "50vw",
   height: "100vh",
   padding: "10px",
+  zIndex: 3000,
 } as const;
 
 const layerStyles = (theme: Theme) =>
@@ -41,7 +43,7 @@ const layerStyles = (theme: Theme) =>
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    justifyContent: "center",
+    zIndex: 3000,
   } as const);
 
 const layerAnimation = (isCloseStart: boolean) => ({
@@ -51,7 +53,7 @@ const layerAnimation = (isCloseStart: boolean) => ({
 });
 
 function SplitModalLayer() {
-  const { close, isCloseStart } = useSplitModalStore(
+  const { isCloseStart, title } = useSplitModalStore(
     (state) => state
   );
   return (
@@ -61,7 +63,9 @@ function SplitModalLayer() {
         ...layerAnimation(isCloseStart),
       }}
     >
-      <div css={layerStyles} onClick={close}></div>
+      <div css={layerStyles}>
+        <SplitModalTitle title={title} />
+      </div>
     </div>
   );
 }

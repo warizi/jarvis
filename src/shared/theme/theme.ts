@@ -22,6 +22,9 @@ export const lightTheme: Theme = {
       primary: "rgba(0, 0, 0, 1)",
       secondary: "rgba(169, 169, 169, 1)",
     },
+    border: {
+      gray: "rgb(241, 241, 241)",
+    },
     important: {
       heigh: "rgba(255, 0, 0, 1)",
       meduim: "rgb(255, 179, 0)",
@@ -70,6 +73,9 @@ export const darkTheme: Theme = {
     text: {
       primary: "rgb(234, 234, 234)",
       secondary: "rgb(120, 120, 120)",
+    },
+    border: {
+      gray: "rgb(133, 133, 133)",
     },
     important: {
       heigh: "rgba(255, 0, 0, 1)",

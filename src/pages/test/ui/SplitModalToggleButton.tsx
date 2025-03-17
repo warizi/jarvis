@@ -15,7 +15,10 @@ const buttonStyle = (theme: Theme) =>
 function SplitModalToggleButton() {
   const open = useSplitModalStore((state) => state.open);
   return (
-    <button css={buttonStyle} onClick={open}>
+    <button
+      css={buttonStyle}
+      onClick={() => open({ title: "TEST 제목" })}
+    >
       모달 오픈
     </button>
   );

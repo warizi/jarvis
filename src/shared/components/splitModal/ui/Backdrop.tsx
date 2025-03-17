@@ -47,6 +47,7 @@ const backdropStyles =
       left: 0,
       width: "100vw",
       height: "100vh",
+      zIndex: 2000,
       backgroundColor: theme.colors.background.backdrop,
       ...backdropAnimation(isCloseStart, theme),
     } as const);

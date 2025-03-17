@@ -18,7 +18,7 @@ const commonLayoutStyles = (theme: Theme) =>
 const mainStyles = {
   height: "100vh",
   width: "100%",
-};
+} as const;
 
 function CommonLayout() {
   return (
