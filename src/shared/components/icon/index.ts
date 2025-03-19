@@ -4,6 +4,8 @@ import TaskIcon from "./ui/TaskIcon";
 import MonitorIcon from "./ui/MonitorIcon";
 import ArrowRightIcon from "./ui/ArrowRightIcon";
 import PlusIcon from "./ui/PlusIcon";
+import FileCheckIcon from "./ui/FileCheckIcon";
+import SunIcon from "./ui/SunIcon";
 
 export {
   ExitIcon,
@@ -12,4 +14,6 @@ export {
   MonitorIcon,
   ArrowRightIcon,
   PlusIcon,
+  FileCheckIcon,
+  SunIcon,
 };

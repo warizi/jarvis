@@ -4,7 +4,7 @@ export const TodoSidebarMenuStyle = {
   container: () => ({
     marginTop: "20px",
   }),
-  ul: (theme: Theme) =>
+  ul: () =>
     ({
       listStyle: "none",
       display: "flex",
@@ -12,22 +12,25 @@ export const TodoSidebarMenuStyle = {
       gap: "5px",
       marginBottom: "10px",
       // padding: "10px",
-      "& li": {
-        display: "flex",
-        alignItems: "center",
-        "& a": {
-          display: "flex",
-          alignItems: "center",
-          padding: "10px",
-          color: theme.colors.text.primary,
-          textDecoration: "none",
-          width: "100%",
-          height: "40px",
-          borderRadius: theme.radius.medium,
-          "&:hover": {
-            background: theme.colors.background.hover,
-          },
-        },
-      },
     } as const),
+  li: () => ({
+    display: "flex",
+    alignItems: "center",
+  }),
+  a: (isActive: boolean) => (theme: Theme) => ({
+    display: "flex",
+    alignItems: "center",
+    padding: "10px",
+    color: theme.colors.text.primary,
+    textDecoration: "none",
+    width: "100%",
+    height: "40px",
+    backgroundColor: isActive
+      ? theme.colors.background.deep
+      : "transparent",
+    borderRadius: theme.radius.medium,
+    "&:hover": {
+      background: theme.colors.background.hover,
+    },
+  }),
 };
