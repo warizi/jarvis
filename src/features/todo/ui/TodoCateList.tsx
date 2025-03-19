@@ -9,19 +9,22 @@ import { useTodoCateList } from "../model/useTodoCateList";
 
 function TodoCateList() {
   const { data } = useGetAllTodoCateQuery();
-  const { ul } = todoCateListStyle;
+  const { ul, h3, container } = todoCateListStyle;
   const isCurrentLink = useTodoCateList();
 
   return (
-    <ul css={ul}>
-      {data?.map((todo: TodoCate & Id) => (
-        <TodoCateItem
-          key={todo.id}
-          data={todo}
-          isActive={isCurrentLink(todo)}
-        />
-      ))}
-    </ul>
+    <div css={container}>
+      <h3 css={h3}>목록</h3>
+      <ul css={ul}>
+        {data?.map((todo: TodoCate & Id) => (
+          <TodoCateItem
+            key={todo.id}
+            data={todo}
+            isActive={isCurrentLink(todo)}
+          />
+        ))}
+      </ul>
+    </div>
   );
 }
 

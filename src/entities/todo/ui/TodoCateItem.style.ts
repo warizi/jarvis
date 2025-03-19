@@ -4,11 +4,12 @@ export const todoCateItemStyle = {
   li: (isActive: boolean) => (theme: Theme) => ({
     display: "flex",
     alignItems: "center",
-    borderBottom: `1px solid ${theme.colors.border.gray}`,
     fontSize: "14px",
+    transition: "background 0s",
     backgroundColor: isActive
-      ? theme.colors.background.hover
+      ? theme.colors.background.deep
       : "none",
+    borderRadius: theme.radius.medium,
     width: "100%",
     "&:last-child": {
       borderBottom: "none",
@@ -22,9 +23,9 @@ export const todoCateItemStyle = {
     textDecoration: "none",
     width: "100%",
     height: "40px",
+    borderRadius: theme.radius.medium,
     "&:hover": {
       background: theme.colors.background.hover,
-      color: theme.colors.primary.normal,
     },
   }),
   span: () => ({}),

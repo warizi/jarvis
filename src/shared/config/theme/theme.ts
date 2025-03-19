@@ -24,6 +24,7 @@ export const lightTheme: Theme = {
     },
     border: {
       gray: "rgb(241, 241, 241)",
+      deepGray: "rgb(221, 221, 221)",
     },
     important: {
       heigh: "rgba(255, 0, 0, 1)",
@@ -76,6 +77,7 @@ export const darkTheme: Theme = {
     },
     border: {
       gray: "rgb(133, 133, 133)",
+      deepGray: "rgb(221, 221, 221)",
     },
     important: {
       heigh: "rgba(255, 0, 0, 1)",

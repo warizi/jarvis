@@ -22,6 +22,7 @@ export const TodoCateCreateBtnStyle = {
     alignItems: "center",
     cursor: "pointer",
     color: theme.colors.primary.normal,
+    backgroundColor: "transparent",
     "&:hover": {
       backgroundColor: theme.colors.background.hover,
     },
