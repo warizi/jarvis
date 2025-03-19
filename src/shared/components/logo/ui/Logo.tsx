@@ -2,7 +2,7 @@
 import { css } from "@emotion/react";
 import LogoLight from "@shared/assets/images/flowa-white.png";
 import LogoDark from "@shared/assets/images/flowa-black.png";
-import { useThemeStore } from "@shared/theme/themeStore";
+import { useThemeStore } from "@shared/config/theme/themeStore";
 
 type LogoSize = "sm" | "md" | "lg";
 

@@ -32,12 +32,12 @@ export const useNavItems = () => {
     },
     {
       title: "Task",
-      url: ROUTE_URL.TASK,
+      url: ROUTE_URL.TODO,
       icon: (
         <TaskIcon
           size={20}
           color={
-            isCurrentLink(ROUTE_URL.TASK)
+            isCurrentLink(ROUTE_URL.TODO)
               ? theme.colors.background.deep
               : theme.colors.text.secondary
           }

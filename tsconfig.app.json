@@ -13,7 +13,8 @@
       "@widgets/*": ["./widgets/*"],
       "@features/*": ["./features/*"],
       "@entities/*": ["./entities/*"],
-      "@shared/*": ["./shared/*"] // 공통적으로 사용하는 요소들 경로
+      "@shared/*": ["./shared/*"], // 공통적으로 사용하는 요소들 경로
+      "@backend/*": ["./backend/*"]
     },
 
     /* Bundler mode */

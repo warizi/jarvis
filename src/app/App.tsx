@@ -1,9 +1,12 @@
 import { ThemeProvider } from "@emotion/react";
 import HomePage from "@pages/home";
-import TaskPage from "@pages/task";
+import { TodoLayout, TodoPage } from "@pages/Todo";
 import TestPage from "@pages/test";
-import { darkTheme, lightTheme } from "@shared/theme/theme";
-import { useThemeStore } from "@shared/theme/themeStore";
+import {
+  darkTheme,
+  lightTheme,
+} from "@shared/config/theme/theme";
+import { useThemeStore } from "@shared/config/theme/themeStore";
 import {
   BrowserRouter,
   Route,
@@ -11,24 +14,49 @@ import {
 } from "react-router-dom";
 import CommonLayout from "./layout/commonLayout";
 import "./app.css";
+import { ROUTE_URL } from "@shared/constants/route/ROUTE_URL";
+import {
+  QueryClient,
+  QueryClientProvider,
+} from "@tanstack/react-query";
+
+const queryClient = new QueryClient();
 
 function App() {
   const darkMode = useThemeStore((state) => state.darkMode);
 
   return (
-    <ThemeProvider
-      theme={darkMode ? darkTheme : lightTheme}
-    >
-      <BrowserRouter>
-        <Routes>
-          <Route element={<CommonLayout />}>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/task" element={<TaskPage />} />
-            <Route path="/test" element={<TestPage />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </ThemeProvider>
+    <QueryClientProvider client={queryClient}>
+      <ThemeProvider
+        theme={darkMode ? darkTheme : lightTheme}
+      >
+        <BrowserRouter>
+          <Routes>
+            <Route element={<CommonLayout />}>
+              {/* HOME */}
+              <Route
+                path={ROUTE_URL.HOME}
+                element={<HomePage />}
+              />
+              {/* TODO */}
+              <Route
+                path={ROUTE_URL.TODO}
+                element={<TodoLayout />}
+              >
+                <Route
+                  path={ROUTE_URL.TODO + "/:id"}
+                  element={<TodoPage />}
+                />
+              </Route>
+              <Route
+                path={ROUTE_URL.TEST}
+                element={<TestPage />}
+              />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </ThemeProvider>
+    </QueryClientProvider>
   );
 }
 

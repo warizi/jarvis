@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 
 import { Theme } from "@emotion/react";
-import { useThemeStore } from "@shared/theme/themeStore";
+import { useThemeStore } from "@shared/config/theme/themeStore";
 
 const buttonStyle = (theme: Theme) =>
   ({

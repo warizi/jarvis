@@ -5,11 +5,20 @@ const useIsCurrentLink = () => {
 
   const isCurrentLink = (link: string) => {
     const terminatedSlushLink = link.split("/").join("");
-    const terminatedSlushPathname = pathname
-      .split("/")
-      .join("");
+    const terminatedSlushPathname = pathname.split("/");
 
-    return terminatedSlushLink === terminatedSlushPathname;
+    if (
+      terminatedSlushPathname.join("") === "" &&
+      terminatedSlushLink === ""
+    ) {
+      return true;
+    } else if (terminatedSlushLink === "") {
+      return false;
+    }
+
+    return terminatedSlushPathname.includes(
+      terminatedSlushLink
+    );
   };
 
   return isCurrentLink;

@@ -1,5 +1,5 @@
 export const ROUTE_URL = {
   HOME: "/",
-  TASK: "/task",
+  TODO: "/todo",
   TEST: "/test",
 };

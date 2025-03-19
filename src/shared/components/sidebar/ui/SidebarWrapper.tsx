@@ -20,6 +20,7 @@ const sidebarWrapperContainerStyles =
         width: "24px",
         height: "24px",
         transition: "0.3s",
+        color: theme.colors.text.primary,
         backgroundColor: theme.colors.background.gray,
         border: "none",
         cursor: "pointer",
@@ -55,7 +56,7 @@ function SidebarWrapper({ children }: SidebarWrapperProps) {
         className="sidebar-close-btn"
         onClick={toggleSidebar}
       >
-        <ArrowRightIcon />
+        <ArrowRightIcon color="currentColor" />
       </div>
       <div css={sidebarWrapperStyles(isOpen)}>
         {children}
