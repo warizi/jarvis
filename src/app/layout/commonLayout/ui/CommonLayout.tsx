@@ -2,6 +2,7 @@
 
 import NavBar from "@app/layout/sidebar";
 import { Theme } from "@emotion/react";
+import { ContextMenu } from "@shared/components/contextMenu";
 import { SplitModal } from "@shared/components/splitModal";
 import { Outlet } from "react-router-dom";
 
@@ -28,6 +29,7 @@ function CommonLayout() {
         <Outlet />
       </div>
       <SplitModal />
+      <ContextMenu />
     </div>
   );
 }

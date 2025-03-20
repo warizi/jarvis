@@ -2,6 +2,7 @@ import { Theme } from "@emotion/react";
 
 export const TodoSidebarMenuStyle = {
   container: () => ({
+    minWidth: "200px",
     marginTop: "20px",
   }),
   ul: () =>
@@ -13,11 +14,15 @@ export const TodoSidebarMenuStyle = {
       marginBottom: "10px",
       // padding: "10px",
     } as const),
-  li: () => ({
+  li: (isActive: boolean) => (theme: Theme) => ({
     display: "flex",
     alignItems: "center",
+    backgroundColor: isActive
+      ? theme.colors.background.deep
+      : "transparent",
+    borderRadius: theme.radius.medium,
   }),
-  a: (isActive: boolean) => (theme: Theme) => ({
+  a: (theme: Theme) => ({
     display: "flex",
     alignItems: "center",
     padding: "10px",
@@ -25,12 +30,12 @@ export const TodoSidebarMenuStyle = {
     textDecoration: "none",
     width: "100%",
     height: "40px",
-    backgroundColor: isActive
-      ? theme.colors.background.deep
-      : "transparent",
     borderRadius: theme.radius.medium,
     "&:hover": {
       background: theme.colors.background.hover,
     },
+  }),
+  span: () => ({
+    marginLeft: "10px",
   }),
 };

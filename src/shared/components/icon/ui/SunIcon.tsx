@@ -3,7 +3,7 @@
 import { IconProps } from "../model/type";
 
 function SunIcon({
-  color = "inherit",
+  color = "currentColor",
   size = 24,
 }: IconProps) {
   return (

@@ -10,6 +10,7 @@ export const todoCateItemStyle = {
       ? theme.colors.background.deep
       : "none",
     borderRadius: theme.radius.medium,
+    color: theme.colors.text.primary,
     width: "100%",
     "&:last-child": {
       borderBottom: "none",
@@ -28,5 +29,7 @@ export const todoCateItemStyle = {
       background: theme.colors.background.hover,
     },
   }),
-  span: () => ({}),
+  span: () => ({
+    marginLeft: "10px",
+  }),
 };

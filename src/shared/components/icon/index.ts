@@ -6,6 +6,7 @@ import ArrowRightIcon from "./ui/ArrowRightIcon";
 import PlusIcon from "./ui/PlusIcon";
 import FileCheckIcon from "./ui/FileCheckIcon";
 import SunIcon from "./ui/SunIcon";
+import StarIcon from "./ui/StarIcon";
 
 export {
   ExitIcon,
@@ -16,4 +17,5 @@ export {
   PlusIcon,
   FileCheckIcon,
   SunIcon,
+  StarIcon,
 };

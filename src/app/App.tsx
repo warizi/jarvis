@@ -44,10 +44,19 @@ function App() {
                 element={<TodoLayout />}
               >
                 <Route
-                  path={ROUTE_URL.TODO + "/:id"}
+                  path={ROUTE_URL.TODO_CATE + "/:id"}
+                  element={<TodoPage />}
+                />
+                <Route
+                  path={ROUTE_URL.TODO_TODAY}
+                  element={<TodoPage />}
+                />
+                <Route
+                  path={ROUTE_URL.TODO_IMPORTANT}
                   element={<TodoPage />}
                 />
               </Route>
+              {/* TEST */}
               <Route
                 path={ROUTE_URL.TEST}
                 element={<TestPage />}

@@ -3,6 +3,7 @@
 import { SidebarWrapper } from "@shared/components/sidebar";
 import SplitModalToggleButton from "./SplitModalToggleButton";
 import ThemeToggleButton from "./ThemeToggleButton";
+import { ContextMenu } from "@shared/components/contextMenu";
 
 const pageContainerStyles = {
   display: "flex",
@@ -17,6 +18,7 @@ function TestPage() {
       <div>
         <ThemeToggleButton />
         <SplitModalToggleButton />
+        <ContextMenu />
       </div>
     </div>
   );
