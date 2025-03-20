@@ -1,4 +1,9 @@
-import { DndContext } from "@dnd-kit/core";
+import {
+  DndContext,
+  PointerSensor,
+  useSensor,
+  useSensors,
+} from "@dnd-kit/core";
 import { SortableContext } from "@dnd-kit/sortable";
 import { useDnD } from "../model/useDnD";
 import { Id } from "@shared/config/type/commonType";
@@ -15,9 +20,18 @@ const SortableDndContext = <T extends Id>({
   data,
 }: SortableDndContextProps<T>) => {
   const { items, onDragEnd } = useDnD<T>(data || []);
-
+  const sensors = useSensors(
+    useSensor(PointerSensor, {
+      activationConstraint: {
+        distance: 3,
+      },
+    })
+  );
   return (
-    <DndContext onDragEnd={onDragEnd(handleDragEnd)}>
+    <DndContext
+      onDragEnd={onDragEnd(handleDragEnd)}
+      sensors={sensors}
+    >
       <SortableContext items={items}>
         {children(items)}
       </SortableContext>
