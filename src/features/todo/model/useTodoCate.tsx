@@ -24,7 +24,7 @@ export const useTodoCate = (data: TodoCate & Id) => {
   ) => {
     setValues({
       ...values,
-      [key]: value,
+      [key]: value.trim(),
     });
   };
 
@@ -36,6 +36,7 @@ export const useTodoCate = (data: TodoCate & Id) => {
   });
 
   const onSubmit = async () => {
+    if (!values.name && !values.name.trim()) return;
     await updateTodoCateMutate(values);
     setIsEdit(false);
   };

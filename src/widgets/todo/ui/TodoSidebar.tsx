@@ -1,6 +1,7 @@
 /** @jsxImportSource @emotion/react */
 
 import {
+  DraggableTodoCateList,
   TodoCateCreateBtn,
   TodoCateList,
 } from "@features/todo";
@@ -11,6 +12,7 @@ function TodoSidebar() {
     <div>
       <TodoSidebarMenu />
       <TodoCateList />
+      <DraggableTodoCateList />
       <TodoCateCreateBtn />
     </div>
   );

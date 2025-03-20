@@ -7,7 +7,9 @@ export async function fetchGetTodoCate(id: number) {
 }
 
 export async function fetchGetAllTodoCate() {
-  return await TodoCateController.getInstance().getAll();
+  return (
+    await TodoCateController.getInstance().getAll()
+  ).sort((a, b) => a.order - b.order);
 }
 
 export async function fetchCreateTodoCate(data: TodoCate) {
