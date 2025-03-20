@@ -2,7 +2,10 @@
 
 import NavBar from "@app/layout/sidebar";
 import { Theme } from "@emotion/react";
-import { ContextMenu } from "@shared/components/contextMenu";
+import {
+  ContextMenu,
+  useContextMenuStore,
+} from "@shared/components/contextMenu";
 import { SplitModal } from "@shared/components/splitModal";
 import { Outlet } from "react-router-dom";
 
@@ -22,6 +25,7 @@ const mainStyles = {
 } as const;
 
 function CommonLayout() {
+  const { isOpen } = useContextMenuStore();
   return (
     <div css={commonLayoutStyles}>
       <NavBar />
@@ -29,7 +33,7 @@ function CommonLayout() {
         <Outlet />
       </div>
       <SplitModal />
-      <ContextMenu />
+      {isOpen && <ContextMenu />}
     </div>
   );
 }

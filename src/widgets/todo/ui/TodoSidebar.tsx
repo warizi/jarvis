@@ -4,7 +4,7 @@ import {
   TodoCateCreateBtn,
   TodoCateList,
 } from "@features/todo";
-import TodoSidebarMenu from "./TodoSideBarMenu";
+import TodoSidebarMenu from "./TodoSidebarMenu";
 
 function TodoSidebar() {
   return (

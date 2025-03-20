@@ -32,4 +32,15 @@ export const todoCateItemStyle = {
   span: () => ({
     marginLeft: "10px",
   }),
+  input: (theme: Theme) => ({
+    marginLeft: "10px",
+    border: "none",
+    outline: "none",
+    background: "none",
+    color: theme.colors.text.primary,
+    width: "100%",
+    "&::placeholder": {
+      color: theme.colors.primary.normal,
+    },
+  }),
 };
