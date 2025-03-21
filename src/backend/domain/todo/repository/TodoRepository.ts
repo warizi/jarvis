@@ -19,6 +19,12 @@ class TodoRepository {
     return data;
   }
 
+  async findByCateId(cateId: number) {
+    return (await flowaDb.todo
+      .where({ cateId })
+      .toArray()) as TodoBack[];
+  }
+
   async delete(id: number) {
     await flowaDb.todo.delete(id);
   }

@@ -8,6 +8,6 @@ export const useTodoCateInfo = () => {
     .replace(ROUTE_URL.TODO_CATE, "")
     .replace("/", "");
   const { data } = useGetTodoCateById(Number(todoCateId));
-
-  return data;
+  console.log("page id", todoCateId);
+  return { data, id: Number(todoCateId) };
 };

@@ -30,6 +30,7 @@ export const oneLineTextFormStyle = {
   button: (theme: Theme) => ({
     display: "flex",
     border: "none",
+    borderRadius: theme.radius.small,
     justifyContent: "center",
     alignItems: "center",
     cursor: "pointer",

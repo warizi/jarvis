@@ -1,3 +1,3 @@
-import OneLineTextForm from "./ui/OnelineTextForm";
+import OneLineTextForm from "./ui/OneLineTextForm";
 
 export { OneLineTextForm };

@@ -10,7 +10,7 @@ function TodoCateCreateBtn() {
     <OneLineTextForm
       label="todo-cate"
       size="sm"
-      placeholder="새 목록 1"
+      placeholder="새 목록"
       onSubmit={onSubmit}
       {...register("name")}
     />

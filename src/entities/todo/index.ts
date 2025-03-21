@@ -7,6 +7,7 @@ import {
 } from "@entities/todo/model/todoCateFetchHooks";
 
 import {
+  todoQueryKey,
   useCreateTodoMutaion,
   useDeleteTodoMutation,
   useGetAllTodoQuery,
@@ -27,4 +28,5 @@ export {
   useGetAllTodoQuery,
   useGetTodoQuery,
   useUpdateTodoMutation,
+  todoQueryKey,
 };
