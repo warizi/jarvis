@@ -36,7 +36,7 @@ function TodoCateItem({
     >
       <Link
         to={ROUTE_URL.TODO_CATE + "/" + id}
-        css={link}
+        css={link(isActive || false)}
         draggable={false}
       >
         <FileCheckIcon size={20} />
@@ -45,7 +45,7 @@ function TodoCateItem({
             draggable={false}
             ref={inputRef}
             type="text"
-            css={input}
+            css={input(isActive || false)}
             {...register("name")}
             onKeyDown={handleKeyDown}
             onBlur={onSubmit}

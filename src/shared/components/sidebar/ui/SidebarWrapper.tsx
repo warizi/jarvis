@@ -39,7 +39,7 @@ const sidebarWrapperStyles =
       display: "flex",
       flexDirection: "column",
       height: "100%",
-      width: isOpen ? "250px" : "0px",
+      width: isOpen ? "300px" : "0px",
       boxShadow: theme.shadow.small,
       padding: isOpen ? "10px" : "0",
       overflow: "hidden",

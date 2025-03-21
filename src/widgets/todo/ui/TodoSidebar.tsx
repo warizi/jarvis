@@ -2,8 +2,8 @@
 
 import {
   DraggableTodoCateList,
-  TodoCateCreateBtn,
-  TodoCateList,
+  // TodoCateCreateBtn,
+  // TodoCateList,
 } from "@features/todo";
 import TodoSidebarMenu from "./TodoSidebarMenu";
 
@@ -11,9 +11,9 @@ function TodoSidebar() {
   return (
     <div>
       <TodoSidebarMenu />
-      <TodoCateList />
+      {/* <TodoCateList /> */}
       <DraggableTodoCateList />
-      <TodoCateCreateBtn />
+      {/* <TodoCateCreateBtn /> */}
     </div>
   );
 }

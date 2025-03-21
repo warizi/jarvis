@@ -14,10 +14,11 @@ import {
   getNewOrder,
   SortableDndContext,
 } from "@shared/hooks/DnDWrapper";
+import TodoCateCreateBtn from "./TodoCateCreateBtn";
 
 function DraggableTodoCateList() {
   const { data } = useGetAllTodoCateQuery();
-  const { ul, h3, container } = todoCateListStyle;
+  const { ul, container } = todoCateListStyle;
   const isCurrentLink = useTodoCateList();
   const { mutate: updateTodoCateMutate } =
     useUpdateTodoCateMutation();
@@ -35,7 +36,6 @@ function DraggableTodoCateList() {
 
   return (
     <div css={container}>
-      <h3 css={h3}>목록</h3>
       <ul css={ul}>
         <SortableDndContext
           handleDragEnd={handleDragEnd}
@@ -54,6 +54,7 @@ function DraggableTodoCateList() {
           }
         </SortableDndContext>
       </ul>
+      <TodoCateCreateBtn />
     </div>
   );
 }

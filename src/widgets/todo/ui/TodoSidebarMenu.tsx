@@ -15,14 +15,20 @@ function TodoSidebarMenu() {
     <div css={container}>
       <ul css={ul}>
         <li css={li(isCurrent(ROUTE_URL.TODO_TODAY))}>
-          <Link css={a} to={ROUTE_URL.TODO_TODAY}>
-            <SunIcon size={20} />
+          <Link
+            css={a(isCurrent(ROUTE_URL.TODO_TODAY))}
+            to={ROUTE_URL.TODO_TODAY}
+          >
+            <SunIcon size={20} color="#FF5954" />
             <span css={span}>Today</span>
           </Link>
         </li>
         <li css={li(isCurrent(ROUTE_URL.TODO_IMPORTANT))}>
-          <Link css={a} to={ROUTE_URL.TODO_IMPORTANT}>
-            <StarIcon size={20} />
+          <Link
+            css={a(isCurrent(ROUTE_URL.TODO_IMPORTANT))}
+            to={ROUTE_URL.TODO_IMPORTANT}
+          >
+            <StarIcon size={20} color="#FFDA36" />
             <span css={span}>중요</span>
           </Link>
         </li>

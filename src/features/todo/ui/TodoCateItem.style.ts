@@ -7,37 +7,41 @@ export const todoCateItemStyle = {
     fontSize: "14px",
     transition: "background 0s",
     backgroundColor: isActive
-      ? theme.colors.background.deep
-      : "none",
+      ? theme.colors.primary.light
+      : theme.colors.background.deep,
     borderRadius: theme.radius.medium,
-    color: theme.colors.text.primary,
+    boxShadow: theme.shadow.small,
     width: "100%",
     "&:last-child": {
       borderBottom: "none",
     },
   }),
-  link: (theme: Theme) => ({
+  link: (isActive: boolean) => (theme: Theme) => ({
     display: "flex",
     alignItems: "center",
     padding: "0 10px",
-    color: theme.colors.text.primary,
+    color: isActive ? "white" : theme.colors.text.primary,
+    transition: "none",
     textDecoration: "none",
     width: "100%",
-    height: "40px",
+    height: "45px",
     borderRadius: theme.radius.medium,
     "&:hover": {
-      background: theme.colors.background.hover,
+      background: isActive
+        ? theme.colors.primary.normal
+        : theme.colors.background.hover,
     },
   }),
   span: () => ({
     marginLeft: "10px",
+    transition: "none",
   }),
-  input: (theme: Theme) => ({
+  input: (isActive: boolean) => (theme: Theme) => ({
     marginLeft: "10px",
     border: "none",
     outline: "none",
     background: "none",
-    color: theme.colors.text.primary,
+    color: isActive ? "white" : theme.colors.text.primary,
     width: "100%",
     "&::placeholder": {
       color: theme.colors.primary.normal,

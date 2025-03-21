@@ -37,7 +37,7 @@ export const useNavItems = () => {
         <TaskIcon
           size={20}
           color={
-            isCurrentLink(ROUTE_URL.TODO)
+            isCurrentLink(ROUTE_URL.TODO_TODAY)
               ? theme.colors.background.deep
               : theme.colors.text.secondary
           }

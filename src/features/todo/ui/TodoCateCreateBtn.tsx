@@ -19,6 +19,11 @@ function TodoCateCreateBtn() {
         css={input}
         type="text"
         placeholder="새 목록"
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            onSubmit();
+          }
+        }}
         {...register("name", { required: true })}
       />
     </label>

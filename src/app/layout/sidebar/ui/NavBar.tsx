@@ -2,7 +2,7 @@
 
 import { Theme } from "@emotion/react";
 import { Logo } from "@shared/components/logo";
-import NavLinkType from "./NavLink";
+import NavLink from "./NavLink";
 
 const navBarStyles = (theme: Theme) =>
   ({
@@ -22,7 +22,7 @@ function NavBar() {
   return (
     <div css={navBarStyles}>
       <Logo size="sm" />
-      <NavLinkType />
+      <NavLink />
     </div>
   );
 }
