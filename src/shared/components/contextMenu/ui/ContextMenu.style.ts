@@ -23,5 +23,6 @@ export const contextMenuStyles = {
         borderRadius: theme.radius.small,
         boxShadow: theme.shadow.small,
         overflow: "hidden",
+        padding: "5px",
       } as const),
 };

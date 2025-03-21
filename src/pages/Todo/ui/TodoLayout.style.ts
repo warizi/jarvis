@@ -1,6 +1,9 @@
 export const todoLayoutStyle = {
   container: () =>
     ({
+      potision: "relative",
+      top: 0,
+      left: 0,
       display: "flex",
       flexDirection: "row",
       width: "100%",

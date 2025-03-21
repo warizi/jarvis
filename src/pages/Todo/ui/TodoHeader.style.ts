@@ -5,9 +5,9 @@ export const todoHeaderStyle = {
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    padding: "0 20px",
+    padding: "0 30px",
     borderBottom: `1px solid ${theme.colors.border.deepGray}`,
-    height: "50px",
+    height: "60px",
   }),
   h2: (theme: Theme) => ({
     fontSize: "24px",

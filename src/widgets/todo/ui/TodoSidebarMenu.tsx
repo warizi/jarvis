@@ -18,6 +18,7 @@ function TodoSidebarMenu() {
           <Link
             css={a(isCurrent(ROUTE_URL.TODO_TODAY))}
             to={ROUTE_URL.TODO_TODAY}
+            draggable={false}
           >
             <SunIcon size={20} color="#FF5954" />
             <span css={span}>Today</span>
@@ -27,6 +28,7 @@ function TodoSidebarMenu() {
           <Link
             css={a(isCurrent(ROUTE_URL.TODO_IMPORTANT))}
             to={ROUTE_URL.TODO_IMPORTANT}
+            draggable={false}
           >
             <StarIcon size={20} color="#FFDA36" />
             <span css={span}>중요</span>

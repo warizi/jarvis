@@ -21,7 +21,7 @@ const sidebarWrapperContainerStyles =
         height: "24px",
         transition: "0.3s",
         color: theme.colors.text.primary,
-        backgroundColor: theme.colors.background.gray,
+        // backgroundColor: theme.colors.background.gray,
         border: "none",
         cursor: "pointer",
         transform: isOpen ? "rotate(180deg)" : "rotate(0)",
