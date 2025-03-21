@@ -1,6 +1,19 @@
 import { Theme } from "@emotion/react";
 
-export const TodoCateCreateBtnStyle = {
+export const sizeStyles = {
+  sm: {
+    height: "24px",
+    fontSize: "14px",
+    icon: 20,
+  },
+  md: {
+    height: "32px",
+    fontSize: "16px",
+    icon: 30,
+  },
+};
+
+export const oneLineTextFormStyle = {
   container: (theme: Theme) => ({
     display: "flex",
     alignItems: "center",
@@ -10,7 +23,6 @@ export const TodoCateCreateBtnStyle = {
     background: "none",
     cursor: "pointer",
     color: theme.colors.primary.normal,
-    lineHeight: "24px",
     "&:hover": {
       background: theme.colors.background.hover,
     },
