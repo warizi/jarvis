@@ -9,7 +9,7 @@ function TodoImportantPage() {
   return (
     <div>
       <TodoHeader title="중요 Todo" />
-      <TodoCreateBtn cateId={undefined} />
+      <TodoCreateBtn cateId={undefined} isImportant />
       <TodoList todoList={data || []} />
     </div>
   );

@@ -10,12 +10,27 @@ import {
 import { useTodoCheckBox } from "../model/useTodoCheckBox";
 import { formatDate } from "@shared/lib/formatDate";
 import { useTodoSplitModal } from "../model/useTodoSplitModal";
+import { SunIcon } from "@shared/components/icon";
+import { useTheme } from "@emotion/react";
+import { isToday } from "@shared/lib/isToday";
 
 function TodoItem({ data }: { data: Todo & Id }) {
-  const { container, spanDoneDate, innerContainer } =
-    todoItemStyles;
-  const { title, isDone, doneDate, isImportant } = data;
-  const { handleCheck, handleImportant } =
+  const {
+    container,
+    spanDoneDate,
+    innerContainer,
+    todayButton,
+    titleSpan,
+  } = todoItemStyles;
+  const {
+    title,
+    isDone,
+    doneDate,
+    isImportant,
+    isToday: today,
+  } = data;
+  const theme = useTheme();
+  const { handleCheck, handleImportant, handleToday } =
     useTodoCheckBox();
   const { openTodoSplitModal } = useTodoSplitModal();
   return (
@@ -28,14 +43,31 @@ function TodoItem({ data }: { data: Todo & Id }) {
           checked={isDone}
           onChange={handleCheck(data)}
         />
-        {title}
+        <span css={titleSpan(isDone)}>{title}</span>
         {doneDate && (
           <span css={spanDoneDate}>
-            {formatDate(doneDate, "yyyy-dd-mm")}
+            {formatDate(doneDate, "yyyy-MM-dd")}
           </span>
         )}
       </div>
       <div css={innerContainer}>
+        <button
+          type="button"
+          css={todayButton}
+          onClick={(e) => {
+            e.stopPropagation();
+            handleToday(data);
+          }}
+        >
+          <SunIcon
+            size={22}
+            color={
+              isToday(today)
+                ? "#FF5954"
+                : theme.colors.text.secondary
+            }
+          />
+        </button>
         <ImportantCheckBox
           checked={isImportant}
           onChange={() => handleImportant(data)}

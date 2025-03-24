@@ -3,7 +3,15 @@ import { Todo } from "@entities/todo/model/type";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 
-export const useCreateTodo = (cateId?: number) => {
+export const useCreateTodo = ({
+  cateId,
+  isToday,
+  isImportant,
+}: {
+  cateId?: number;
+  isToday?: boolean;
+  isImportant?: boolean;
+}) => {
   const { register, handleSubmit, reset } = useForm<Todo>({
     defaultValues: {
       title: "",
@@ -16,6 +24,13 @@ export const useCreateTodo = (cateId?: number) => {
 
   const { mutate } = useCreateTodoMutaion(cateId);
   const onSubmit = handleSubmit(async (data: Todo) => {
+    if (isToday) {
+      const date = new Date();
+      data.isToday = date.toISOString();
+    }
+    if (isImportant) {
+      data.isImportant = 1;
+    }
     await mutate(data);
     reset();
   });

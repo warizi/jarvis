@@ -1,6 +1,7 @@
 import { useUpdateTodoMutation } from "@entities/todo";
 import { Todo } from "@entities/todo/model/type";
 import { Id } from "@shared/config/type/commonType";
+import { isToday } from "@shared/lib/isToday";
 
 export const useTodoCheckBox = () => {
   const { mutate } = useUpdateTodoMutation();
@@ -25,5 +26,15 @@ export const useTodoCheckBox = () => {
     mutate(todo);
   };
 
-  return { handleCheck, handleImportant };
+  const handleToday = (todo: Todo & Id) => {
+    if (isToday(todo.isToday)) {
+      todo.isToday = undefined;
+    } else {
+      const date = new Date();
+      todo.isToday = date.toISOString();
+    }
+    mutate(todo);
+  };
+
+  return { handleCheck, handleImportant, handleToday };
 };

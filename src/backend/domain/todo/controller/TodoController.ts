@@ -39,6 +39,12 @@ class TodoController {
     return data;
   }
 
+  public async getAllByIsToday() {
+    const data = await this.todoService.findByIsToday();
+
+    return data;
+  }
+
   public async updateDone(id: number, done: boolean) {
     const result = await this.todoService.updateDone(
       id,

@@ -1,8 +1,10 @@
+import { formatDate } from "@backend/common/utils/formatDate";
 import {
   TodoBack,
   TodoCreateBack,
 } from "../entities/TodoBack";
 import TodoRepository from "../repository/TodoRepository";
+import { isToday } from "@backend/common/utils/isToday";
 
 class TodoBackService {
   todoRepository: TodoRepository = new TodoRepository();
@@ -14,9 +16,39 @@ class TodoBackService {
   }
 
   async findByCateId(cateId: number) {
-    return (
-      await this.todoRepository.findByCateId(cateId)
-    ).sort((a, b) => a.order - b.order);
+    return (await this.todoRepository.findByCateId(cateId))
+      .filter((todo: TodoBack) => {
+        const { doneDate } = todo;
+        if (!doneDate) {
+          return true;
+        }
+        if (
+          formatDate(doneDate, "yyyy-MM-dd") ===
+          formatDate(new Date(), "yyyy-MM-dd")
+        ) {
+          return true;
+        }
+
+        return false;
+      })
+      .sort((a, b) => a.order - b.order);
+  }
+  async findByIsToday() {
+    return (await this.todoRepository.findExistedToday())
+      .filter((todo: TodoBack) => {
+        const { doneDate, isToday: today } = todo;
+        if (!isToday(today)) return false;
+        if (!doneDate) return true;
+        if (
+          formatDate(doneDate, "yyyy-MM-dd") ===
+          formatDate(new Date(), "yyyy-MM-dd")
+        ) {
+          return true;
+        }
+
+        return false;
+      })
+      .sort((a, b) => a.order - b.order);
   }
 
   async save(data: TodoBack | TodoCreateBack) {
@@ -34,9 +66,22 @@ class TodoBackService {
   }
 
   async findByImportant() {
-    return (
-      await this.todoRepository.findByImportant()
-    ).sort((a, b) => a.order - b.order);
+    return (await this.todoRepository.findByImportant())
+      .filter((todo: TodoBack) => {
+        const { doneDate } = todo;
+        if (doneDate === null || doneDate === undefined) {
+          return true;
+        }
+        if (
+          formatDate(doneDate, "yyyy-mm-dd") ===
+          formatDate(new Date(), "yyyy-mm-dd")
+        ) {
+          return true;
+        }
+
+        return false;
+      })
+      .sort((a, b) => a.order - b.order);
   }
 
   async updateDone(id: number, done: boolean) {

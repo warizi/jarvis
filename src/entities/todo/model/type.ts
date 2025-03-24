@@ -11,7 +11,7 @@ export type Todo = {
   isImportant: number;
   startDate?: string;
   endDate?: string;
-  isToday?: boolean;
+  isToday?: string;
   repeatType?: string;
   repeatDate?: string;
   memo?: string;

@@ -12,7 +12,7 @@ export const getNewOrder = <
   const nextIndex = activeIndex + 1;
 
   if (activeIndex === 0) {
-    return items[0].order / 2;
+    return items[1].order / 2;
   }
   if (activeIndex === items.length - 1) {
     return items[items.length - 2].order + 1000;

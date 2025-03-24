@@ -7,7 +7,12 @@ export async function fetchGetTodoCate(id: number) {
 }
 
 export async function fetchGetAllTodoCate() {
-  return await TodoCateController.getInstance().getAll();
+  const result =
+    await TodoCateController.getInstance().getAll();
+
+  // 200ms 대기 후 결과 반환
+  await new Promise((resolve) => setTimeout(resolve, 200));
+  return result;
 }
 
 export async function fetchCreateTodoCate(data: TodoCate) {

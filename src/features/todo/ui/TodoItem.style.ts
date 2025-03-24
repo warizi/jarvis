@@ -18,11 +18,13 @@ export const todoItemStyles = {
       color: isDone
         ? theme.colors.text.secondary
         : theme.colors.text.primary,
-      textDecoration: isDone ? "line-through" : "none",
       "&:hover": {
         backgroundColor: theme.colors.background.hover,
       },
     } as const),
+  titleSpan: (isDone: boolean) => () => ({
+    textDecoration: isDone ? "line-through" : "none",
+  }),
   innerContainer: () =>
     ({
       display: "flex",
@@ -33,6 +35,11 @@ export const todoItemStyles = {
   spanDoneDate: (theme: Theme) => ({
     color: theme.colors.text.secondary,
     fontSize: theme.typography.size.small,
-    textDecoration: "none",
+    textDecoration: "none !important",
+  }),
+  todayButton: () => ({
+    border: "none",
+    backgroundColor: "transparent",
+    cursor: "pointer",
   }),
 };

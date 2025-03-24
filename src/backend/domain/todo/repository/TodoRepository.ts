@@ -31,6 +31,16 @@ class TodoRepository {
       .toArray()) as TodoBack[];
   }
 
+  async findExistedToday() {
+    return (await flowaDb.todo
+      .filter((todo: TodoBack) => {
+        const { isToday } = todo;
+        if (isToday) return true;
+        return false;
+      })
+      .toArray()) as TodoBack[];
+  }
+
   async findByCateId(cateId: number) {
     return (await flowaDb.todo
       .where({ cateId })

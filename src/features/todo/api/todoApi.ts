@@ -28,3 +28,9 @@ export async function fetchGetAllByImportant() {
 
   return res;
 }
+
+export async function fetchGetAllByIsToday() {
+  const res =
+    await TodoController.getInstance().getAllByIsToday();
+  return res;
+}

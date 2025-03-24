@@ -19,7 +19,7 @@ export type TodoBack = {
   isImportant: number; // 중요 여부
   startDate?: string; // 시작일
   endDate?: string; // 종료일
-  isToday?: boolean; // 오늘 할 일
+  isToday?: string; // 오늘 할 일
   repeatType?: string; // 반복 타입
   repeatDate?: string; // 반복 날짜
   memo?: string; // 메모
@@ -36,7 +36,7 @@ export type TodoCreateBack = {
   isImportant: number; // 중요 여부
   startDate?: string; // 시작일
   endDate?: string; // 종료일
-  isToday?: boolean; // 오늘 할 일
+  isToday?: string; // 오늘 할 일
   repeatType?: string; // 반복 타입
   repeatDate?: string; // 반복 날짜
   memo?: string; // 메모

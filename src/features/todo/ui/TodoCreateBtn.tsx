@@ -3,8 +3,20 @@
 import { OneLineTextForm } from "@shared/components/form";
 import { useCreateTodo } from "../model/useCreateTodo";
 
-function TodoCreateBtn({ cateId }: { cateId?: number }) {
-  const { register, onSubmit } = useCreateTodo(cateId);
+function TodoCreateBtn({
+  cateId,
+  isToday,
+  isImportant,
+}: {
+  cateId?: number;
+  isToday?: boolean;
+  isImportant?: boolean;
+}) {
+  const { register, onSubmit } = useCreateTodo({
+    cateId,
+    isToday,
+    isImportant,
+  });
 
   return (
     <OneLineTextForm
