@@ -9,5 +9,5 @@ export const flowaDb = new Dexie("flowaDb") as Dexie & {
 
 flowaDb.version(1).stores({
   todoCate: "++id, name, order",
-  todo: "++id, title, isDone, sub, order, isImportant, startDate, endDate, isToday, repeatType, repeatDate, memo, cateId",
+  todo: "++id, title, isDone, sub, order, isImportant, startDate, endDate, isToday, repeatType, repeatDate, memo, cateId, doneDate",
 });

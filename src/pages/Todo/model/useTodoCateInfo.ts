@@ -1,13 +1,21 @@
-import { useGetTodoCateById } from "@entities/todo";
-import { ROUTE_URL } from "@shared/constants/route/ROUTE_URL";
-import { useLocation } from "react-router-dom";
+import {
+  todoQueryKey,
+  useGetTodoCateById,
+} from "@entities/todo";
+import { useTodoCateIdGetByPath } from "@features/todo";
+import { useQueryClient } from "@tanstack/react-query";
+import { useEffect } from "react";
 
 export const useTodoCateInfo = () => {
-  const { pathname } = useLocation();
-  const todoCateId = pathname
-    .replace(ROUTE_URL.TODO_CATE, "")
-    .replace("/", "");
+  const todoCateId = useTodoCateIdGetByPath();
   const { data } = useGetTodoCateById(Number(todoCateId));
+  const queryClient = useQueryClient();
+
+  useEffect(() => {
+    queryClient.invalidateQueries({
+      queryKey: [todoQueryKey],
+    });
+  }, [todoCateId, queryClient]);
 
   return { data, id: Number(todoCateId) };
 };

@@ -33,6 +33,6 @@ export const useUpdateTodoDoneMutate = () => {
 export const useGetAllByCateIdQuery = (cateId: number) => {
   return useQuery({
     queryFn: () => fetchGetAllByCateId(cateId),
-    queryKey: [todoQueryKey, cateId],
+    queryKey: [todoQueryKey],
   });
 };

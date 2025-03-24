@@ -13,10 +13,12 @@ export async function fetchUpdateTodoDone(
 }
 
 export async function fetchGetAllByCateId(cateId: number) {
-  const res =
+  console.log("get");
+  const res = (
     await TodoController.getInstance().getAllByCateId(
       cateId
-    );
+    )
+  ).sort((a, b) => a.order - b.order);
 
   return res;
 }

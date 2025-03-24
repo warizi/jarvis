@@ -17,6 +17,7 @@ export type Todo = {
   memo?: string;
   cateId?: number;
   labelId?: number; // 라벨 아이디
+  doneDate?: string | null;
 };
 
 export type TodoSub = {

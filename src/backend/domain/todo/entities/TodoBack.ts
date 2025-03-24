@@ -25,6 +25,7 @@ export type TodoBack = {
   memo?: string; // 메모
   cateId?: number; // 카테고리 아이디
   labelId?: number; // 라벨 아이디
+  doneDate?: string | null; // 완료 날짜
 };
 
 export type TodoCreateBack = {
@@ -41,4 +42,5 @@ export type TodoCreateBack = {
   memo?: string; // 메모
   cateId?: number; // 카테고리 아이디
   labelId?: number; // 라벨 아이디
+  doneDate?: string | null; // 완료 날짜
 };

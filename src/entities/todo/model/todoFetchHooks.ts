@@ -15,12 +15,13 @@ export const todoQueryKey = "todo";
 
 export const useCreateTodoMutaion = (cateId?: number) => {
   const queryClient = useQueryClient();
-  const queryKey = "todo";
   const { mutate } = useMutation({
     mutationFn: (data: Todo) => fetchCreateTodo(data),
     onSuccess: () => {
       queryClient.invalidateQueries({
-        queryKey: cateId ? [queryKey] : [queryKey, cateId],
+        queryKey: cateId
+          ? [todoQueryKey]
+          : [todoQueryKey, cateId],
       });
     },
   });
@@ -30,12 +31,11 @@ export const useCreateTodoMutaion = (cateId?: number) => {
 
 export const useUpdateTodoMutation = () => {
   const queryClient = useQueryClient();
-  const queryKey = "todo";
   const { mutate } = useMutation({
     mutationFn: (data: Todo) => fetchCreateTodo(data),
     onSuccess: () => {
       queryClient.invalidateQueries({
-        queryKey: [queryKey],
+        queryKey: [todoQueryKey],
       });
     },
   });
