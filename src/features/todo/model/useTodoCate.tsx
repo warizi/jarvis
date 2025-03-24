@@ -1,17 +1,14 @@
 import { Id } from "@shared/config/type/commonType";
 import { TodoCate } from "../../../entities/todo/model/type";
 import { useContextMenuStore } from "@shared/components/contextMenu";
-import {
-  useDeleteTodoCateMutation,
-  useUpdateTodoCateMutation,
-} from "../../../entities/todo/model/todoCateFetchHooks";
+import { useUpdateTodoCateMutation } from "../../../entities/todo/model/todoCateFetchHooks";
 import { useEffect, useRef, useState } from "react";
+import { useTodoCateDelete } from "./useTodoCateDelete";
 
 export const useTodoCate = (data: TodoCate & Id) => {
   const { id } = data;
   const { open, close } = useContextMenuStore();
-  const { mutate: deleteMutate } =
-    useDeleteTodoCateMutation();
+  const { onDelete } = useTodoCateDelete(id);
   const { mutate: updateTodoCateMutate } =
     useUpdateTodoCateMutation();
   const [isEdit, setIsEdit] = useState(false);
@@ -55,7 +52,7 @@ export const useTodoCate = (data: TodoCate & Id) => {
   };
 
   const handleDelete = async () => {
-    await deleteMutate(id);
+    await onDelete();
     setIsEdit(false);
     close();
   };

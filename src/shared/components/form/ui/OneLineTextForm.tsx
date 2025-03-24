@@ -6,6 +6,7 @@ import {
   sizeStyles,
 } from "./OneLineTextForm.style";
 import { useTheme } from "@emotion/react";
+import { useRef } from "react";
 
 type OneLineTextFormProps = {
   label: string;
@@ -24,9 +25,17 @@ function OneLineTextForm({
   const { container, button, input } = oneLineTextFormStyle;
   const theme = useTheme();
 
+  const isComposingRef = useRef(false);
+
   return (
     <label htmlFor={`${label}-onet-ext`} css={container}>
-      <button onClick={onSubmit} css={button}>
+      <button
+        onClick={(e) => {
+          e.preventDefault();
+          onSubmit();
+        }}
+        css={button}
+      >
         <PlusIcon
           color="currentColor"
           size={sizeStyles[size].icon}
@@ -41,8 +50,18 @@ function OneLineTextForm({
         id={`${label}-onet-ext`}
         {...rest}
         placeholder={placeholder}
+        onCompositionStart={() => {
+          isComposingRef.current = true;
+        }}
+        onCompositionEnd={() => {
+          isComposingRef.current = false;
+        }}
         onKeyDown={(e) => {
-          if (e.key === "Enter") {
+          if (
+            e.key === "Enter" &&
+            !isComposingRef.current
+          ) {
+            e.preventDefault();
             onSubmit();
           }
         }}

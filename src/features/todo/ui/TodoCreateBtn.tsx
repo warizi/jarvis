@@ -4,7 +4,6 @@ import { OneLineTextForm } from "@shared/components/form";
 import { useCreateTodo } from "../model/useCreateTodo";
 
 function TodoCreateBtn({ cateId }: { cateId: number }) {
-  console.log("TodoCreateBtn", cateId);
   const { register, onSubmit } = useCreateTodo(cateId);
 
   return (

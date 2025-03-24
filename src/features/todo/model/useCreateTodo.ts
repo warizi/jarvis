@@ -16,7 +16,6 @@ export const useCreateTodo = (cateId: number) => {
 
   const { mutate } = useCreateTodoMutaion(cateId);
   const onSubmit = handleSubmit(async (data: Todo) => {
-    console.log("create", data);
     await mutate(data);
     reset();
   });

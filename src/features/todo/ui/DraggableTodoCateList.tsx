@@ -30,7 +30,7 @@ function DraggableTodoCateList() {
     if (!active?.id) return;
     const newOrder = getNewOrder(active, newItems);
     active.order = newOrder;
-    console.log(active);
+
     updateTodoCateMutate(active);
   };
 

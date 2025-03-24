@@ -17,6 +17,6 @@ export async function fetchGetAllByCateId(cateId: number) {
     await TodoController.getInstance().getAllByCateId(
       cateId
     );
-  console.log("fetchGetAllByCateId", res);
+
   return res;
 }
