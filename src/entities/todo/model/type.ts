@@ -8,7 +8,7 @@ export type Todo = {
   isDone: boolean;
   sub?: TodoSub[];
   order: number;
-  isImportant: boolean;
+  isImportant: number;
   startDate?: string;
   endDate?: string;
   isToday?: boolean;

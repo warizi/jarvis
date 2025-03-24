@@ -9,7 +9,9 @@ class TodoCateBackService {
     new TodoCateRepository();
 
   async getAll() {
-    return await this.todoCateRepository.getAll();
+    return (await this.todoCateRepository.getAll()).sort(
+      (a, b) => a.order - b.order
+    );
   }
 
   async save(data: TodoCateBack | TodoCateCreateBack) {

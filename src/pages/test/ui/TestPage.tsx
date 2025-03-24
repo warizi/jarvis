@@ -20,7 +20,7 @@ function TestPage() {
         <ThemeToggleButton />
         <SplitModalToggleButton />
         <ContextMenu />
-        <TodoCheckbox isChecked />
+        <TodoCheckbox checked />
       </div>
     </div>
   );

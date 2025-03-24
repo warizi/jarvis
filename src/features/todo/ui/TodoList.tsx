@@ -2,32 +2,21 @@
 
 import { todoListStyles } from "./TodoList.style";
 import TodoItem from "./TodoItem";
-import { useGetAllByCateIdQuery } from "../model/todoFetchHooks";
-import {
-  DraggableWrapper,
-  SortableDndContext,
-} from "@shared/hooks/DnDWrapper";
-import { useDnDTodo } from "../model/useDnDTodo";
+import { Id } from "@shared/config/type/commonType";
+import { Todo } from "@entities/todo/model/type";
 
-function TodoList({ cateId }: { cateId: number }) {
+function TodoList({
+  todoList,
+}: {
+  todoList: (Todo & Id)[];
+}) {
   const { container } = todoListStyles;
-  const { data } = useGetAllByCateIdQuery(cateId);
-  const { handleDragEnd } = useDnDTodo();
 
   return (
     <div css={container}>
-      <SortableDndContext
-        data={data || []}
-        handleDragEnd={handleDragEnd}
-      >
-        {(item) =>
-          item?.map((todo) => (
-            <DraggableWrapper key={todo.id} id={todo.id}>
-              <TodoItem key={todo.id} data={todo} />
-            </DraggableWrapper>
-          ))
-        }
-      </SortableDndContext>
+      {todoList.map((todo) => {
+        return <TodoItem key={todo.id} data={todo} />;
+      })}
     </div>
   );
 }

@@ -16,7 +16,7 @@ export type TodoBack = {
   isDone: boolean; // 완료 여부
   sub?: TodoSub[]; // 서브 할 일
   order: number; // 정렬 순서
-  isImportant: boolean; // 중요 여부
+  isImportant: number; // 중요 여부
   startDate?: string; // 시작일
   endDate?: string; // 종료일
   isToday?: boolean; // 오늘 할 일
@@ -33,7 +33,7 @@ export type TodoCreateBack = {
   isDone: boolean; // 완료 여부
   sub?: TodoSub[]; // 서브 할 일
   order: number; // 정렬 순서
-  isImportant: boolean; // 중요 여부
+  isImportant: number; // 중요 여부
   startDate?: string; // 시작일
   endDate?: string; // 종료일
   isToday?: boolean; // 오늘 할 일

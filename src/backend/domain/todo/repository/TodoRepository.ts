@@ -10,13 +10,25 @@ class TodoRepository {
   }
 
   async save(data: TodoBack | TodoCreateBack) {
+    const convertedData = {
+      ...data,
+      isImportant: data.isImportant ? 1 : 0, // boolean → number 변환
+    };
+
     if ("id" in data) {
-      await flowaDb.todo.update(data.id, data);
+      await flowaDb.todo.update(data.id, convertedData);
     } else {
-      await flowaDb.todo.add(data);
+      await flowaDb.todo.add(convertedData);
     }
 
-    return data;
+    return convertedData;
+  }
+
+  async findByImportant() {
+    return (await flowaDb.todo
+      .where("isImportant")
+      .equals(1) // Assuming 'true' is stored as 1 in the database
+      .toArray()) as TodoBack[];
   }
 
   async findByCateId(cateId: number) {

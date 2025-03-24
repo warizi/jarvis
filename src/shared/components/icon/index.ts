@@ -8,6 +8,7 @@ import FileCheckIcon from "./ui/FileCheckIcon";
 import SunIcon from "./ui/SunIcon";
 import StarIcon from "./ui/StarIcon";
 import CheckIcon from "./ui/CheckIcon";
+import TrashIcon from "./ui/TrashIcon";
 
 export {
   ExitIcon,
@@ -20,4 +21,5 @@ export {
   SunIcon,
   StarIcon,
   CheckIcon,
+  TrashIcon,
 };

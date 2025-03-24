@@ -2,8 +2,9 @@ import { ThemeProvider } from "@emotion/react";
 import HomePage from "@pages/home";
 import {
   TodoCatePage,
+  TodoImportantPage,
   TodoLayout,
-  TodoPage,
+  TodoTodayPage,
 } from "@pages/Todo";
 import TestPage from "@pages/test";
 import {
@@ -53,11 +54,11 @@ function App() {
                 />
                 <Route
                   path={ROUTE_URL.TODO_TODAY}
-                  element={<TodoPage />}
+                  element={<TodoTodayPage />}
                 />
                 <Route
                   path={ROUTE_URL.TODO_IMPORTANT}
-                  element={<TodoPage />}
+                  element={<TodoImportantPage />}
                 />
               </Route>
               {/* TEST */}

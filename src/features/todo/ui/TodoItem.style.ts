@@ -6,6 +6,7 @@ export const todoItemStyles = {
   container: (isDone: boolean) => (theme: Theme) =>
     ({
       display: "flex",
+      justifyContent: "space-between",
       alignItems: "center",
       gap: "10px",
       minHeight: "45px",
@@ -18,9 +19,16 @@ export const todoItemStyles = {
         ? theme.colors.text.secondary
         : theme.colors.text.primary,
       textDecoration: isDone ? "line-through" : "none",
-      // "&:hover": {
-      //   backgroundColor: theme.colors.background.hover,
-      // },
+      "&:hover": {
+        backgroundColor: theme.colors.background.hover,
+      },
+    } as const),
+  innerContainer: () =>
+    ({
+      display: "flex",
+      alignItems: "center",
+      gap: "10px",
+      flexDirection: "row",
     } as const),
   spanDoneDate: (theme: Theme) => ({
     color: theme.colors.text.secondary,

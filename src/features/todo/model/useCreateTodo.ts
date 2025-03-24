@@ -3,13 +3,13 @@ import { Todo } from "@entities/todo/model/type";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 
-export const useCreateTodo = (cateId: number) => {
+export const useCreateTodo = (cateId?: number) => {
   const { register, handleSubmit, reset } = useForm<Todo>({
     defaultValues: {
       title: "",
       order: 0,
       isDone: false,
-      isImportant: false,
+      isImportant: 0,
       cateId,
     },
   });
@@ -24,7 +24,7 @@ export const useCreateTodo = (cateId: number) => {
       title: "",
       order: 0,
       isDone: false,
-      isImportant: false,
+      isImportant: 0,
       cateId,
     });
   }, [cateId, reset]);

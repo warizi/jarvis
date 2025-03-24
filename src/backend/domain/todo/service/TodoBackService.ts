@@ -8,11 +8,15 @@ class TodoBackService {
   todoRepository: TodoRepository = new TodoRepository();
 
   async getAll() {
-    return await this.todoRepository.getAll();
+    return (await this.todoRepository.getAll()).sort(
+      (a, b) => a.order - b.order
+    );
   }
 
   async findByCateId(cateId: number) {
-    return await this.todoRepository.findByCateId(cateId);
+    return (
+      await this.todoRepository.findByCateId(cateId)
+    ).sort((a, b) => a.order - b.order);
   }
 
   async save(data: TodoBack | TodoCreateBack) {
@@ -27,6 +31,12 @@ class TodoBackService {
       data.order = order;
       return await this.todoRepository.save(data);
     }
+  }
+
+  async findByImportant() {
+    return (
+      await this.todoRepository.findByImportant()
+    ).sort((a, b) => a.order - b.order);
   }
 
   async updateDone(id: number, done: boolean) {

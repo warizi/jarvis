@@ -6,9 +6,7 @@ import SplitModalLayer from "./SplitModalLayer";
 import useSplitModalStore from "../model/splitModalStore";
 
 function SplitModal() {
-  const isOpen = useSplitModalStore(
-    (state) => state.isOpen
-  );
+  const { isOpen, content } = useSplitModalStore();
   return (
     <>
       {createPortal(
@@ -16,7 +14,7 @@ function SplitModal() {
           {isOpen && (
             <>
               <Backdrop />
-              <SplitModalLayer />
+              <SplitModalLayer>{content}</SplitModalLayer>
             </>
           )}
         </>,

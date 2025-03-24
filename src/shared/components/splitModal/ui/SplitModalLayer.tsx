@@ -4,6 +4,7 @@ import { keyframes, Theme } from "@emotion/react";
 import useSplitModalStore from "../model/splitModalStore";
 import { SPLIT_MODAL_TRANSITION } from "../model/transition";
 import SplitModalTitle from "./SplitModalTitle";
+import { TrashIcon } from "@shared/components/icon";
 
 const slideIn = keyframes`
   from {
@@ -44,6 +45,32 @@ const layerStyles = (theme: Theme) =>
     flexDirection: "column",
     alignItems: "center",
     zIndex: 3000,
+    ".content": {
+      width: "100%",
+      height: "100%",
+      overflow: "auto",
+    },
+    ".footer": {
+      display: "flex",
+      justifyContent: "flex-end",
+      width: "100%",
+      padding: "10px",
+    },
+  } as const);
+
+const deleteBtnStyles = (theme: Theme) =>
+  ({
+    border: "none",
+    backgroundColor: "transparent",
+    color: theme.colors.text.secondary,
+    cursor: "pointer",
+    borderRadius: theme.radius.small,
+    transition: "color 0s",
+    "&:hover": {
+      transition: "color 0s",
+      color: theme.colors.important.heigh,
+      backgroundColor: theme.colors.background.hover,
+    },
   } as const);
 
 const layerAnimation = (isCloseStart: boolean) => ({
@@ -52,10 +79,13 @@ const layerAnimation = (isCloseStart: boolean) => ({
   }s forwards ease-in-out`,
 });
 
-function SplitModalLayer() {
-  const { isCloseStart, title } = useSplitModalStore(
-    (state) => state
-  );
+function SplitModalLayer({
+  children,
+}: {
+  children?: React.ReactNode;
+}) {
+  const { isCloseStart, title, onDelete, close } =
+    useSplitModalStore((state) => state);
   return (
     <div
       css={{
@@ -65,6 +95,20 @@ function SplitModalLayer() {
     >
       <div css={layerStyles}>
         <SplitModalTitle title={title} />
+        <div className="content">{children}</div>
+        <div className="footer">
+          {onDelete && (
+            <button
+              css={deleteBtnStyles}
+              onClick={async () => {
+                await onDelete();
+                close();
+              }}
+            >
+              <TrashIcon />
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );

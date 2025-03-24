@@ -33,6 +33,12 @@ class TodoController {
     return data;
   }
 
+  public async getAllByImportant() {
+    const data = await this.todoService.findByImportant();
+
+    return data;
+  }
+
   public async updateDone(id: number, done: boolean) {
     const result = await this.todoService.updateDone(
       id,

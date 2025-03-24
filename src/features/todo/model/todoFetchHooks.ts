@@ -34,5 +34,6 @@ export const useGetAllByCateIdQuery = (cateId: number) => {
   return useQuery({
     queryFn: () => fetchGetAllByCateId(cateId),
     queryKey: [todoQueryKey],
+    enabled: cateId !== undefined,
   });
 };

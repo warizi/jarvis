@@ -2,7 +2,7 @@ import { useUpdateTodoMutation } from "@entities/todo";
 import { Todo } from "@entities/todo/model/type";
 import { Id } from "@shared/config/type/commonType";
 
-export const useTodoCheck = () => {
+export const useTodoCheckBox = () => {
   const { mutate } = useUpdateTodoMutation();
 
   const handleCheck =
@@ -16,5 +16,14 @@ export const useTodoCheck = () => {
       mutate(todo);
     };
 
-  return { handleCheck };
+  const handleImportant = (todo: Todo & Id) => {
+    if (todo.isImportant === 0) {
+      todo.isImportant = 1;
+    } else {
+      todo.isImportant = 0;
+    }
+    mutate(todo);
+  };
+
+  return { handleCheck, handleImportant };
 };

@@ -1,20 +1,20 @@
 /** @jsxImportSource @emotion/react */
 
-import { CheckIcon } from "@shared/components/icon";
-import { todoCheckboxStyles } from "./TodoCheckbox.style";
+import { StarIcon } from "@shared/components/icon";
+import { starCheckboxStyles } from "./ImportantCheckBox.style";
 
-function TodoCheckbox({
-  checked = false,
+function ImportantCheckBox({
+  checked = 0,
   onChange = () => {},
   ...rest
 }: {
-  checked?: boolean;
+  checked?: number;
   onChange?: (
     event: React.ChangeEvent<HTMLInputElement>
   ) => void;
 }) {
   const { container, input, checkmark } =
-    todoCheckboxStyles;
+    starCheckboxStyles;
   return (
     <label
       css={container}
@@ -23,15 +23,19 @@ function TodoCheckbox({
       <input
         type="checkbox"
         css={input}
-        checked={checked}
+        checked={checked === 1}
         onChange={onChange}
         {...rest}
       />
-      <div css={checkmark(checked)}>
-        <CheckIcon size={22} />
+      <div css={checkmark}>
+        <StarIcon
+          size={22}
+          color="#FFDA36"
+          fill={checked ? "#FFDA36" : "none"}
+        />
       </div>
     </label>
   );
 }
 
-export default TodoCheckbox;
+export default ImportantCheckBox;

@@ -6,6 +6,7 @@ const useIsCurrentLink = () => {
   const isCurrentLink = (link: string) => {
     const terminatedSlushLink = link.split("/").join("");
     const terminatedSlushPathname = pathname.split("/");
+    const rootPathname = link.split("/")[1];
 
     if (
       terminatedSlushPathname.join("") === "" &&
@@ -16,6 +17,7 @@ const useIsCurrentLink = () => {
       return false;
     }
 
+    if (pathname.includes(rootPathname)) return true;
     return terminatedSlushPathname.includes(
       terminatedSlushLink
     );

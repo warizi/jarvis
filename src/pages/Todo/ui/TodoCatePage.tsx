@@ -1,17 +1,23 @@
 /** @jsxImportSource @emotion/react */
 
-import { TodoCreateBtn, TodoList } from "@features/todo";
+import {
+  DraggableTodoList,
+  TodoCreateBtn,
+} from "@features/todo";
 import { useTodoCateInfo } from "../model/useTodoCateInfo";
 import TodoHeader from "./TodoHeader";
+import { Todo } from "@entities/todo/model/type";
+import { Id } from "@shared/config/type/commonType";
 
 function TodoCatePage() {
-  const { data, id } = useTodoCateInfo();
-
+  const { data, id, todoList } = useTodoCateInfo();
   return (
     <div>
       <TodoHeader title={data?.name || ""} />
       <TodoCreateBtn cateId={id} />
-      <TodoList cateId={id} />
+      <DraggableTodoList
+        todoList={todoList as (Todo & Id)[]}
+      />
     </div>
   );
 }

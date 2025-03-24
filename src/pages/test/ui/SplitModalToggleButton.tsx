@@ -17,7 +17,12 @@ function SplitModalToggleButton() {
   return (
     <button
       css={buttonStyle}
-      onClick={() => open({ title: "TEST 제목" })}
+      onClick={() =>
+        open({
+          title: "TEST 제목",
+          content: <div>test</div>,
+        })
+      }
     >
       모달 오픈
     </button>

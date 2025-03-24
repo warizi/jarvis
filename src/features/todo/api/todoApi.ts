@@ -14,11 +14,17 @@ export async function fetchUpdateTodoDone(
 
 export async function fetchGetAllByCateId(cateId: number) {
   console.log("get");
-  const res = (
+  const res =
     await TodoController.getInstance().getAllByCateId(
       cateId
-    )
-  ).sort((a, b) => a.order - b.order);
+    );
+
+  return res;
+}
+
+export async function fetchGetAllByImportant() {
+  const res =
+    await TodoController.getInstance().getAllByImportant();
 
   return res;
 }
