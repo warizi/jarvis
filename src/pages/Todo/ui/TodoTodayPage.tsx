@@ -6,6 +6,7 @@ import {
   useGetAllByIsTodayQuery,
 } from "@features/todo";
 import TodoHeader from "./TodoHeader";
+import { ToggleListWrapper } from "@shared/components/togglelist";
 
 function TodoTodayPage() {
   const { data } = useGetAllByIsTodayQuery();
@@ -13,7 +14,9 @@ function TodoTodayPage() {
     <div>
       <TodoHeader title="오늘 할일" />
       <TodoCreateBtn cateId={undefined} isToday />
-      <TodoList todoList={data || []} />
+      <ToggleListWrapper title="TODO">
+        <TodoList todoList={data || []} />
+      </ToggleListWrapper>
     </div>
   );
 }

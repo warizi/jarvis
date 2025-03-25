@@ -25,7 +25,7 @@ const sidebarWrapperContainerStyles =
         border: "none",
         cursor: "pointer",
         transform: isOpen ? "rotate(180deg)" : "rotate(0)",
-        zIndex: 100,
+        zIndex: 1300,
       },
       "& .sidebar-close-btn:hover": {
         backgroundColor: theme.colors.background.hover,

@@ -28,6 +28,7 @@ export const todoFormStyles = {
     border: "none",
     fontSize: theme.typography.size.large,
     textDecoration: isDone ? "line-through" : "none",
+    backgroundColor: "transparent",
     color: isDone
       ? theme.colors.text.secondary
       : theme.colors.text.primary,
