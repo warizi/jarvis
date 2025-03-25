@@ -9,6 +9,7 @@ import {
 } from "@shared/components/form";
 import { Controller } from "react-hook-form";
 import { useTodoform } from "../model/useTodoForm";
+import SubTodoForm from "./SubTodoForm";
 
 function TodoForm({ data }: { data: Todo & Id }) {
   const { container, label, input } = todoFormStyles;
@@ -51,6 +52,17 @@ function TodoForm({ data }: { data: Todo & Id }) {
           )}
         />
       </label>
+      <Controller
+        name="sub"
+        control={control}
+        defaultValue={"[]"}
+        render={({ field }) => (
+          <SubTodoForm
+            data={field.value || "[]"}
+            onChange={field.onChange}
+          />
+        )}
+      />
     </div>
   );
 }

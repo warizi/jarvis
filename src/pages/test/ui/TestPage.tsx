@@ -5,6 +5,7 @@ import SplitModalToggleButton from "./SplitModalToggleButton";
 import ThemeToggleButton from "./ThemeToggleButton";
 import { ContextMenu } from "@shared/components/contextMenu";
 import { TodoCheckbox } from "@shared/components/form";
+import SubTodoForm from "@features/todo/ui/SubTodoForm";
 
 const pageContainerStyles = {
   display: "flex",
@@ -21,6 +22,7 @@ function TestPage() {
         <SplitModalToggleButton />
         <ContextMenu />
         <TodoCheckbox checked />
+        <SubTodoForm data='[{"text":"test","isDone":false}]' />
       </div>
     </div>
   );

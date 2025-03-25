@@ -6,7 +6,7 @@ export type TodoCate = {
 export type Todo = {
   title: string;
   isDone: boolean;
-  sub?: TodoSub[];
+  sub?: string;
   order: number;
   isImportant: number;
   startDate?: string;
