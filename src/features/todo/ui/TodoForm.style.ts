@@ -5,7 +5,7 @@ export const todoFormStyles = {
     ({
       display: "flex",
       flexDirection: "column",
-      width: "100%",
+      width: "600px",
       // height: "calc(100vh - 100px)",
       gap: "10px",
       padding: "20px",

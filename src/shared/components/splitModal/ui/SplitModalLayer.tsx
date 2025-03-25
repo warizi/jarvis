@@ -28,7 +28,7 @@ const containerStyles = {
   position: "fixed",
   top: 0,
   right: 0,
-  width: "50vw",
+  minWidth: "300px",
   height: "100vh",
   padding: "10px",
   zIndex: 3000,

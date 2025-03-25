@@ -13,6 +13,7 @@ const sidebarWrapperContainerStyles =
     ({
       position: "relative",
       height: "100%",
+      zIndex: 1300,
       "& .sidebar-close-btn": {
         position: "absolute",
         top: 0,
@@ -25,7 +26,7 @@ const sidebarWrapperContainerStyles =
         border: "none",
         cursor: "pointer",
         transform: isOpen ? "rotate(180deg)" : "rotate(0)",
-        zIndex: 1300,
+        zIndex: 1400,
       },
       "& .sidebar-close-btn:hover": {
         backgroundColor: theme.colors.background.hover,

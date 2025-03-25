@@ -11,6 +11,7 @@ import CheckIcon from "./ui/CheckIcon";
 import TrashIcon from "./ui/TrashIcon";
 import ArrowDown from "./ui/ArrowDown";
 import FolderIcon from "./ui/FolderIcon";
+import SidebarIcon from "./ui/SidebarIcon";
 
 export {
   ExitIcon,
@@ -26,4 +27,5 @@ export {
   TrashIcon,
   ArrowDown,
   FolderIcon,
+  SidebarIcon,
 };

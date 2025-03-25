@@ -3,7 +3,10 @@
 import { SidebarWrapper } from "@shared/components/sidebar";
 import { todoLayoutStyle } from "./TodoLayout.style";
 import { Outlet } from "react-router-dom";
-import { TodoSidebar } from "@widgets/todo";
+import {
+  TodoSidebar,
+  TodoSidebarRight,
+} from "@widgets/todo";
 
 function TodoLayout() {
   const { container, content } = todoLayoutStyle;
@@ -13,7 +16,10 @@ function TodoLayout() {
         <TodoSidebar />
       </SidebarWrapper>
       <div css={content}>
-        <Outlet />
+        <div className="content">
+          <Outlet />
+        </div>
+        <TodoSidebarRight />
       </div>
     </div>
   );

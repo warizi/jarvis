@@ -9,6 +9,7 @@ export const TodoSidebarMenuStyle = {
     border: `1px solid ${theme.colors.border.deepGray}`,
     marginBottom: "10px",
     transition: "none",
+    zIndex: 1300,
   }),
   ul: () =>
     ({

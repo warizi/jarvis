@@ -9,9 +9,18 @@ export const todoLayoutStyle = {
       width: "100%",
       height: "100vh",
     } as const),
-  content: () => ({
-    height: "100vh",
-    overflow: "auto",
-    width: "100%",
-  }),
+  content: () =>
+    ({
+      position: "relative",
+      display: "flex",
+      flexDirection: "row",
+      height: "100vh",
+      overflow: "auto",
+      width: "100%",
+      "& .content": {
+        width: "100%",
+        height: "100%",
+        overflow: "auto",
+      },
+    } as const),
 };

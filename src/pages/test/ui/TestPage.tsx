@@ -10,6 +10,7 @@ import {
 } from "@shared/components/form";
 import SubTodoForm from "@features/todo/ui/SubTodoForm";
 import { useState } from "react";
+// import { useTest } from "../model/useTest";
 
 const pageContainerStyles = {
   display: "flex",
@@ -24,6 +25,7 @@ function TestPage() {
   ) => {
     setValue(e.target.value);
   };
+  // useTest();
   return (
     <div css={pageContainerStyles}>
       <SidebarWrapper>sidebar</SidebarWrapper>
