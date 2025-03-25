@@ -28,7 +28,6 @@ export async function fetchGetAllByCateIdAndIsDone(
     await TodoController.getInstance().getAllByCateIdAndIsDone(
       cateId
     );
-  console.log(res);
   return res;
 }
 

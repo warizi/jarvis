@@ -20,8 +20,6 @@ export const useTodoCateInfo = () => {
   const { data: doneList } =
     useGetAllByCateIdAndIsDoneQuery(todoCateId);
 
-  console.log(todoList, doneList);
-
   useEffect(() => {
     if (!todoCateId) return;
     queryClient.invalidateQueries({

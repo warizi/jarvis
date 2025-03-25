@@ -10,10 +10,22 @@ export const useTodoCheckBox = () => {
     (todo: Todo & Id) =>
     (event: React.ChangeEvent<HTMLInputElement>) => {
       const date = new Date();
+      const sub = JSON.parse(todo.sub || "[]");
       todo.isDone = event.target.checked;
       todo.doneDate = todo.isDone
         ? date.toISOString()
         : null;
+      if (event.target.checked === false) {
+        const isSubDone = sub.every(
+          (todo: Todo) => todo.isDone
+        );
+        if (isSubDone) {
+          sub.forEach((todo: Todo & Id) => {
+            todo.isDone = false;
+          });
+          todo.sub = JSON.stringify(sub);
+        }
+      }
       mutate(todo);
     };
 

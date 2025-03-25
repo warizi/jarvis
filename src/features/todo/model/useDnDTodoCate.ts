@@ -13,14 +13,6 @@ export const useDnDTodoCate = () => {
   ) => {
     if (!active?.id) return;
     const newOrder = getNewOrder(active, newItems);
-    console.log(
-      "새 order",
-      newOrder,
-      "nweItems",
-      newItems,
-      "active",
-      active
-    );
     active.order = newOrder;
 
     updateTodoCateMutate(active);
