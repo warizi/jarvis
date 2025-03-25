@@ -10,9 +10,28 @@ class TodoBackService {
   todoRepository: TodoRepository = new TodoRepository();
 
   async getAll() {
-    return (await this.todoRepository.getAll()).sort(
-      (a, b) => a.order - b.order
-    );
+    return (await this.todoRepository.getAll())
+      .filter((todo: TodoBack) => {
+        const { doneDate } = todo;
+        if (!doneDate) {
+          return true;
+        }
+        if (
+          formatDate(doneDate, "yyyy-MM-dd") ===
+          formatDate(new Date(), "yyyy-MM-dd")
+        ) {
+          return true;
+        }
+
+        return false;
+      })
+      .sort((a, b) => a.order - b.order);
+  }
+
+  async getAllByIsDone() {
+    return (
+      await this.todoRepository.getAllByIsDone()
+    ).sort((a, b) => a.order - b.order);
   }
 
   async findByCateId(cateId: number) {

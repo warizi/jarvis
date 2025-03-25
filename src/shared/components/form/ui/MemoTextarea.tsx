@@ -12,11 +12,12 @@ const baseStyle = (theme: Theme) =>
     overflow: "hidden", // 스크롤 숨김
     boxSizing: "border-box",
     padding: "10px",
+    backgroundColor: theme.colors.background.gray,
   } as const);
 
 interface MemoTextareaProps
   extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
-  value: string;
+  value?: string;
   onChange: (
     e: React.ChangeEvent<HTMLTextAreaElement>
   ) => void;

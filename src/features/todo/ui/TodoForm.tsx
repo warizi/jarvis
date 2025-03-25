@@ -5,6 +5,7 @@ import { todoFormStyles } from "./TodoForm.style";
 import { Id } from "@shared/config/type/commonType";
 import {
   ImportantCheckBox,
+  MemoTextarea,
   TodoCheckbox,
 } from "@shared/components/form";
 import { Controller } from "react-hook-form";
@@ -60,6 +61,19 @@ function TodoForm({ data }: { data: Todo & Id }) {
           <SubTodoForm
             data={field.value || "[]"}
             onChange={field.onChange}
+          />
+        )}
+      />
+      <Controller
+        name="startDate"
+        control={control}
+        defaultValue=""
+        render={({ field }) => (
+          <MemoTextarea
+            value={field.value}
+            onChange={field.onChange}
+            placeholder="메모를 입력하세요."
+            height="100px"
           />
         )}
       />

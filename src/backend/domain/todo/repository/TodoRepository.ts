@@ -10,6 +10,12 @@ class TodoRepository {
     return (await flowaDb.todo.toArray()) as TodoBack[];
   }
 
+  async getAllByIsDone() {
+    return (await flowaDb.todo.toArray()).filter((todo) => {
+      return todo.isDone && !isToday(todo.doneDate);
+    }) as TodoBack[];
+  }
+
   async save(data: TodoBack | TodoCreateBack) {
     const convertedData = {
       ...data,

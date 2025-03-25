@@ -7,9 +7,13 @@ import DraggableTodoList from "./ui/DraggableTodoList";
 import { useTodoCateIdGetByPath } from "./model/useTodoCateIdGetByPath";
 import TodoForm from "./ui/TodoForm";
 import TodoList from "./ui/TodoList";
-import { useGetAllByIsTodayQuery } from "./model/useGetAllByIsTodayQuery";
-import { useGetAllByCateIdAndIsDoneQuery } from "./model/useGetAllByCateIdAndIsDoneQuery";
-import { useGetAllByImportantAndIsDoneQuery } from "./model/useGetAllByImportantAndIsDoneQuery";
+import {
+  useGetAllByCateIdAndIsDoneQuery,
+  useGetAllByImportantAndIsDoneQuery,
+  useGetAllByIsTodayQuery,
+  useGetAllByImportantQuery,
+  useGetAllByIsDoneQuery,
+} from "./model/todoFetchHooks";
 
 export {
   TodoCateList,
@@ -24,4 +28,6 @@ export {
   useGetAllByIsTodayQuery,
   useGetAllByCateIdAndIsDoneQuery,
   useGetAllByImportantAndIsDoneQuery,
+  useGetAllByImportantQuery,
+  useGetAllByIsDoneQuery,
 };

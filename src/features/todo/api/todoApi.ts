@@ -1,5 +1,12 @@
 import TodoController from "@backend/domain/todo/controller/TodoController";
 
+export async function fetchGetAllByIsDone() {
+  const res =
+    await TodoController.getInstance().getAllByIsDone();
+
+  return res;
+}
+
 export async function fetchUpdateTodoDone(
   id: number,
   done: boolean

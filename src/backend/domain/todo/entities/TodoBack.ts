@@ -14,7 +14,7 @@ export type TodoBack = {
   id: number;
   title: string; // 제목
   isDone: boolean; // 완료 여부
-  sub?: TodoSub[]; // 서브 할 일
+  sub?: string; // 서브 할 일
   order: number; // 정렬 순서
   isImportant: number; // 중요 여부
   startDate?: string; // 시작일
@@ -31,7 +31,7 @@ export type TodoBack = {
 export type TodoCreateBack = {
   title: string; // 제목
   isDone: boolean; // 완료 여부
-  sub?: TodoSub[]; // 서브 할 일
+  sub?: string; // 서브 할 일
   order: number; // 정렬 순서
   isImportant: number; // 중요 여부
   startDate?: string; // 시작일

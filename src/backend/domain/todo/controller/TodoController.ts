@@ -25,6 +25,12 @@ class TodoController {
     return data;
   }
 
+  public async getAllByIsDone() {
+    const data = await this.todoService.getAllByIsDone();
+
+    return data;
+  }
+
   public async getAllByCateId(cateId: number) {
     const data = await this.todoService.findByCateId(
       cateId

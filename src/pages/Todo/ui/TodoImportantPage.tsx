@@ -4,9 +4,9 @@ import {
   TodoCreateBtn,
   TodoList,
   useGetAllByImportantAndIsDoneQuery,
+  useGetAllByImportantQuery,
 } from "@features/todo";
 import TodoHeader from "./TodoHeader";
-import { useGetAllByImportantQuery } from "@features/todo/model/useGetAllByImportantQuery";
 import { ToggleListWrapper } from "@shared/components/togglelist";
 
 function TodoImportantPage() {

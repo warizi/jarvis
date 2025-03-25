@@ -1,6 +1,7 @@
 import { ThemeProvider } from "@emotion/react";
 import HomePage from "@pages/home";
 import {
+  TodoAllPage,
   TodoCatePage,
   TodoImportantPage,
   TodoLayout,
@@ -55,6 +56,10 @@ function App() {
                 <Route
                   path={ROUTE_URL.TODO_TODAY}
                   element={<TodoTodayPage />}
+                />
+                <Route
+                  path={ROUTE_URL.TODO_ALL}
+                  element={<TodoAllPage />}
                 />
                 <Route
                   path={ROUTE_URL.TODO_IMPORTANT}

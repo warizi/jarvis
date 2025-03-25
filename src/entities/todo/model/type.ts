@@ -9,15 +9,15 @@ export type Todo = {
   sub?: string;
   order: number;
   isImportant: number;
+  isToday?: string;
+  cateId?: number;
+  memo?: string;
+  doneDate?: string | null;
   startDate?: string;
   endDate?: string;
-  isToday?: string;
   repeatType?: string;
   repeatDate?: string;
-  memo?: string;
-  cateId?: number;
   labelId?: number; // 라벨 아이디
-  doneDate?: string | null;
 };
 
 export type TodoSub = {

@@ -4,5 +4,6 @@ export const ROUTE_URL = {
   TODO_CATE: "/todo/cate",
   TODO_TODAY: "/todo/today",
   TODO_IMPORTANT: "/todo/important",
+  TODO_ALL: "/todo/all",
   TEST: "/test",
 };
