@@ -14,7 +14,7 @@ function TodoList({
 
   return (
     <div css={container}>
-      {todoList.map((todo) => {
+      {todoList?.map((todo) => {
         return <TodoItem key={todo.id} data={todo} />;
       })}
     </div>

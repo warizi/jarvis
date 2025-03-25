@@ -33,6 +33,15 @@ class TodoBackService {
       })
       .sort((a, b) => a.order - b.order);
   }
+
+  async findByCateIdAndIsDone(cateId: number) {
+    return (
+      await this.todoRepository.findByCateIdAndIsDone(
+        cateId
+      )
+    ).sort((a, b) => a.order - b.order);
+  }
+
   async findByIsToday() {
     return (await this.todoRepository.findExistedToday())
       .filter((todo: TodoBack) => {
@@ -82,6 +91,12 @@ class TodoBackService {
         return false;
       })
       .sort((a, b) => a.order - b.order);
+  }
+
+  async findByImportantAndIsDone() {
+    return (
+      await this.todoRepository.findByImportantAndIsDone()
+    ).sort((a, b) => a.order - b.order);
   }
 
   async updateDone(id: number, done: boolean) {

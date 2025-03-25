@@ -3,6 +3,7 @@ import {
   TodoBack,
   TodoCreateBack,
 } from "../entities/TodoBack";
+import { isToday } from "@backend/common/utils/isToday";
 
 class TodoRepository {
   async getAll() {
@@ -31,6 +32,17 @@ class TodoRepository {
       .toArray()) as TodoBack[];
   }
 
+  async findByImportantAndIsDone() {
+    return (
+      await flowaDb.todo
+        .where("isImportant")
+        .equals(1)
+        .toArray()
+    ).filter((todo) => {
+      return todo.isDone && !isToday(todo.doneDate);
+    }) as TodoBack[];
+  }
+
   async findExistedToday() {
     return (await flowaDb.todo
       .filter((todo: TodoBack) => {
@@ -45,6 +57,14 @@ class TodoRepository {
     return (await flowaDb.todo
       .where({ cateId })
       .toArray()) as TodoBack[];
+  }
+
+  async findByCateIdAndIsDone(cateId: number) {
+    return (
+      await flowaDb.todo.where({ cateId }).toArray()
+    ).filter((todo) => {
+      return todo.isDone && !isToday(todo.doneDate);
+    }) as TodoBack[];
   }
 
   async delete(id: number) {

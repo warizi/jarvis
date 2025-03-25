@@ -8,6 +8,7 @@ import {
   fetchGetAllByCateId,
   fetchUpdateTodoDone,
 } from "../api/todoApi";
+import { queryKeyByIsDone } from "@entities/todo/model/todoCateFetchHooks";
 
 export const useUpdateTodoDoneMutate = () => {
   const queryClient = useQueryClient();
@@ -21,6 +22,9 @@ export const useUpdateTodoDoneMutate = () => {
       done: boolean;
     }) => fetchUpdateTodoDone(id, done),
     onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: [queryKeyByIsDone],
+      });
       queryClient.invalidateQueries({
         queryKey: [todoQueryKey],
       });

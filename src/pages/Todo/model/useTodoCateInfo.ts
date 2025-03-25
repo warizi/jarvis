@@ -2,7 +2,11 @@ import {
   todoQueryKey,
   useGetTodoCateById,
 } from "@entities/todo";
-import { useTodoCateIdGetByPath } from "@features/todo";
+import { queryKeyByIsDone } from "@entities/todo/model/todoCateFetchHooks";
+import {
+  useGetAllByCateIdAndIsDoneQuery,
+  useTodoCateIdGetByPath,
+} from "@features/todo";
 import { useGetAllByCateIdQuery } from "@features/todo/model/todoFetchHooks";
 import { useQueryClient } from "@tanstack/react-query";
 import { useEffect } from "react";
@@ -13,13 +17,25 @@ export const useTodoCateInfo = () => {
   const queryClient = useQueryClient();
   const { data: todoList } =
     useGetAllByCateIdQuery(todoCateId);
+  const { data: doneList } =
+    useGetAllByCateIdAndIsDoneQuery(todoCateId);
+
+  console.log(todoList, doneList);
 
   useEffect(() => {
     if (!todoCateId) return;
+    queryClient.invalidateQueries({
+      queryKey: [queryKeyByIsDone],
+    });
     queryClient.invalidateQueries({
       queryKey: [todoQueryKey],
     });
   }, [todoCateId, queryClient, data]);
 
-  return { data, id: Number(todoCateId), todoList };
+  return {
+    data,
+    id: Number(todoCateId),
+    todoList,
+    doneList,
+  };
 };

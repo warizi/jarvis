@@ -8,6 +8,8 @@ import { useTodoCateIdGetByPath } from "./model/useTodoCateIdGetByPath";
 import TodoForm from "./ui/TodoForm";
 import TodoList from "./ui/TodoList";
 import { useGetAllByIsTodayQuery } from "./model/useGetAllByIsTodayQuery";
+import { useGetAllByCateIdAndIsDoneQuery } from "./model/useGetAllByCateIdAndIsDoneQuery";
+import { useGetAllByImportantAndIsDoneQuery } from "./model/useGetAllByImportantAndIsDoneQuery";
 
 export {
   TodoCateList,
@@ -20,4 +22,6 @@ export {
   TodoForm,
   TodoList,
   useGetAllByIsTodayQuery,
+  useGetAllByCateIdAndIsDoneQuery,
+  useGetAllByImportantAndIsDoneQuery,
 };

@@ -10,6 +10,7 @@ import {
   fetchGetTodo,
 } from "../api/todoApi";
 import { Todo } from "./type";
+import { queryKeyByIsDone } from "./todoCateFetchHooks";
 
 export const todoQueryKey = "todo";
 
@@ -18,6 +19,9 @@ export const useCreateTodoMutaion = (cateId?: number) => {
   const { mutate } = useMutation({
     mutationFn: (data: Todo) => fetchCreateTodo(data),
     onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: [queryKeyByIsDone],
+      });
       queryClient.invalidateQueries({
         queryKey: cateId
           ? [todoQueryKey]
@@ -35,6 +39,9 @@ export const useUpdateTodoMutation = () => {
     mutationFn: (data: Todo) => fetchCreateTodo(data),
     onSuccess: () => {
       queryClient.invalidateQueries({
+        queryKey: [queryKeyByIsDone],
+      });
+      queryClient.invalidateQueries({
         queryKey: [todoQueryKey],
       });
     },
@@ -49,6 +56,9 @@ export const useDeleteTodoMutation = () => {
   const { mutate } = useMutation({
     mutationFn: (id: number) => fetchDeleteTodo(id),
     onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: [queryKeyByIsDone],
+      });
       queryClient.invalidateQueries({
         queryKey: [todoQueryKey],
       });

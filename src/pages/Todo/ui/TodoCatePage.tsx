@@ -3,6 +3,7 @@
 import {
   DraggableTodoList,
   TodoCreateBtn,
+  TodoList,
 } from "@features/todo";
 import { useTodoCateInfo } from "../model/useTodoCateInfo";
 import TodoHeader from "./TodoHeader";
@@ -11,7 +12,8 @@ import { Id } from "@shared/config/type/commonType";
 import { ToggleListWrapper } from "@shared/components/togglelist";
 
 function TodoCatePage() {
-  const { data, id, todoList } = useTodoCateInfo();
+  const { data, id, todoList, doneList } =
+    useTodoCateInfo();
   return (
     <div>
       <TodoHeader title={data?.name || ""} />
@@ -20,6 +22,9 @@ function TodoCatePage() {
         <DraggableTodoList
           todoList={todoList as (Todo & Id)[]}
         />
+      </ToggleListWrapper>
+      <ToggleListWrapper title="DONE" defaultOpen={false}>
+        <TodoList todoList={doneList as (Todo & Id)[]} />
       </ToggleListWrapper>
     </div>
   );

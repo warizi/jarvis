@@ -13,7 +13,6 @@ export async function fetchUpdateTodoDone(
 }
 
 export async function fetchGetAllByCateId(cateId: number) {
-  console.log("get");
   const res =
     await TodoController.getInstance().getAllByCateId(
       cateId
@@ -22,9 +21,27 @@ export async function fetchGetAllByCateId(cateId: number) {
   return res;
 }
 
+export async function fetchGetAllByCateIdAndIsDone(
+  cateId: number
+) {
+  const res =
+    await TodoController.getInstance().getAllByCateIdAndIsDone(
+      cateId
+    );
+  console.log(res);
+  return res;
+}
+
 export async function fetchGetAllByImportant() {
   const res =
     await TodoController.getInstance().getAllByImportant();
+
+  return res;
+}
+
+export async function fetchGetAllByImportantAndIsDone() {
+  const res =
+    await TodoController.getInstance().getAllByImportantAndIsDone();
 
   return res;
 }

@@ -7,11 +7,13 @@ import { ArrowDown } from "@shared/components/icon";
 function ToggleListWrapper({
   title,
   children,
+  defaultOpen = true,
 }: {
   title: string;
   children: React.ReactNode;
+  defaultOpen?: boolean;
 }) {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(defaultOpen);
   const { container, header, content, button } =
     toggleListWrapperStyles;
   return (

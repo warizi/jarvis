@@ -33,8 +33,22 @@ class TodoController {
     return data;
   }
 
+  public async getAllByCateIdAndIsDone(cateId: number) {
+    const data =
+      await this.todoService.findByCateIdAndIsDone(cateId);
+
+    return data;
+  }
+
   public async getAllByImportant() {
     const data = await this.todoService.findByImportant();
+
+    return data;
+  }
+
+  public async getAllByImportantAndIsDone() {
+    const data =
+      await this.todoService.findByImportantAndIsDone();
 
     return data;
   }

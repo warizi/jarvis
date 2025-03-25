@@ -14,6 +14,7 @@ import {
 import { Id } from "@shared/config/type/commonType";
 
 const queryKey = "todoCate";
+export const queryKeyByIsDone = "done";
 
 export const useCreateTodoCateMutation = () => {
   const queryClient = useQueryClient();
@@ -22,6 +23,9 @@ export const useCreateTodoCateMutation = () => {
     mutationFn: (data: TodoCate) =>
       fetchCreateTodoCate(data),
     onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: [queryKeyByIsDone],
+      });
       queryClient.invalidateQueries({
         queryKey: [queryKey],
       });
@@ -37,6 +41,9 @@ export const useUpdateTodoCateMutation = () => {
       fetchUpdateTodoCate(data),
     onSuccess: () => {
       queryClient.invalidateQueries({
+        queryKey: [queryKeyByIsDone],
+      });
+      queryClient.invalidateQueries({
         queryKey: [queryKey],
       });
     },
@@ -49,6 +56,9 @@ export const useDeleteTodoCateMutation = () => {
   return useMutation({
     mutationFn: (id: number) => fetchDeleteTodoCate(id),
     onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: [queryKeyByIsDone],
+      });
       queryClient.invalidateQueries({
         queryKey: [queryKey],
       });
