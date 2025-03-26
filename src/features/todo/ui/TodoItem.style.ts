@@ -10,11 +10,12 @@ export const todoItemStyles = {
       alignItems: "center",
       gap: "10px",
       minHeight: "45px",
-      padding: "0 15px",
+      padding: "0 15px 0 0",
       borderRadius: theme.radius.small,
       backgroundColor: theme.colors.background.deep,
       cursor: "pointer",
       transition: "none",
+      overflowY: "hidden",
       color: isDone
         ? theme.colors.text.secondary
         : theme.colors.text.primary,
@@ -22,6 +23,13 @@ export const todoItemStyles = {
         backgroundColor: theme.colors.background.hover,
       },
     } as const),
+  label: (color: string) => ({
+    display: "block",
+    width: "8px",
+    height: "45px",
+    backgroundColor: color,
+    marginRight: "5px",
+  }),
   titleSpan: (isDone: boolean) => () => ({
     textDecoration: isDone ? "line-through" : "none",
   }),

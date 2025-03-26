@@ -1,3 +1,5 @@
+import { Id } from "@shared/config/type/commonType";
+
 export type TodoCate = {
   name: string;
   order: number;
@@ -17,10 +19,16 @@ export type Todo = {
   endDate?: string;
   repeatType?: string;
   repeatDate?: string;
-  labelId?: number; // 라벨 아이디
+  label?: (TodoLabel & Id) | null;
 };
 
 export type TodoSub = {
   text: string;
   isDone: boolean;
+};
+
+export type TodoLabel = {
+  name: string;
+  order: number;
+  color: string;
 };

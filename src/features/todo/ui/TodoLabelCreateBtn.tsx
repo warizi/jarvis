@@ -1,0 +1,43 @@
+/** @jsxImportSource @emotion/react */
+
+import {
+  ColorPicker,
+  OneLineTextForm,
+} from "@shared/components/form";
+import { useCreateTodoLabel } from "../model/useCreateTodoLabel";
+import { Controller } from "react-hook-form";
+
+function TodoLabelCreateBtn() {
+  const { register, onSubmit, control } =
+    useCreateTodoLabel();
+  return (
+    <div
+      css={{
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
+      }}
+    >
+      <OneLineTextForm
+        label="todo-label"
+        size="sm"
+        placeholder="새 라벨"
+        onSubmit={onSubmit}
+        {...register("name")}
+      />
+      <Controller
+        name="color"
+        control={control}
+        render={({ field }) => (
+          <ColorPicker
+            size={30}
+            value={field.value}
+            onChange={field.onChange}
+          />
+        )}
+      />
+    </div>
+  );
+}
+
+export default TodoLabelCreateBtn;

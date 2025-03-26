@@ -14,6 +14,9 @@ import {
   useGetAllByImportantQuery,
   useGetAllByIsDoneQuery,
 } from "./model/todoFetchHooks";
+import TodoLabelCreateBtn from "./ui/TodoLabelCreateBtn";
+import TodoLabelItem from "./ui/TodoLabelItem";
+import DragableTodoLabelList from "./ui/DragableTodoLabelList";
 
 export {
   TodoCateList,
@@ -30,4 +33,7 @@ export {
   useGetAllByImportantAndIsDoneQuery,
   useGetAllByImportantQuery,
   useGetAllByIsDoneQuery,
+  TodoLabelCreateBtn,
+  TodoLabelItem,
+  DragableTodoLabelList,
 };

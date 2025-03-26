@@ -10,6 +10,11 @@ import {
 } from "@shared/components/form";
 import SubTodoForm from "@features/todo/ui/SubTodoForm";
 import { useState } from "react";
+import {
+  DragableTodoLabelList,
+  TodoLabelCreateBtn,
+  TodoLabelItem,
+} from "@features/todo";
 // import { useTest } from "../model/useTest";
 
 const pageContainerStyles = {
@@ -40,6 +45,17 @@ function TestPage() {
           onChange={handleChange}
           placeholder="내용을 입력하세요."
         />
+        {/* <ColorPicker value="#ffffff" onChange={() => {}} /> */}
+        <TodoLabelCreateBtn />
+        <TodoLabelItem
+          data={{
+            id: 1,
+            name: "test",
+            color: "#d9d9d9",
+            order: 1000,
+          }}
+        />
+        <DragableTodoLabelList />
       </div>
     </div>
   );

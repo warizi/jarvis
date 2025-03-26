@@ -21,6 +21,7 @@ function TodoItem({ data }: { data: Todo & Id }) {
     innerContainer,
     todayButton,
     titleSpan,
+    label,
   } = todoItemStyles;
   const {
     title,
@@ -28,6 +29,7 @@ function TodoItem({ data }: { data: Todo & Id }) {
     doneDate,
     isImportant,
     isToday: today,
+    label: todoLabel,
   } = data;
   const theme = useTheme();
   const { handleCheck, handleImportant, handleToday } =
@@ -39,6 +41,7 @@ function TodoItem({ data }: { data: Todo & Id }) {
       onClick={openTodoSplitModal(data)}
     >
       <div css={innerContainer}>
+        <div css={label(todoLabel?.color || "")} />
         <TodoCheckbox
           checked={isDone}
           onChange={handleCheck(data)}

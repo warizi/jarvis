@@ -15,6 +15,15 @@ import {
   useUpdateTodoMutation,
 } from "@entities/todo/model/todoFetchHooks";
 
+import {
+  todoLabelKey,
+  useCreateTodoLabelMutation,
+  useDeleteTodoLabelMutation,
+  useGetAllTodoLabelQuery,
+  useUpdateTodoLabelMutation,
+  useGetTodoLabelQuery,
+} from "./model/todoLabelFetchHooks";
+
 export {
   //todoCate
   useCreateTodoCateMutation,
@@ -29,4 +38,11 @@ export {
   useGetTodoQuery,
   useUpdateTodoMutation,
   todoQueryKey,
+  //todoLabel
+  todoLabelKey,
+  useCreateTodoLabelMutation,
+  useDeleteTodoLabelMutation,
+  useGetAllTodoLabelQuery,
+  useUpdateTodoLabelMutation,
+  useGetTodoLabelQuery,
 };

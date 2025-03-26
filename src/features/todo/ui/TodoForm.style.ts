@@ -16,11 +16,18 @@ export const todoFormStyles = {
     flexDirection: "row",
     gap: "10px",
   }),
+  todoLabel: (color: string) => ({
+    width: "8px",
+    height: "100%",
+    backgroundColor: color,
+    marginRight: "5px",
+  }),
   label: () =>
     ({
       display: "flex",
       flexDirection: "row",
       justifyContent: "space-between",
+      overflow: "hidden",
     } as const),
   input: (isDone: boolean) => (theme: Theme) => ({
     width: "100%",
