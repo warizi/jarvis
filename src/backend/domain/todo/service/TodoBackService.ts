@@ -194,8 +194,8 @@ class TodoBackService {
           return true;
         }
         if (
-          formatDate(doneDate, "yyyy-mm-dd") ===
-          formatDate(new Date(), "yyyy-mm-dd")
+          formatDate(doneDate, "yyyy-MM-dd") ===
+          formatDate(new Date(), "yyyy-MM-dd")
         ) {
           return true;
         }

@@ -19,6 +19,8 @@ export const todoSidebarRightStyles = {
       transition: "width 0.3s",
       overflow: "hidden",
       backgroundColor: theme.colors.background.gray,
+      marginTop: "50px",
+      padding: "10px",
     } as const),
   toggleButton: () =>
     ({

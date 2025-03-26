@@ -21,7 +21,6 @@ export const useCreateTodo = ({
       cateId,
     },
   });
-
   const { mutate } = useCreateTodoMutaion(cateId);
   const onSubmit = handleSubmit(async (data: Todo) => {
     if (isToday) {

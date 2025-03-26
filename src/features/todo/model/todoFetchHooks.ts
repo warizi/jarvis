@@ -11,6 +11,10 @@ import {
   fetchGetAllByImportantAndIsDone,
   fetchGetAllByIsDone,
   fetchGetAllByIsToday,
+  fetchGetCountAllByCateId,
+  fetchGetCountAllByImportant,
+  fetchGetCountAllByIsToday,
+  fetchGetCountAllTodo,
   fetchUpdateTodoDone,
 } from "../api/todoApi";
 import { queryKeyByIsDone } from "@entities/todo/model/todoCateFetchHooks";
@@ -41,10 +45,27 @@ export const useUpdateTodoDoneMutate = () => {
   return { mutate };
 };
 
+export const useGetCountAllTodoQuery = () => {
+  return useQuery({
+    queryFn: () => fetchGetCountAllTodo(),
+    queryKey: [todoQueryKey, "allCount"],
+  });
+};
+
 export const useGetAllByCateIdQuery = (cateId: number) => {
   return useQuery({
     queryFn: () => fetchGetAllByCateId(cateId),
     queryKey: [todoQueryKey],
+    enabled: cateId !== undefined,
+  });
+};
+
+export const useGetCountAllByCateIdQuery = (
+  cateId: number
+) => {
+  return useQuery({
+    queryFn: () => fetchGetCountAllByCateId(cateId),
+    queryKey: [todoQueryKey, "cateCount", cateId],
     enabled: cateId !== undefined,
   });
 };
@@ -72,10 +93,24 @@ export const useGetAllByImportantQuery = () => {
   });
 };
 
+export const useGetCountAllByImportantQuery = () => {
+  return useQuery({
+    queryFn: () => fetchGetCountAllByImportant(),
+    queryKey: [todoQueryKey, "importantCount"],
+  });
+};
+
 export const useGetAllByIsTodayQuery = () => {
   return useQuery({
     queryFn: () => fetchGetAllByIsToday(),
     queryKey: [todoQueryKey],
+  });
+};
+
+export const useGetCountAllByIsTodayQuery = () => {
+  return useQuery({
+    queryFn: () => fetchGetCountAllByIsToday(),
+    queryKey: [todoQueryKey, "todayCount"],
   });
 };
 

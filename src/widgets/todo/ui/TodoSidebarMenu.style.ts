@@ -11,6 +11,12 @@ export const TodoSidebarMenuStyle = {
     transition: "none",
     zIndex: 1300,
   }),
+  innerContainer: () =>
+    ({
+      display: "flex",
+      flexDirection: "row",
+      alignItems: "center",
+    } as const),
   ul: () =>
     ({
       listStyle: "none",
@@ -32,6 +38,7 @@ export const TodoSidebarMenuStyle = {
   }),
   a: (isActive: boolean) => (theme: Theme) => ({
     display: "flex",
+    justifyContent: "space-between",
     alignItems: "center",
     padding: "10px",
     color: isActive ? "white" : theme.colors.text.primary,

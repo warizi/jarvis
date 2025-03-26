@@ -4,18 +4,22 @@ import {
   TodoCreateBtn,
   TodoList,
   useGetAllByIsTodayQuery,
+  useTodoFilter,
 } from "@features/todo";
 import TodoHeader from "./TodoHeader";
 import { ToggleListWrapper } from "@shared/components/togglelist";
 
 function TodoTodayPage() {
   const { data } = useGetAllByIsTodayQuery();
+  const { getFilteredTodoList } = useTodoFilter();
   return (
     <div>
       <TodoHeader title="오늘 할일" />
       <TodoCreateBtn cateId={undefined} isToday />
       <ToggleListWrapper title="TODO">
-        <TodoList todoList={data || []} />
+        <TodoList
+          todoList={getFilteredTodoList(data || [])}
+        />
       </ToggleListWrapper>
     </div>
   );

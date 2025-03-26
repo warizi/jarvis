@@ -11,7 +11,7 @@ import {
 import SubTodoForm from "@features/todo/ui/SubTodoForm";
 import { useState } from "react";
 import {
-  DragableTodoLabelList,
+  // DragableTodoLabelList,
   TodoLabelCreateBtn,
   TodoLabelItem,
 } from "@features/todo";
@@ -55,7 +55,7 @@ function TestPage() {
             order: 1000,
           }}
         />
-        <DragableTodoLabelList />
+        {/* <DragableTodoLabelList /> */}
       </div>
     </div>
   );

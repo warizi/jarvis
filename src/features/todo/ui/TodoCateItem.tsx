@@ -7,6 +7,8 @@ import { ROUTE_URL } from "@shared/constants/route/ROUTE_URL";
 import { todoCateItemStyle } from "./TodoCateItem.style";
 import { FileCheckIcon } from "@shared/components/icon";
 import { useTodoCate } from "../model/useTodoCate";
+import { CountAlert } from "@shared/components/alert";
+import { useGetCountAllByCateIdQuery } from "../model/todoFetchHooks";
 
 type TodoCateItemProps = {
   data: TodoCate & Id;
@@ -18,7 +20,8 @@ function TodoCateItem({
   isActive,
 }: TodoCateItemProps) {
   const { id, name } = data;
-  const { li, link, span, input } = todoCateItemStyle;
+  const { li, link, span, input, innerContainer } =
+    todoCateItemStyle;
 
   const {
     openContextMenu,
@@ -28,6 +31,8 @@ function TodoCateItem({
     inputRef,
     handleKeyDown,
   } = useTodoCate(data);
+  const { data: cateCount } =
+    useGetCountAllByCateIdQuery(id);
 
   return (
     <li
@@ -39,20 +44,25 @@ function TodoCateItem({
         css={link(isActive || false)}
         draggable={false}
       >
-        <FileCheckIcon size={20} />
-        {isEdit ? (
-          <input
-            draggable={false}
-            ref={inputRef}
-            type="text"
-            css={input(isActive || false)}
-            {...register("name")}
-            onKeyDown={handleKeyDown}
-            onBlur={onSubmit}
-          />
-        ) : (
-          <span css={span}>{name}</span>
-        )}
+        <div css={innerContainer}>
+          <FileCheckIcon size={20} />
+          {isEdit ? (
+            <input
+              draggable={false}
+              ref={inputRef}
+              type="text"
+              css={input(isActive || false)}
+              {...register("name")}
+              onKeyDown={handleKeyDown}
+              onBlur={onSubmit}
+            />
+          ) : (
+            <span css={span}>{name}</span>
+          )}
+        </div>
+        {cateCount ? (
+          <CountAlert count={cateCount} size={20} />
+        ) : null}
       </Link>
     </li>
   );

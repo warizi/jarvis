@@ -23,6 +23,15 @@ export const useCreateTodoMutaion = (cateId?: number) => {
         queryKey: [queryKeyByIsDone],
       });
       queryClient.invalidateQueries({
+        queryKey: [todoQueryKey, "importantCount"],
+      });
+      queryClient.invalidateQueries({
+        queryKey: [todoQueryKey, "todayCount"],
+      });
+      queryClient.invalidateQueries({
+        queryKey: [todoQueryKey, "allCount"],
+      });
+      queryClient.invalidateQueries({
         queryKey: cateId
           ? [todoQueryKey]
           : [todoQueryKey, cateId],

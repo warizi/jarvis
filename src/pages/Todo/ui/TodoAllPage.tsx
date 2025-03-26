@@ -6,6 +6,7 @@ import { ToggleListWrapper } from "@shared/components/togglelist";
 import {
   TodoList,
   useGetAllByIsDoneQuery,
+  useTodoFilter,
 } from "@features/todo";
 import { Todo } from "@entities/todo/model/type";
 import { Id } from "@shared/config/type/commonType";
@@ -13,14 +14,23 @@ import { Id } from "@shared/config/type/commonType";
 function TodoAllPage() {
   const { data } = useGetAllTodoQuery();
   const { data: doneList } = useGetAllByIsDoneQuery();
+  const { getFilteredTodoList } = useTodoFilter();
   return (
     <div>
       <TodoHeader title="모든 할 일" />
       <ToggleListWrapper title="TODO">
-        <TodoList todoList={data as (Todo & Id)[]} />
+        <TodoList
+          todoList={getFilteredTodoList(
+            (data as (Todo & Id)[]) || []
+          )}
+        />
       </ToggleListWrapper>
       <ToggleListWrapper title="DONE" defaultOpen={false}>
-        <TodoList todoList={doneList as (Todo & Id)[]} />
+        <TodoList
+          todoList={getFilteredTodoList(
+            (doneList as (Todo & Id)[]) || []
+          )}
+        />
       </ToggleListWrapper>
     </div>
   );

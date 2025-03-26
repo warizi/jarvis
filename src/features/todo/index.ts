@@ -13,10 +13,17 @@ import {
   useGetAllByIsTodayQuery,
   useGetAllByImportantQuery,
   useGetAllByIsDoneQuery,
+  useGetCountAllByCateIdQuery,
+  useGetCountAllByImportantQuery,
+  useGetCountAllByIsTodayQuery,
+  useGetCountAllTodoQuery,
 } from "./model/todoFetchHooks";
 import TodoLabelCreateBtn from "./ui/TodoLabelCreateBtn";
 import TodoLabelItem from "./ui/TodoLabelItem";
 import DragableTodoLabelList from "./ui/DragableTodoLabelList";
+
+import useTodoPageFilterStore from "./model/useTodoPageFilterStore";
+import { useTodoFilter } from "./model/useTodoFilter";
 
 export {
   TodoCateList,
@@ -36,4 +43,10 @@ export {
   TodoLabelCreateBtn,
   TodoLabelItem,
   DragableTodoLabelList,
+  useGetCountAllByCateIdQuery,
+  useGetCountAllByImportantQuery,
+  useGetCountAllByIsTodayQuery,
+  useGetCountAllTodoQuery,
+  useTodoPageFilterStore,
+  useTodoFilter,
 };
