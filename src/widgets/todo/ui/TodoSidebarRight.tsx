@@ -5,7 +5,6 @@ import { todoSidebarRightStyles } from "./TodoSidebarRight.style";
 import { useState } from "react";
 import {
   DragableTodoLabelList,
-  TodoLabelCreateBtn,
   useTodoFilter,
 } from "@features/todo";
 import { TodoLabel } from "@entities/todo/model/type";
@@ -69,7 +68,6 @@ function TodoSidebarRight() {
           selectedLabel={label}
           onClick={handleLabelFilter}
         />
-        <TodoLabelCreateBtn />
       </div>
     </div>
   );

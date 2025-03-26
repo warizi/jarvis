@@ -17,6 +17,7 @@ function SubTodoItem({
   index: number;
 }) {
   const { container, input, button } = subTodoItemStyles;
+  const { isDone } = data;
 
   const handleCheck = (
     e: React.ChangeEvent<HTMLInputElement>
@@ -35,7 +36,7 @@ function SubTodoItem({
       <input
         type="text"
         value={data.text}
-        css={input}
+        css={input(isDone)}
         onChange={(e) => {
           onUpdate(index, {
             ...data,

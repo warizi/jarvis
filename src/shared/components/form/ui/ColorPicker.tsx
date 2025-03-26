@@ -24,12 +24,15 @@ function ColorPicker({
     setColor(e.target.value);
     onChange(e);
   };
-
+  const uuid = Math.random();
   return (
-    <label htmlFor="color-picker" css={container(size)}>
+    <label
+      htmlFor={`color-picker-${uuid}`}
+      css={container(size)}
+    >
       <input
         css={input()}
-        id="color-picker"
+        id={`color-picker-${uuid}`}
         type="color"
         value={value}
         onChange={(e) => handleChange(e)}

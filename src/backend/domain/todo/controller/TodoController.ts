@@ -26,7 +26,9 @@ class TodoController {
   }
 
   public async getCountAll() {
-    const data = await this.todoService.getAll();
+    const data = (await this.todoService.getAll()).filter(
+      (todo) => !todo.isDone
+    );
 
     return data.length;
   }
@@ -45,9 +47,9 @@ class TodoController {
     return data;
   }
   public async getCountAllByCateId(cateId: number) {
-    const data = await this.todoService.findByCateId(
-      cateId
-    );
+    const data = (
+      await this.todoService.findByCateId(cateId)
+    ).filter((todo) => !todo.isDone);
 
     return data.length;
   }
@@ -66,7 +68,9 @@ class TodoController {
   }
 
   public async getCountAllByImportant() {
-    const data = await this.todoService.findByImportant();
+    const data = (
+      await this.todoService.findByImportant()
+    ).filter((todo) => !todo.isDone);
 
     return data.length;
   }
@@ -85,7 +89,9 @@ class TodoController {
   }
 
   public async getCountAllByIsToday() {
-    const data = await this.todoService.findByIsToday();
+    const data = (
+      await this.todoService.findByIsToday()
+    ).filter((todo) => !todo.isDone);
 
     return data.length;
   }

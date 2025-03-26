@@ -55,7 +55,7 @@ export const useGetCountAllTodoQuery = () => {
 export const useGetAllByCateIdQuery = (cateId: number) => {
   return useQuery({
     queryFn: () => fetchGetAllByCateId(cateId),
-    queryKey: [todoQueryKey],
+    queryKey: [todoQueryKey, "cate"],
     enabled: cateId !== undefined,
   });
 };
@@ -89,7 +89,7 @@ export const useGetAllByImportantAndIsDoneQuery = () => {
 export const useGetAllByImportantQuery = () => {
   return useQuery({
     queryFn: () => fetchGetAllByImportant(),
-    queryKey: [todoQueryKey],
+    queryKey: [todoQueryKey, "important"],
   });
 };
 
@@ -103,7 +103,7 @@ export const useGetCountAllByImportantQuery = () => {
 export const useGetAllByIsTodayQuery = () => {
   return useQuery({
     queryFn: () => fetchGetAllByIsToday(),
-    queryKey: [todoQueryKey],
+    queryKey: [todoQueryKey, "today"],
   });
 };
 

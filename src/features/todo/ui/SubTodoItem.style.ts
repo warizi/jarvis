@@ -11,13 +11,16 @@ export const subTodoItemStyles = {
       backgroundColor: theme.colors.background.gray,
       paddingLeft: "20px",
     } as const),
-  input: (theme: Theme) => ({
+  input: (isDone: boolean) => (theme: Theme) => ({
     backgroundColor: "transparent",
     width: "100%",
     border: "none",
     outline: "none",
     fontSize: "14px",
-    color: theme.colors.text.primary,
+    color: isDone
+      ? theme.colors.text.secondary
+      : theme.colors.text.primary,
+    textDecoration: isDone ? "line-through" : "none",
   }),
   button: (theme: Theme) =>
     ({

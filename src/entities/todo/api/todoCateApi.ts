@@ -3,6 +3,7 @@ import { TodoCate } from "../model/type";
 import { Id } from "@shared/config/type/commonType";
 
 export async function fetchGetTodoCate(id: number) {
+  await new Promise((resolve) => setTimeout(resolve, 200));
   return await TodoCateController.getInstance().get(id);
 }
 
@@ -16,6 +17,7 @@ export async function fetchGetAllTodoCate() {
 }
 
 export async function fetchCreateTodoCate(data: TodoCate) {
+  await new Promise((resolve) => setTimeout(resolve, 200));
   return await TodoCateController.getInstance().create(
     data
   );
@@ -24,11 +26,13 @@ export async function fetchCreateTodoCate(data: TodoCate) {
 export async function fetchUpdateTodoCate(
   data: TodoCate & Id
 ) {
+  await new Promise((resolve) => setTimeout(resolve, 200));
   return await TodoCateController.getInstance().update(
     data
   );
 }
 
 export async function fetchDeleteTodoCate(id: number) {
+  await new Promise((resolve) => setTimeout(resolve, 200));
   return await TodoCateController.getInstance().delete(id);
 }

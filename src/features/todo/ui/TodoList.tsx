@@ -11,10 +11,19 @@ function TodoList({
   todoList: (Todo & Id)[];
 }) {
   const { container } = todoListStyles;
+  const isNotDoneList = todoList?.filter(
+    (todo) => !todo.isDone
+  );
+  const isDoneList = todoList?.filter(
+    (todo) => todo.isDone
+  );
 
   return (
     <div css={container}>
-      {todoList?.map((todo) => {
+      {isNotDoneList?.map((todo) => {
+        return <TodoItem key={todo.id} data={todo} />;
+      })}
+      {isDoneList?.map((todo) => {
         return <TodoItem key={todo.id} data={todo} />;
       })}
     </div>
