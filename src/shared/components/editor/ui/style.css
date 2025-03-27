@@ -1,0 +1,125 @@
+/* Basic editor styles */
+.tiptap:first-child {
+  margin-top: 0;
+}
+
+/* List styles */
+.tiptap ul,
+.tiptap ol {
+  padding: 0 1rem;
+  margin: 1.25rem 1rem 1.25rem 0.4rem;
+}
+
+.tiptap ul li p,
+.tiptap ol li p {
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+}
+
+/* Heading styles */
+.tiptap h1,
+.tiptap h2,
+.tiptap h3,
+.tiptap h4,
+.tiptap h5,
+.tiptap h6 {
+  line-height: 1.1;
+  margin-top: 1.5rem;
+  text-wrap: pretty;
+}
+
+.tiptap h1,
+.tiptap h2 {
+  margin-bottom: 1.5rem;
+}
+
+.tiptap h1 {
+  font-size: 1.4rem;
+}
+
+.tiptap h2 {
+  font-size: 1.2rem;
+}
+
+.tiptap h3 {
+  font-size: 1.1rem;
+}
+
+.tiptap h4,
+.tiptap h5,
+.tiptap h6 {
+  font-size: 1rem;
+}
+
+/* Code and preformatted text styles */
+.tiptap code {
+  background-color: rgba(13, 13, 13, 1);
+  border-radius: 0.4rem;
+  color: rgb(202, 193, 193);
+  font-size: 0.85rem;
+  padding: 0.25em 0.3em;
+}
+
+.tiptap pre {
+  background-color: rgba(13, 13, 13, 1);
+  border-radius: 0.5rem;
+  color: rgb(202, 193, 193);
+  font-family: "JetBrainsMono", monospace;
+  margin: 1rem 0;
+  padding: 0.75rem 1rem;
+}
+
+.tiptap pre code {
+  background: none;
+  color: rgb(202, 193, 193);
+  font-size: 0.8rem;
+  padding: 0;
+}
+
+.tiptap blockquote {
+  border-left: 3px solid gray;
+  margin: 1.5rem 0;
+  padding-left: 1rem;
+}
+
+.tiptap hr {
+  border: none;
+  border-top: 1px solid gray;
+  margin: 2rem 0;
+}
+
+.editor {
+  background-color: "white";
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
+  margin: 1rem 0;
+  padding: 1rem;
+}
+
+.ProseMirror:focus {
+  outline: none;
+}
+.button-group {
+  margin-bottom: 10px;
+  height: 500px;
+  overflow-y: auto;
+  z-index: 1100;
+}
+.button-group button {
+  background-color: #fff;
+  border: none;
+  /* border: 1px solid #e2e8f0; */
+  /* padding: 10px; */
+  border-radius: 8px;
+  cursor: pointer;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.button-group button:hover {
+  background-color: #f7fafc;
+}
+
+.button-group button.is-active {
+  background-color: #c9d6dd;
+}

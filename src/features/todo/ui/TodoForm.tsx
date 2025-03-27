@@ -5,13 +5,13 @@ import { todoFormStyles } from "./TodoForm.style";
 import { Id } from "@shared/config/type/commonType";
 import {
   ImportantCheckBox,
-  MemoTextarea,
   TodoCheckbox,
 } from "@shared/components/form";
 import { Controller } from "react-hook-form";
 import { useTodoform } from "../model/useTodoForm";
 import SubTodoForm from "./SubTodoForm";
 import DragableTodoLabelList from "./DragableTodoLabelList";
+import { CommonEditor } from "@shared/components/editor";
 
 function TodoForm({ data }: { data: Todo & Id }) {
   const { container, label, input } = todoFormStyles;
@@ -80,12 +80,17 @@ function TodoForm({ data }: { data: Todo & Id }) {
         control={control}
         defaultValue=""
         render={({ field }) => (
-          <MemoTextarea
-            value={field.value}
-            onChange={field.onChange}
-            placeholder="메모를 입력하세요."
-            height="100px"
-          />
+          <div
+            css={{
+              border: "1px solid #d9d9d9",
+              borderRadius: "5px",
+            }}
+          >
+            <CommonEditor
+              value={field.value || ""}
+              setValue={field.onChange}
+            />
+          </div>
         )}
       />
     </div>
