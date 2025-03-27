@@ -61,7 +61,7 @@ function TodoCateItem({
           )}
         </div>
         {cateCount ? (
-          <CountAlert count={cateCount} size={20} />
+          <CountAlert count={cateCount} size={18} />
         ) : null}
       </Link>
     </li>

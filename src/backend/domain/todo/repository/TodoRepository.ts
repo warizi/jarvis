@@ -66,14 +66,6 @@ class TodoRepository {
   }
 
   async findByCateIdAndIsDone(cateId: number) {
-    console.log(
-      "data",
-      (
-        await flowaDb.todo.where({ cateId }).toArray()
-      ).filter((todo) => {
-        return todo.isDone && !isToday(todo.doneDate);
-      })
-    );
     return (
       await flowaDb.todo.where({ cateId }).toArray()
     ).filter((todo) => {

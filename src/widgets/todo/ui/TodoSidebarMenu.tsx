@@ -40,7 +40,7 @@ function TodoSidebarMenu() {
               <span css={span}>Today</span>
             </div>
             {todayCount ? (
-              <CountAlert count={todayCount} size={20} />
+              <CountAlert count={todayCount} size={18} />
             ) : null}
           </Link>
         </li>
@@ -57,7 +57,7 @@ function TodoSidebarMenu() {
             {importantCount ? (
               <CountAlert
                 count={importantCount}
-                size={20}
+                size={18}
               />
             ) : null}
           </Link>
@@ -73,7 +73,7 @@ function TodoSidebarMenu() {
               <span css={span}>전체</span>
             </div>
             {allCount ? (
-              <CountAlert count={allCount} size={20} />
+              <CountAlert count={allCount} size={18} />
             ) : null}
           </Link>
         </li>

@@ -4,6 +4,7 @@ import MonitorIcon from "@shared/components/icon/ui/MonitorIcon";
 import TaskIcon from "@shared/components/icon/ui/TaskIcon";
 import { ROUTE_URL } from "@shared/constants/route/ROUTE_URL";
 import useIsCurrentLink from "./useIsCurrentLink";
+import { NoteIcon } from "@shared/components/icon";
 
 export interface NavLinkType {
   title: string;
@@ -38,6 +39,20 @@ export const useNavItems = () => {
           size={20}
           color={
             isCurrentLink(ROUTE_URL.TODO)
+              ? theme.colors.background.deep
+              : theme.colors.text.secondary
+          }
+        />
+      ),
+    },
+    {
+      title: "Note",
+      url: ROUTE_URL.NOTE,
+      icon: (
+        <NoteIcon
+          size={20}
+          color={
+            isCurrentLink(ROUTE_URL.NOTE)
               ? theme.colors.background.deep
               : theme.colors.text.secondary
           }

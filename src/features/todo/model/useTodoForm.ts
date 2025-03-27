@@ -11,6 +11,7 @@ export const useTodoform = (data: Todo & Id) => {
   });
 
   const allValues = watch();
+  console.log("all values : ", allValues);
   const prevValuesRef = useRef<Todo & Id>(data);
 
   const { mutate } = useUpdateTodoMutation();
@@ -33,7 +34,12 @@ export const useTodoform = (data: Todo & Id) => {
     };
   }, [allValues, debouncedMutate, data.id]);
 
-  return { register, control, isDone: allValues.isDone };
+  return {
+    register,
+    control,
+    isDone: allValues.isDone,
+    allValues,
+  };
 };
 
 function subComplete(value: Todo & Id) {

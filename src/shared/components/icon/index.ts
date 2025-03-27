@@ -14,6 +14,7 @@ import FolderIcon from "./ui/FolderIcon";
 import SidebarIcon from "./ui/SidebarIcon";
 import SearchIcon from "./ui/SearchIcon";
 import CloseIcon from "./ui/CloseIcon";
+import NoteIcon from "./ui/NoteIcon";
 
 export {
   ExitIcon,
@@ -32,4 +33,5 @@ export {
   SidebarIcon,
   SearchIcon,
   CloseIcon,
+  NoteIcon,
 };

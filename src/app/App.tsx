@@ -25,6 +25,7 @@ import {
   QueryClient,
   QueryClientProvider,
 } from "@tanstack/react-query";
+import { NotePage } from "@pages/note";
 
 const queryClient = new QueryClient();
 
@@ -66,6 +67,11 @@ function App() {
                   element={<TodoImportantPage />}
                 />
               </Route>
+              {/* NOTE */}
+              <Route
+                path={ROUTE_URL.NOTE}
+                element={<NotePage />}
+              />
               {/* TEST */}
               <Route
                 path={ROUTE_URL.TEST}

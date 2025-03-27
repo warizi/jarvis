@@ -164,6 +164,8 @@ class TodoBackService {
       const todoBack = data as TodoBack;
       if (labelId) {
         todoBack.labelId = labelId;
+      } else {
+        todoBack.labelId = undefined;
       }
       delete data.label;
       return await this.todoRepository.save(todoBack);
