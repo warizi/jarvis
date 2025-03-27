@@ -12,6 +12,8 @@ import TrashIcon from "./ui/TrashIcon";
 import ArrowDown from "./ui/ArrowDown";
 import FolderIcon from "./ui/FolderIcon";
 import SidebarIcon from "./ui/SidebarIcon";
+import SearchIcon from "./ui/SearchIcon";
+import CloseIcon from "./ui/CloseIcon";
 
 export {
   ExitIcon,
@@ -28,4 +30,6 @@ export {
   ArrowDown,
   FolderIcon,
   SidebarIcon,
+  SearchIcon,
+  CloseIcon,
 };

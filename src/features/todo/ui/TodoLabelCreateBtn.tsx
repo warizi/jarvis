@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 
 import {
-  ColorPicker,
+  CustomColorPicker,
   OneLineTextForm,
 } from "@shared/components/form";
 import { useCreateTodoLabel } from "../model/useCreateTodoLabel";
@@ -37,9 +37,13 @@ function TodoLabelCreateBtn() {
         name="color"
         control={control}
         render={({ field }) => (
-          <ColorPicker
+          // <ColorPicker
+          //   size={30}
+          //   value={field.value}
+          //   onChange={field.onChange}
+          // />
+          <CustomColorPicker
             size={30}
-            value={field.value}
             onChange={field.onChange}
           />
         )}

@@ -5,7 +5,10 @@ import SplitModalToggleButton from "./SplitModalToggleButton";
 import ThemeToggleButton from "./ThemeToggleButton";
 import { ContextMenu } from "@shared/components/contextMenu";
 import {
+  CustomColorPicker,
   MemoTextarea,
+  SearchBar,
+  TemplateColorPicker,
   TodoCheckbox,
 } from "@shared/components/form";
 import SubTodoForm from "@features/todo/ui/SubTodoForm";
@@ -56,6 +59,12 @@ function TestPage() {
           }}
         />
         {/* <DragableTodoLabelList /> */}
+        <SearchBar />
+        <TemplateColorPicker
+          selectedColor="#6D4645"
+          onClick={() => {}}
+        />
+        <CustomColorPicker size={30} />
       </div>
     </div>
   );

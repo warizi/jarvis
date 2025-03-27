@@ -10,6 +10,7 @@ import {
 import { TodoLabel } from "@entities/todo/model/type";
 import { TodoPageFilter } from "@features/todo/model/useTodoPageFilterStore";
 import { Id } from "@shared/config/type/commonType";
+import { SearchBar } from "@shared/components/form";
 
 function TodoSidebarRight() {
   const [isOpen, setIsOpen] = useState(false);
@@ -47,23 +48,40 @@ function TodoSidebarRight() {
 
     setFilter(newFilter as TodoPageFilter);
   };
+  const handleSearch = (text: string) => {
+    const newFilter = {
+      ...filter,
+      text,
+    };
+    setFilter(newFilter as TodoPageFilter);
+  };
 
-  const { container, toggleButton, innerContainer } =
-    todoSidebarRightStyles;
+  const {
+    container,
+    toggleButton,
+    innerContainer,
+    title,
+    divider,
+  } = todoSidebarRightStyles;
   return (
     <div css={container(isOpen)}>
       <div css={toggleButton} onClick={toggleOpen}>
         <SidebarIcon />
       </div>
       <div css={innerContainer(isOpen)}>
-        <span>search</span>
-        <div></div>
-        <input
-          type="text"
+        <div css={title}>필터</div>
+        <div css={divider}>
+          <span>검색</span>
+          <hr />
+        </div>
+        <SearchBar
           onChange={(e) => handleTextFilter(e)}
+          onSearch={handleSearch}
         />
-        <div></div>
-        <span>label</span>
+        <div css={divider}>
+          <span>라벨</span>
+          <hr />
+        </div>
         <DragableTodoLabelList
           selectedLabel={label}
           onClick={handleLabelFilter}
