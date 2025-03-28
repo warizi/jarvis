@@ -1,0 +1,35 @@
+import NoteCateController from "@backend/domain/note/controller/NoteCateController";
+import { NoteCate } from "../model/type";
+
+export async function fetchGetNoteCate(id: number) {
+  await new Promise((resolve) => setTimeout(resolve, 200));
+  return await NoteCateController.getInstance().get(id);
+}
+
+export async function fetchGetAllNoteCate() {
+  const result =
+    await NoteCateController.getInstance().getAll();
+
+  // 200ms 대기 후 결과 반환
+  await new Promise((resolve) => setTimeout(resolve, 200));
+  return result;
+}
+
+export async function fetchCreateNoteCate(data: NoteCate) {
+  await new Promise((resolve) => setTimeout(resolve, 200));
+  return await NoteCateController.getInstance().create(
+    data
+  );
+}
+
+export async function fetchUpdateNoteCate(data: NoteCate) {
+  await new Promise((resolve) => setTimeout(resolve, 200));
+  return await NoteCateController.getInstance().update(
+    data
+  );
+}
+
+export async function fetchDeleteNoteCate(id: number) {
+  await new Promise((resolve) => setTimeout(resolve, 200));
+  return await NoteCateController.getInstance().delete(id);
+}

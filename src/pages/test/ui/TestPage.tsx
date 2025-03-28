@@ -18,6 +18,10 @@ import {
   TodoLabelCreateBtn,
   TodoLabelItem,
 } from "@features/todo";
+import {
+  DragableNoteCateList,
+  NoteCateItem,
+} from "@features/note";
 // import { useTest } from "../model/useTest";
 
 const pageContainerStyles = {
@@ -65,6 +69,14 @@ function TestPage() {
           onClick={() => {}}
         />
         <CustomColorPicker size={30} />
+        <NoteCateItem
+          data={{
+            id: 1,
+            name: "test",
+            order: 1000,
+          }}
+        />
+        <DragableNoteCateList />
       </div>
     </div>
   );

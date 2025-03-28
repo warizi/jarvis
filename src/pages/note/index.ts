@@ -1,3 +1,5 @@
 import NotePage from "./ui/NotePage";
+import NoteCatePage from "./ui/NoteCatePage";
+import NoteLayout from "./ui/NoteLayout";
 
-export { NotePage };
+export { NotePage, NoteCatePage, NoteLayout };

@@ -25,7 +25,7 @@ import {
   QueryClient,
   QueryClientProvider,
 } from "@tanstack/react-query";
-import { NotePage } from "@pages/note";
+import { NoteCatePage, NoteLayout } from "@pages/note";
 
 const queryClient = new QueryClient();
 
@@ -70,8 +70,13 @@ function App() {
               {/* NOTE */}
               <Route
                 path={ROUTE_URL.NOTE}
-                element={<NotePage />}
-              />
+                element={<NoteLayout />}
+              >
+                <Route
+                  path={ROUTE_URL.NOTE_CATE + "/:id"}
+                  element={<NoteCatePage />}
+                />
+              </Route>
               {/* TEST */}
               <Route
                 path={ROUTE_URL.TEST}
