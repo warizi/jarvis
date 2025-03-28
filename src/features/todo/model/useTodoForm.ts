@@ -11,7 +11,6 @@ export const useTodoform = (data: Todo & Id) => {
   });
 
   const allValues = watch();
-  console.log("all values : ", allValues);
   const prevValuesRef = useRef<Todo & Id>(data);
 
   const { mutate } = useUpdateTodoMutation();

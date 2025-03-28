@@ -249,10 +249,12 @@ function CommonEditor({
   value,
   setValue,
   readOnly = false,
+  minHeight = "",
 }: {
   value: string;
   setValue: (value: string) => void;
   readOnly?: boolean;
+  minHeight?: string;
 }) {
   const editor = useEditor({
     extensions: [
@@ -275,7 +277,18 @@ function CommonEditor({
   }, [value, editor]);
 
   return (
-    <div css={{ ...(readOnly ? UltraMiniStyle : Style) }}>
+    <div
+      css={{
+        ...(readOnly
+          ? UltraMiniStyle
+          : {
+              ...Style,
+              ...(minHeight
+                ? { ".ProseMirror": { minHeight } }
+                : {}),
+            }),
+      }}
+    >
       <div
         css={{
           ...innerStyle,

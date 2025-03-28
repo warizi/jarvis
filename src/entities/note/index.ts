@@ -15,6 +15,15 @@ import {
   useGetNoteLabelQuery,
 } from "./model/noteLabelFetchHooks";
 
+import {
+  useCreateNoteMutation,
+  useUpdateNoteMutation,
+  useDeleteNoteMutation,
+  useGetAllNoteQuery,
+  useGetNoteQuery,
+  useGetAllNoteByCateIdQuery,
+} from "./model/noteFetchHooks";
+
 export {
   NoteCate,
   noteCateQueryKey,
@@ -28,4 +37,10 @@ export {
   useDeleteNoteLabelMutation,
   useGetAllNoteLabelQuery,
   useGetNoteLabelQuery,
+  useCreateNoteMutation,
+  useUpdateNoteMutation,
+  useDeleteNoteMutation,
+  useGetAllNoteQuery,
+  useGetNoteQuery,
+  useGetAllNoteByCateIdQuery,
 };

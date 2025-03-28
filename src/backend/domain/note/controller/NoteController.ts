@@ -1,4 +1,7 @@
-import { NoteBackDto } from "../dto/NoteBackDto";
+import {
+  NoteBackDto,
+  NoteCreateBackDto,
+} from "../dto/NoteBackDto";
 import NoteBackService from "../service/NoteBackService";
 
 class NoteController {
@@ -46,7 +49,7 @@ class NoteController {
     await this.noteService.delete(id);
   }
 
-  public async create(data: NoteBackDto) {
+  public async create(data: NoteCreateBackDto) {
     const createdData = await this.noteService.save(data);
 
     return createdData;
