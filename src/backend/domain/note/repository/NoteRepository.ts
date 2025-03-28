@@ -15,11 +15,13 @@ class NoteRepository {
       isImportant: data.isImportant ? 1 : 0, // boolean → number 변환
     };
     if ("id" in convertedData) {
+      convertedData.updatedAt = new Date().toISOString();
       await flowaDb.note.update(
         convertedData.id,
         convertedData
       );
     } else {
+      convertedData.createdAt = new Date().toISOString();
       await flowaDb.note.add(convertedData);
     }
 
