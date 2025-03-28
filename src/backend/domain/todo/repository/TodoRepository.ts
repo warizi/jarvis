@@ -22,8 +22,11 @@ class TodoRepository {
       isImportant: data.isImportant ? 1 : 0, // boolean → number 변환
     };
 
-    if ("id" in data) {
-      await flowaDb.todo.update(data.id, convertedData);
+    if ("id" in convertedData) {
+      await flowaDb.todo.update(
+        convertedData.id,
+        convertedData
+      );
     } else {
       await flowaDb.todo.add(convertedData);
     }

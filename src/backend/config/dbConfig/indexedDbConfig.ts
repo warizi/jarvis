@@ -1,3 +1,4 @@
+import { NoteBack } from "@backend/domain/note/entities/NoteBack";
 import { NoteCateBack } from "@backend/domain/note/entities/NoteCateBack";
 import { NoteLabelBack } from "@backend/domain/note/entities/NoteLabelBack";
 import { TodoBack } from "@backend/domain/todo/entities/TodoBack";
@@ -11,6 +12,7 @@ export const flowaDb = new Dexie("flowaDb") as Dexie & {
   todoLabel: EntityTable<TodoLabelBack, "id">;
   noteCate: EntityTable<NoteCateBack, "id">;
   noteLabel: EntityTable<NoteLabelBack, "id">;
+  note: EntityTable<NoteBack, "id">;
 };
 
 flowaDb.version(1).stores({
@@ -19,4 +21,5 @@ flowaDb.version(1).stores({
   todoLabel: "++id, name, order, color",
   noteCate: "++id, name, order",
   noteLabel: "++id, name, order, color",
+  note: "++id, title, order, isImportant, content, labelId, cateId, createdAt, updatedAt",
 });
