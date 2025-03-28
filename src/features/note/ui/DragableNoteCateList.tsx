@@ -4,7 +4,6 @@ import {
   NoteCate,
   useGetAllNoteCateQuery,
 } from "@entities/note";
-import { dragableTodoLabelListStyles } from "@features/todo/ui/DragableTodoLabelList.style";
 import { useIsCurrentLink } from "../model/useIsCurrentLink";
 import { useDnDNoteCate } from "../model/useDnDNoteCate";
 import {
@@ -14,10 +13,11 @@ import {
 import { Id } from "@shared/config/type/commonType";
 import NoteCateItem from "./NoteCateItem";
 import NoteCateCreateBtn from "./NoteCateCreateBtn";
+import { dragableNoteItemListStyles } from "./DragableNoteCateList.style";
 
 function DragableNoteCateList() {
   const { data } = useGetAllNoteCateQuery();
-  const { ul, container } = dragableTodoLabelListStyles;
+  const { ul, container } = dragableNoteItemListStyles;
   const isCurrentLink = useIsCurrentLink();
 
   const { handleDragEnd } = useDnDNoteCate();

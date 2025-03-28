@@ -1,16 +1,16 @@
 /** @jsxImportSource @emotion/react */
 
+import { useTheme } from "@emotion/react";
+import { useCreateNoteLabel } from "../model/useCreateNoteLabel";
 import {
   CustomColorPicker,
   OneLineTextForm,
 } from "@shared/components/form";
-import { useCreateTodoLabel } from "../model/useCreateTodoLabel";
 import { Controller } from "react-hook-form";
-import { useTheme } from "@emotion/react";
 
-function TodoLabelCreateBtn() {
+function NoteLabelCreateBtn() {
   const { register, onSubmit, control } =
-    useCreateTodoLabel();
+    useCreateNoteLabel();
   const theme = useTheme();
   const randomNo = Math.random();
   return (
@@ -52,4 +52,4 @@ function TodoLabelCreateBtn() {
   );
 }
 
-export default TodoLabelCreateBtn;
+export default NoteLabelCreateBtn;

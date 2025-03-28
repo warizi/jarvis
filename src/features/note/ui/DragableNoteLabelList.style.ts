@@ -1,6 +1,6 @@
 import { Theme } from "@emotion/react";
 
-export const dragableTodoLabelListStyles = {
+export const dragableNoteLabelListStyles = {
   container: () => ({
     width: "100%",
   }),

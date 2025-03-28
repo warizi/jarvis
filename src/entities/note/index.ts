@@ -7,6 +7,13 @@ import {
   useUpdateNoteCateMutation,
   useDeleteNoteCateMutation,
 } from "./model/noteCateFetchHooks";
+import {
+  useCreateNoteLabelMutation,
+  useUpdateNoteLabelMutation,
+  useDeleteNoteLabelMutation,
+  useGetAllNoteLabelQuery,
+  useGetNoteLabelQuery,
+} from "./model/noteLabelFetchHooks";
 
 export {
   NoteCate,
@@ -16,4 +23,9 @@ export {
   useCreateNoteCateMutation,
   useUpdateNoteCateMutation,
   useDeleteNoteCateMutation,
+  useCreateNoteLabelMutation,
+  useUpdateNoteLabelMutation,
+  useDeleteNoteLabelMutation,
+  useGetAllNoteLabelQuery,
+  useGetNoteLabelQuery,
 };

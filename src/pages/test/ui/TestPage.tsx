@@ -20,6 +20,7 @@ import {
 } from "@features/todo";
 import {
   DragableNoteCateList,
+  DragableNoteLabelList,
   NoteCateItem,
 } from "@features/note";
 // import { useTest } from "../model/useTest";
@@ -77,6 +78,7 @@ function TestPage() {
           }}
         />
         <DragableNoteCateList />
+        <DragableNoteLabelList onClick={() => {}} />
       </div>
     </div>
   );
