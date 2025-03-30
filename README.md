@@ -26,6 +26,64 @@ Designed to manage your schedule, tasks, and notes — with future-ready backend
 
 ---
 
-## 🏗 Project Structure (Feature-Sliced Design)
+## 🏗 Project Structure
 
-<pre><code>src/ ├── shared/ # Reusable design tokens, UI components, utilities ├── entities/ # Core domain models like Todo, Schedule, Note ├── features/ # Feature units like Drag & Drop, Editor, Filtering ├── widgets/ # Composed UI blocks like TodoList, CalendarGrid ├── pages/ # Page-level routes and layout handling └── app/ # App root config (providers, router, entry point) </code></pre>
+### 📁 Frontend (Feature-Sliced Design)
+
+<pre><code>src/
+├── shared/      # Reusable design tokens, UI components, utilities
+├── entities/    # Core domain models like Todo, Note
+├── features/    # Feature units like Drag & Drop, Editor, Filtering
+├── widgets/     # Composed UI blocks like TodoList, CalendarGrid
+├── pages/       # Page-level routes and layout handling
+└── app/         # App root config (providers, router, entry point)
+</code></pre>
+
+### 🖥 Backend Folder (Spring Boot-like Layout)
+
+<pre><code>backend/
+├── common/                 
+├── config/                 
+└── domain/
+    ├── note/              
+    │   └── ...
+    └── todo/
+        ├── controller/
+        │   ├── TodoController.ts
+        │   ├── TodoCateController.ts
+        │   └── TodoLabelController.ts
+        ├── dto/
+        │   └── TodoDto.ts
+        ├── entities/
+        │   ├── TodoBack.ts
+        │   ├── TodoCateBack.ts
+        │   └── TodoLabelBack.ts
+        ├── repository/
+        │   ├── TodoRepository.ts
+        │   ├── TodoCateRepository.ts
+        │   └── TodoLabelRepository.ts
+        └── service/
+            ├── TodoBackService.ts
+            ├── TodoCateBackService.ts
+            └── TodoLabelService.ts
+</code></pre>
+
+📌 Backend structure was prepared **from day one** to support seamless back-end migration after front-end completion.
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js (v18+)
+- npm
+
+### Installation
+
+```bash
+git clone https://github.com/warizi/jarvis
+cd jarvis
+npm install
+npm run dev
+```
