@@ -13,6 +13,7 @@ import { useTodoSplitModal } from "../model/useTodoSplitModal";
 import { SunIcon } from "@shared/components/icon";
 import { useTheme } from "@emotion/react";
 import { isToday } from "@shared/lib/isToday";
+import { useTodoContextMenu } from "../model/useTodoContextMenu";
 
 function TodoItem({ data }: { data: Todo & Id }) {
   const {
@@ -24,6 +25,7 @@ function TodoItem({ data }: { data: Todo & Id }) {
     label,
   } = todoItemStyles;
   const {
+    id,
     title,
     isDone,
     doneDate,
@@ -35,10 +37,13 @@ function TodoItem({ data }: { data: Todo & Id }) {
   const { handleCheck, handleImportant, handleToday } =
     useTodoCheckBox();
   const { openTodoSplitModal } = useTodoSplitModal();
+  const { openContextMenu } = useTodoContextMenu(id);
+
   return (
     <div
       css={container(isDone)}
       onClick={openTodoSplitModal(data)}
+      onContextMenu={openContextMenu}
     >
       <div css={innerContainer}>
         <div css={label(todoLabel?.color || "")} />
