@@ -11,7 +11,7 @@ import {
 } from "@shared/hooks/DnDWrapper";
 import { useDnDTodoCate } from "../model/useDnDTodoCate";
 import { SidebarListWrapper } from "@shared/components/sidebar";
-import { PlusIcon } from "@shared/components/icon";
+import TodoCateCreateBtn from "./TodoCateCreateBtn";
 
 function DraggableTodoCateList() {
   const { data } = useGetAllTodoCateQuery();
@@ -21,12 +21,7 @@ function DraggableTodoCateList() {
   return (
     <SidebarListWrapper
       listTitle="Categories"
-      button={{
-        icon: <PlusIcon size={24} />,
-        onClick: () => {
-          console.log("Create Todo Category");
-        },
-      }}
+      bottom={<TodoCateCreateBtn />}
     >
       <SortableDndContext
         handleDragEnd={handleDragEnd}

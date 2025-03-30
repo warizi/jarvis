@@ -21,6 +21,7 @@ export const sidebarListWrapperStyles = {
       justifyContent: "space-between",
       alignItems: "center",
       height: "30px",
+      paddingLeft: "10px",
       color: theme.colors.text.secondary,
       fontSize: theme.typography.size.small,
     } as const),

@@ -1,7 +1,7 @@
 import { Theme } from "@emotion/react";
 
-export const todoCateItemStyle = {
-  li: (isActive: boolean) => (theme: Theme) =>
+export const sidebarItemWrapperStyles = {
+  li: () =>
     ({
       display: "flex",
       flexDirection: "row",
@@ -9,11 +9,7 @@ export const todoCateItemStyle = {
       alignItems: "center",
       fontSize: "14px",
       transition: "background 0s",
-      backgroundColor: isActive
-        ? theme.colors.primary.light
-        : theme.colors.background.deep,
-      borderRadius: theme.radius.medium,
-      boxShadow: theme.shadow.small,
+      backgroundColor: "transparent",
       width: "100%",
       "&:last-child": {
         borderBottom: "none",
@@ -25,35 +21,35 @@ export const todoCateItemStyle = {
       flexDirection: "row",
       alignItems: "center",
     } as const),
-  link: (isActive: boolean) => (theme: Theme) =>
+  link: (isCurrent: boolean) => (theme: Theme) =>
     ({
       display: "flex",
       flexDirection: "row",
       justifyContent: "space-between",
       alignItems: "center",
-      padding: "0 10px",
-      color: isActive ? "white" : theme.colors.text.primary,
+      color: isCurrent
+        ? theme.colors.text.primary
+        : theme.colors.text.secondary,
       transition: "none",
       textDecoration: "none",
+      padding: "0 10px",
       width: "100%",
-      height: "45px",
-      borderRadius: theme.radius.medium,
+      height: "40px",
       "&:hover": {
-        background: isActive
-          ? theme.colors.primary.normal
-          : theme.colors.background.hover,
+        color: theme.colors.text.primary,
+        background: theme.colors.background.hover,
       },
     } as const),
   span: () => ({
     marginLeft: "10px",
     transition: "none",
   }),
-  input: (isActive: boolean) => (theme: Theme) => ({
+  input: (isCurrent: boolean) => (theme: Theme) => ({
     marginLeft: "10px",
     border: "none",
     outline: "none",
     background: "none",
-    color: isActive ? "white" : theme.colors.text.primary,
+    color: isCurrent ? "white" : theme.colors.text.primary,
     width: "100%",
     "&::placeholder": {
       color: theme.colors.primary.normal,

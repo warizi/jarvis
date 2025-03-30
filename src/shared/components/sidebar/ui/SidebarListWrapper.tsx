@@ -11,12 +11,14 @@ type SidebarListWrapperProps = {
   listTitle?: string;
   button?: SidebarListButtonProps;
   children: React.ReactNode;
+  bottom?: React.ReactNode;
 };
 
 function SidebarListWrapper({
   listTitle,
   button,
   children,
+  bottom,
 }: SidebarListWrapperProps) {
   const { container, ul, listTitleContainer, buttonStyle } =
     sidebarListWrapperStyles;
@@ -42,6 +44,7 @@ function SidebarListWrapper({
         </div>
       )}
       <ul css={ul}>{children}</ul>
+      {bottom && bottom}
     </div>
   );
 }

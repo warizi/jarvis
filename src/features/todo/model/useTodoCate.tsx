@@ -2,7 +2,7 @@ import { Id } from "@shared/config/type/commonType";
 import { TodoCate } from "../../../entities/todo/model/type";
 import { useContextMenuStore } from "@shared/components/contextMenu";
 import { useUpdateTodoCateMutation } from "../../../entities/todo/model/todoCateFetchHooks";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import { useTodoCateDelete } from "./useTodoCateDelete";
 
 export const useTodoCate = (data: TodoCate & Id) => {
@@ -13,8 +13,6 @@ export const useTodoCate = (data: TodoCate & Id) => {
     useUpdateTodoCateMutation();
   const [isEdit, setIsEdit] = useState(false);
   const [values, setValues] = useState<TodoCate & Id>(data);
-  const inputRef = useRef<HTMLInputElement>(null);
-
   const handleValue = (
     key: keyof (TodoCate & Id),
     value: string
@@ -36,14 +34,6 @@ export const useTodoCate = (data: TodoCate & Id) => {
     if (!values.name && !values.name.trim()) return;
     await updateTodoCateMutate(values);
     setIsEdit(false);
-  };
-
-  const handleKeyDown = (
-    event: React.KeyboardEvent<HTMLInputElement>
-  ) => {
-    if (event.key === "Enter") {
-      onSubmit();
-    }
   };
 
   const handleEdit = () => {
@@ -75,20 +65,10 @@ export const useTodoCate = (data: TodoCate & Id) => {
     ]);
   };
 
-  useEffect(() => {
-    if (isEdit) {
-      setTimeout(() => {
-        inputRef.current?.focus();
-      }, 0);
-    }
-  }, [isEdit]);
-
   return {
     openContextMenu,
     isEdit,
     register,
     onSubmit,
-    inputRef,
-    handleKeyDown,
   };
 };
