@@ -42,7 +42,7 @@ function NoteForm({ data }: { data: Note & Id }) {
         render={({ field }) => (
           <div
             css={(theme: Theme) => ({
-              zIndex: 99999,
+              zIndex: 14000,
               borderBottom: `1px solid ${theme.colors.border.deepGray}`,
             })}
           >

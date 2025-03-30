@@ -67,7 +67,7 @@ export const darkTheme: Theme = {
     },
     background: {
       deep: "rgb(16, 16, 16)",
-      gray: "rgb(32, 32, 32)",
+      gray: "rgb(28, 28, 28)",
       hover: "rgba(116, 116, 116, 0.1)",
       backdrop: "rgba(16, 16, 16, 0.3)",
     },

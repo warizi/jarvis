@@ -25,6 +25,7 @@ const Style = {
         display: "none",
       },
       boxShadow: theme.shadow.small,
+      zIndex: 9999,
     } as const),
   item: (theme: Theme) =>
     ({
@@ -40,6 +41,7 @@ const Style = {
       },
       textAlign: "left",
       padding: "0 10px",
+      zIndex: 9999,
     } as const),
   itemActive: (theme: Theme) =>
     ({
@@ -185,8 +187,9 @@ function ContextEditorMenu({
           }}
           tippyOptions={{
             duration: 100,
-            placement: "top",
+            placement: "bottom",
             offset: [100, 5],
+            zIndex: 9999,
           }}
         >
           <div css={{ ...Style.container(theme) }}>

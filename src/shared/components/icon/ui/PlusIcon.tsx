@@ -3,7 +3,7 @@
 import { IconProps } from "../model/type";
 
 function PlusIcon({
-  color = "#12131A",
+  color = "currentColor",
   size = 24,
 }: IconProps) {
   return (
@@ -13,6 +13,9 @@ function PlusIcon({
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      css={{
+        transition: "fill 0s",
+      }}
     >
       <path
         // fill-rule="evenodd"
