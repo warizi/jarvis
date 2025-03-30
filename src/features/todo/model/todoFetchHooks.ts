@@ -55,7 +55,7 @@ export const useGetCountAllTodoQuery = () => {
 export const useGetAllByCateIdQuery = (cateId: number) => {
   return useQuery({
     queryFn: () => fetchGetAllByCateId(cateId),
-    queryKey: [todoQueryKey, "cate"],
+    queryKey: [todoQueryKey, cateId],
     enabled: cateId !== undefined,
   });
 };
