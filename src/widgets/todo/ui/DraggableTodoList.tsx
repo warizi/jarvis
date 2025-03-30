@@ -7,7 +7,10 @@ import {
 import { useDnDTodo } from "../model/useDnDTodo";
 import { Id } from "@shared/config/type/commonType";
 import { Todo } from "@entities/todo/model/type";
-import { TodoItem } from "@features/todo";
+import {
+  TodoItem,
+  useTodoSplitModal,
+} from "@features/todo";
 
 const todoListStyles = {
   container: () =>
@@ -27,6 +30,7 @@ function DraggableTodoList({
 }) {
   const { container } = todoListStyles;
   const { handleDragEnd } = useDnDTodo();
+  const { openTodoSplitModal } = useTodoSplitModal();
   return (
     <div css={container}>
       <SortableDndContext
@@ -37,7 +41,11 @@ function DraggableTodoList({
           item?.map((todo) => {
             return (
               <DraggableWrapper key={todo.id} id={todo.id}>
-                <TodoItem key={todo.id} data={todo} />
+                <TodoItem
+                  key={todo.id}
+                  data={todo}
+                  onClick={openTodoSplitModal(todo)}
+                />
               </DraggableWrapper>
             );
           })

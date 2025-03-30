@@ -9,6 +9,7 @@ import {
 } from "@shared/hooks/DnDWrapper";
 import NoteItem from "./NoteItem";
 import { useDnDNote } from "../model/useDnDNote";
+import { useNoteSplitModal } from "../model/useNoteSplitModal";
 
 function DragableNoteList({
   noteList,
@@ -17,6 +18,8 @@ function DragableNoteList({
 }) {
   const { container } = noteListStyles;
   const { handleDragEnd } = useDnDNote();
+  const { openNoteSplitModal } = useNoteSplitModal();
+
   return (
     <div css={container}>
       {" "}
@@ -27,7 +30,11 @@ function DragableNoteList({
         {(item) =>
           item?.map((note) => (
             <DraggableWrapper key={note.id} id={note.id}>
-              <NoteItem key={note.id} data={note} />
+              <NoteItem
+                key={note.id}
+                data={note}
+                onClick={openNoteSplitModal(note)}
+              />
             </DraggableWrapper>
           ))
         }

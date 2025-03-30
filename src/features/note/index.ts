@@ -6,6 +6,7 @@ import NoteLabelCreateBtn from "./ui/NoteLabelCreateBtn";
 import NoteItem from "./ui/NoteItem";
 import DragableNoteList from "./ui/DragableNoteList";
 import NoteCreateBtn from "./ui/NoteCreateBtn";
+import { useNoteSplitModal } from "./model/useNoteSplitModal";
 
 export {
   NoteCateItem,
@@ -16,4 +17,5 @@ export {
   NoteItem,
   DragableNoteList,
   NoteCreateBtn,
+  useNoteSplitModal,
 };

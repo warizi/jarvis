@@ -9,13 +9,18 @@ import {
 } from "@shared/components/form";
 import { useTodoCheckBox } from "../model/useTodoCheckBox";
 import { formatDate } from "@shared/lib/formatDate";
-import { useTodoSplitModal } from "../model/useTodoSplitModal";
 import { SunIcon } from "@shared/components/icon";
 import { useTheme } from "@emotion/react";
 import { isToday } from "@shared/lib/isToday";
 import { useTodoContextMenu } from "../model/useTodoContextMenu";
 
-function TodoItem({ data }: { data: Todo & Id }) {
+function TodoItem({
+  data,
+  onClick,
+}: {
+  data: Todo & Id;
+  onClick?: () => void;
+}) {
   const {
     container,
     spanDoneDate,
@@ -36,13 +41,12 @@ function TodoItem({ data }: { data: Todo & Id }) {
   const theme = useTheme();
   const { handleCheck, handleImportant, handleToday } =
     useTodoCheckBox();
-  const { openTodoSplitModal } = useTodoSplitModal();
   const { openContextMenu } = useTodoContextMenu(id);
 
   return (
     <div
       css={container(isDone)}
-      onClick={openTodoSplitModal(data)}
+      onClick={onClick}
       onContextMenu={openContextMenu}
     >
       <div css={innerContainer}>
