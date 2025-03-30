@@ -6,11 +6,12 @@ import { NoteItemStyles } from "./NoteItem.style";
 import { ImportantCheckBox } from "@shared/components/form";
 import { useNoteSplitModal } from "../model/useNoteSplitModal";
 import { useUpdateNoteMutation } from "@entities/note";
-
+import { useNoteContextMenu } from "../model/useNoteContextMenu";
 function NoteItem({ data }: { data: Note & Id }) {
-  const { title, isImportant, label: noteLabel } = data;
+  const { id, title, isImportant, label: noteLabel } = data;
   const { openNoteSplitModal } = useNoteSplitModal();
   const { mutate } = useUpdateNoteMutation();
+  const { openContextMenu } = useNoteContextMenu(id);
 
   const { container, innerContainer, label } =
     NoteItemStyles;
@@ -25,7 +26,11 @@ function NoteItem({ data }: { data: Note & Id }) {
   };
 
   return (
-    <div css={container} onClick={openNoteSplitModal(data)}>
+    <div
+      css={container}
+      onClick={openNoteSplitModal(data)}
+      onContextMenu={openContextMenu}
+    >
       <div css={innerContainer}>
         <div css={label(noteLabel?.color || "")} />
         <span>{title}</span>

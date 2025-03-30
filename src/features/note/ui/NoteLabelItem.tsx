@@ -3,10 +3,7 @@
 import { NoteLabel } from "@entities/note/model/type";
 import { Id } from "@shared/config/type/commonType";
 import { noteLabelItemStyles } from "./NoteLabelItem.style";
-import { useDeleteNoteLabelMutation } from "@entities/note";
-import { useQueryClient } from "@tanstack/react-query";
-import { TrashIcon } from "@shared/components/icon";
-import { noteLabelQueryKey } from "@entities/note/model/constants";
+import { useNoteLabelContextMenu } from "../model/useNoteLabelContextMenu";
 
 type NoteLabelItemProps = {
   data: NoteLabel & Id;
@@ -18,10 +15,8 @@ function NoteLabelItem({
   onClick,
 }: NoteLabelItemProps) {
   const { container, label } = noteLabelItemStyles;
-  const { name, color } = data;
-  const { mutate } = useDeleteNoteLabelMutation();
-  const queryClient = useQueryClient();
-
+  const { id, name, color } = data;
+  const { openContextMenu } = useNoteLabelContextMenu(id);
   return (
     <div
       css={container}
@@ -30,23 +25,10 @@ function NoteLabelItem({
           onClick(data);
         }
       }}
+      onContextMenu={openContextMenu}
     >
       <div css={label(color)} />
       <span>{name}</span>
-      <button
-        onClick={(e) => {
-          e.stopPropagation();
-          mutate(data.id);
-          if (onClick) {
-            onClick(undefined);
-          }
-          queryClient.invalidateQueries({
-            queryKey: [noteLabelQueryKey],
-          });
-        }}
-      >
-        <TrashIcon size={12} />
-      </button>
     </div>
   );
 }
