@@ -1,4 +1,4 @@
-import { type NoteCate } from "./model/type";
+import { type NoteCateType } from "./model/type";
 import { noteCateQueryKey } from "./model/constants";
 import {
   useGetNoteCateByIdQuery,
@@ -24,8 +24,11 @@ import {
   useGetAllNoteByCateIdQuery,
 } from "./model/noteFetchHooks";
 
+import NoteCate from "./ui/NoteCate";
+
 export {
   NoteCate,
+  NoteCateType,
   noteCateQueryKey,
   useGetNoteCateByIdQuery,
   useGetAllNoteCateQuery,

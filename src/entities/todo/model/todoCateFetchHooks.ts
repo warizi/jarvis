@@ -3,7 +3,7 @@ import {
   useQuery,
   useQueryClient,
 } from "@tanstack/react-query";
-import { TodoCate } from "./type";
+import { TodoCateType } from "./type";
 import {
   fetchCreateTodoCate,
   fetchDeleteTodoCate,
@@ -20,7 +20,7 @@ export const useCreateTodoCateMutation = () => {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: (data: TodoCate) =>
+    mutationFn: (data: TodoCateType) =>
       fetchCreateTodoCate(data),
     onSuccess: () => {
       queryClient.invalidateQueries({
@@ -37,7 +37,7 @@ export const useUpdateTodoCateMutation = () => {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: (data: TodoCate & Id) =>
+    mutationFn: (data: TodoCateType & Id) =>
       fetchUpdateTodoCate(data),
     onSuccess: () => {
       queryClient.invalidateQueries({

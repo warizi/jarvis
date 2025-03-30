@@ -24,6 +24,8 @@ import {
   useGetTodoLabelQuery,
 } from "./model/todoLabelFetchHooks";
 
+import TodoCate from "./ui/TodoCate";
+
 export {
   //todoCate
   useCreateTodoCateMutation,
@@ -31,6 +33,7 @@ export {
   useUpdateTodoCateMutation,
   useGetAllTodoCateQuery,
   useGetTodoCateById,
+  TodoCate,
   //todo
   useCreateTodoMutaion,
   useDeleteTodoMutation,

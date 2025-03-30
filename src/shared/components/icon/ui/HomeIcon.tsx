@@ -3,7 +3,7 @@
 import { IconProps } from "../model/type";
 
 function HomeIcon({
-  color = "#BABDCC",
+  color = "currentColor",
   size = 24,
 }: IconProps) {
   return (

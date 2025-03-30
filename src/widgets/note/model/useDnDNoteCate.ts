@@ -1,5 +1,5 @@
 import {
-  NoteCate,
+  NoteCateType,
   useUpdateNoteCateMutation,
 } from "@entities/note";
 import { Id } from "@shared/config/type/commonType";
@@ -10,8 +10,8 @@ export const useDnDNoteCate = () => {
     useUpdateNoteCateMutation();
 
   const handleDragEnd = (
-    newItems: (NoteCate & Id)[],
-    active: NoteCate & Id
+    newItems: (NoteCateType & Id)[],
+    active: NoteCateType & Id
   ) => {
     if (!active?.id) return;
     const newOrder = getNewOrder(active, newItems);

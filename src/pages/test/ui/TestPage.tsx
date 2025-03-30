@@ -19,7 +19,6 @@ import {
   TodoLabelItem,
 } from "@features/todo";
 import {
-  DragableNoteCateList,
   DragableNoteLabelList,
   NoteCateItem,
 } from "@features/note";
@@ -77,7 +76,6 @@ function TestPage() {
             order: 1000,
           }}
         />
-        <DragableNoteCateList />
         <DragableNoteLabelList onClick={() => {}} />
       </div>
     </div>

@@ -5,7 +5,7 @@ import {
 import { useContextMenuStore } from "@shared/components/contextMenu";
 import { Id } from "@shared/config/type/commonType";
 import { useNoteCateDelete } from "./useNoteCateDelete";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 
 export const useNoteCateItem = (data: NoteCate & Id) => {
   const { id } = data;
@@ -15,7 +15,6 @@ export const useNoteCateItem = (data: NoteCate & Id) => {
     useUpdateNoteCateMutation();
   const [isEdit, setIsEdit] = useState(false);
   const [values, setValues] = useState<NoteCate & Id>(data);
-  const inputRef = useRef<HTMLInputElement>(null);
 
   const handleValue = (
     key: keyof (NoteCate & Id),
@@ -38,14 +37,6 @@ export const useNoteCateItem = (data: NoteCate & Id) => {
     if (!values.name && !values.name.trim()) return;
     await updateNoteCateMutate(values);
     setIsEdit(false);
-  };
-
-  const handleKeyDown = (
-    event: React.KeyboardEvent<HTMLInputElement>
-  ) => {
-    if (event.key === "Enter") {
-      onSubmit();
-    }
   };
 
   const handleEdit = () => {
@@ -76,21 +67,11 @@ export const useNoteCateItem = (data: NoteCate & Id) => {
     ]);
   };
 
-  useEffect(() => {
-    if (isEdit) {
-      setTimeout(() => {
-        inputRef.current?.focus();
-      }, 0);
-    }
-  }, [isEdit]);
-
   return {
     isEdit,
     values,
-    inputRef,
     register,
     onSubmit,
-    handleKeyDown,
     openContextMenu,
   };
 };

@@ -1,6 +1,6 @@
 import { Id } from "@shared/config/type/commonType";
 
-export type TodoCate = {
+export type TodoCateType = {
   name: string;
   order: number;
 };

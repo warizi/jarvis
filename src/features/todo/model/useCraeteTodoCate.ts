@@ -1,5 +1,5 @@
 import { useCreateTodoCateMutation } from "@entities/todo/model/todoCateFetchHooks";
-import { TodoCate } from "@entities/todo/model/type";
+import { TodoCateType } from "@entities/todo/model/type";
 import { useForm } from "react-hook-form";
 
 export const useCreateTodoCate = () => {
@@ -8,7 +8,7 @@ export const useCreateTodoCate = () => {
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm<TodoCate>({
+  } = useForm<TodoCateType>({
     defaultValues: {
       name: "",
       order: 0,
@@ -17,10 +17,12 @@ export const useCreateTodoCate = () => {
 
   const { mutate } = useCreateTodoCateMutation();
 
-  const onSubmit = handleSubmit(async (data: TodoCate) => {
-    await mutate(data);
-    reset();
-  });
+  const onSubmit = handleSubmit(
+    async (data: TodoCateType) => {
+      await mutate(data);
+      reset();
+    }
+  );
 
   return { register, onSubmit, errors };
 };

@@ -6,6 +6,7 @@ export const sidebarListWrapperStyles = {
       backgroundColor: "transparent",
       display: "flex",
       flexDirection: "column",
+      marginBottom: "20px",
     } as const),
   ul: () =>
     ({

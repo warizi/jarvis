@@ -1,5 +1,5 @@
 import { useUpdateTodoCateMutation } from "@entities/todo";
-import { TodoCate } from "@entities/todo/model/type";
+import { TodoCateType } from "@entities/todo/model/type";
 import { Id } from "@shared/config/type/commonType";
 import { getNewOrder } from "@shared/hooks/DnDWrapper";
 
@@ -8,8 +8,8 @@ export const useDnDTodoCate = () => {
     useUpdateTodoCateMutation();
 
   const handleDragEnd = (
-    newItems: (TodoCate & Id)[],
-    active: TodoCate & Id
+    newItems: (TodoCateType & Id)[],
+    active: TodoCateType & Id
   ) => {
     if (!active?.id) return;
     const newOrder = getNewOrder(active, newItems);

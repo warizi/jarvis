@@ -19,15 +19,17 @@ const linkItemStyles =
       width: "40px",
       height: "40px",
       color: isCurrent
-        ? theme.colors.primary.dark
-        : theme.colors.text.primary,
+        ? "white"
+        : theme.colors.text.secondary,
       backgroundColor: isCurrent
         ? theme.colors.primary.light
-        : theme.colors.background.deep,
-      boxShadow: theme.shadow.superSmall,
+        : theme.colors.background.gray,
       borderRadius: "9999px",
       cursor: "pointer",
       "&:hover": {
+        color: isCurrent
+          ? "white"
+          : theme.colors.text.primary,
         backgroundColor: isCurrent
           ? theme.colors.primary.dark
           : theme.colors.background.hover,

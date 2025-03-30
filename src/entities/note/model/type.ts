@@ -1,6 +1,6 @@
 import { Id } from "@shared/config/type/commonType";
 
-export type NoteCate = {
+export type NoteCateType = {
   name: string;
   order: number;
 };

@@ -1,7 +1,6 @@
 /** @jsxImportSource @emotion/react */
 
 import {
-  DraggableTodoList,
   TodoCreateBtn,
   TodoList,
   useTodoFilter,
@@ -11,6 +10,7 @@ import TodoHeader from "./TodoHeader";
 import { Todo } from "@entities/todo/model/type";
 import { Id } from "@shared/config/type/commonType";
 import { ToggleListWrapper } from "@shared/components/togglelist";
+import { DraggableTodoList } from "@widgets/todo";
 
 function TodoCatePage() {
   const { data, id, todoList, doneList } =

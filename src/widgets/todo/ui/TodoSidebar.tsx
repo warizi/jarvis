@@ -1,19 +1,13 @@
 /** @jsxImportSource @emotion/react */
 
-import {
-  DraggableTodoCateList,
-  // TodoCateCreateBtn,
-  // TodoCateList,
-} from "@features/todo";
+import DraggableTodoCateList from "./DraggableTodoCateList";
 import TodoSidebarMenu from "./TodoSidebarMenu";
 
 function TodoSidebar() {
   return (
     <div>
       <TodoSidebarMenu />
-      {/* <TodoCateList /> */}
       <DraggableTodoCateList />
-      {/* <TodoCateCreateBtn /> */}
     </div>
   );
 }

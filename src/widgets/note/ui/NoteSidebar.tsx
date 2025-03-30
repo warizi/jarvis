@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 
-import { DragableNoteCateList } from "@features/note";
+import DragableNoteCateList from "./DragableNoteCateList";
 
 function NoteSidebar() {
   return (

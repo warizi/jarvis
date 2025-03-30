@@ -1,15 +1,14 @@
 /** @jsxImportSource @emotion/react */
 
-import { NoteCate } from "@entities/note";
+import { NoteCate, NoteCateType } from "@entities/note";
 import { Id } from "@shared/config/type/commonType";
-import { noteCateItemStyles } from "./NoteCateItem.style";
 import { useNoteCateItem } from "../model/useNoteCateItem";
-import { Link } from "react-router-dom";
 import { ROUTE_URL } from "@shared/constants/route/ROUTE_URL";
 import { FolderIcon } from "@shared/components/icon";
+import { SidebarItemWrapper } from "@shared/components/sidebar";
 
 type NoteCateItemProps = {
-  data: NoteCate & Id;
+  data: NoteCateType & Id;
   isActive?: boolean;
 };
 
@@ -17,47 +16,25 @@ function NoteCateItem({
   data,
   isActive,
 }: NoteCateItemProps) {
-  const { id, name } = data;
-  const { li, link, span, input, innerContainer } =
-    noteCateItemStyles;
+  const { id } = data;
 
-  const {
-    openContextMenu,
-    isEdit,
-    register,
-    onSubmit,
-    inputRef,
-    handleKeyDown,
-  } = useNoteCateItem(data);
+  const { openContextMenu, isEdit, register, onSubmit } =
+    useNoteCateItem(data);
 
   return (
-    <li
-      css={li(isActive || false)}
+    <SidebarItemWrapper
+      count={0}
+      icon={<FolderIcon size={18} />}
+      isCurrentLink={isActive}
+      linkTo={ROUTE_URL.NOTE_CATE + "/" + id}
       onContextMenu={openContextMenu}
     >
-      <Link
-        to={ROUTE_URL.NOTE_CATE + "/" + id}
-        css={link(isActive || false)}
-        draggable={false}
-      >
-        <div css={innerContainer}>
-          <FolderIcon size={20} />
-          {isEdit ? (
-            <input
-              draggable={false}
-              ref={inputRef}
-              type="text"
-              css={input(isActive || false)}
-              {...register("name")}
-              onKeyDown={handleKeyDown}
-              onBlur={onSubmit}
-            />
-          ) : (
-            <span css={span}>{name}</span>
-          )}
-        </div>
-      </Link>
-    </li>
+      <NoteCate
+        isEdit={isEdit}
+        onSubmit={onSubmit}
+        {...register("name")}
+      />
+    </SidebarItemWrapper>
   );
 }
 

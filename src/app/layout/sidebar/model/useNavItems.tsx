@@ -1,9 +1,7 @@
-import { useTheme } from "@emotion/react";
 import HomeIcon from "@shared/components/icon/ui/HomeIcon";
 import MonitorIcon from "@shared/components/icon/ui/MonitorIcon";
 import TaskIcon from "@shared/components/icon/ui/TaskIcon";
 import { ROUTE_URL } from "@shared/constants/route/ROUTE_URL";
-import useIsCurrentLink from "./useIsCurrentLink";
 import { NoteIcon } from "@shared/components/icon";
 
 export interface NavLinkType {
@@ -13,65 +11,26 @@ export interface NavLinkType {
 }
 
 export const useNavItems = () => {
-  const isCurrentLink = useIsCurrentLink();
-  const theme = useTheme();
-
   return [
     {
       title: "Home",
       url: ROUTE_URL.HOME,
-      icon: (
-        <HomeIcon
-          size={20}
-          color={
-            isCurrentLink(ROUTE_URL.HOME)
-              ? theme.colors.background.deep
-              : theme.colors.text.secondary
-          }
-        />
-      ),
+      icon: <HomeIcon size={20} />,
     },
     {
       title: "Task",
       url: ROUTE_URL.TODO_TODAY,
-      icon: (
-        <TaskIcon
-          size={20}
-          color={
-            isCurrentLink(ROUTE_URL.TODO)
-              ? theme.colors.background.deep
-              : theme.colors.text.secondary
-          }
-        />
-      ),
+      icon: <TaskIcon size={20} />,
     },
     {
       title: "Note",
       url: ROUTE_URL.NOTE,
-      icon: (
-        <NoteIcon
-          size={20}
-          color={
-            isCurrentLink(ROUTE_URL.NOTE)
-              ? theme.colors.background.deep
-              : theme.colors.text.secondary
-          }
-        />
-      ),
+      icon: <NoteIcon size={20} />,
     },
     {
       title: "Test",
       url: ROUTE_URL.TEST,
-      icon: (
-        <MonitorIcon
-          size={20}
-          color={
-            isCurrentLink(ROUTE_URL.TEST)
-              ? theme.colors.background.deep
-              : theme.colors.text.secondary
-          }
-        />
-      ),
+      icon: <MonitorIcon size={20} />,
     },
   ];
 };

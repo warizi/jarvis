@@ -1,17 +1,17 @@
 /** @jsxImportSource @emotion/react */
 
 import { useGetAllTodoCateQuery } from "@entities/todo/model/todoCateFetchHooks";
-import { TodoCate } from "@entities/todo/model/type";
+import { TodoCateType } from "@entities/todo/model/type";
 import { Id } from "@shared/config/type/commonType";
 import { useTodoCateList } from "../model/useTodoCateList";
-import TodoCateItem from "./TodoCateItem";
+import TodoCateItem from "../../../features/todo/ui/TodoCateItem";
 import {
   DraggableWrapper,
   SortableDndContext,
 } from "@shared/hooks/DnDWrapper";
 import { useDnDTodoCate } from "../model/useDnDTodoCate";
 import { SidebarListWrapper } from "@shared/components/sidebar";
-import TodoCateCreateBtn from "./TodoCateCreateBtn";
+import TodoCateCreateBtn from "../../../features/todo/ui/TodoCateCreateBtn";
 
 function DraggableTodoCateList() {
   const { data } = useGetAllTodoCateQuery();
@@ -20,7 +20,7 @@ function DraggableTodoCateList() {
 
   return (
     <SidebarListWrapper
-      listTitle="Categories"
+      listTitle="카테고리"
       bottom={<TodoCateCreateBtn />}
     >
       <SortableDndContext
@@ -28,7 +28,7 @@ function DraggableTodoCateList() {
         data={data || []}
       >
         {(items) =>
-          items?.map((todo: TodoCate & Id) => (
+          items?.map((todo: TodoCateType & Id) => (
             <DraggableWrapper key={todo.id} id={todo.id}>
               <TodoCateItem
                 key={todo.id}

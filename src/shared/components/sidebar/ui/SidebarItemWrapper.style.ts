@@ -20,6 +20,7 @@ export const sidebarItemWrapperStyles = {
       display: "flex",
       flexDirection: "row",
       alignItems: "center",
+      gap: "10px",
     } as const),
   link: (isCurrent: boolean) => (theme: Theme) =>
     ({
@@ -35,24 +36,13 @@ export const sidebarItemWrapperStyles = {
       padding: "0 10px",
       width: "100%",
       height: "40px",
+      fontSize: "14px",
+      backgroundColor: isCurrent
+        ? theme.colors.background.gray
+        : "transparent",
       "&:hover": {
         color: theme.colors.text.primary,
         background: theme.colors.background.hover,
       },
     } as const),
-  span: () => ({
-    marginLeft: "10px",
-    transition: "none",
-  }),
-  input: (isCurrent: boolean) => (theme: Theme) => ({
-    marginLeft: "10px",
-    border: "none",
-    outline: "none",
-    background: "none",
-    color: isCurrent ? "white" : theme.colors.text.primary,
-    width: "100%",
-    "&::placeholder": {
-      color: theme.colors.primary.normal,
-    },
-  }),
 };

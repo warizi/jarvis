@@ -1,7 +1,6 @@
 /** @jsxImportSource @emotion/react */
 
-import { todoListStyles } from "./TodoList.style";
-import TodoItem from "./TodoItem";
+import TodoItem from "../../../features/todo/ui/TodoItem";
 import {
   DraggableWrapper,
   SortableDndContext,
@@ -9,6 +8,16 @@ import {
 import { useDnDTodo } from "../model/useDnDTodo";
 import { Id } from "@shared/config/type/commonType";
 import { Todo } from "@entities/todo/model/type";
+
+const todoListStyles = {
+  container: () =>
+    ({
+      display: "flex",
+      flexDirection: "column",
+      gap: "5px",
+      padding: "10px",
+    } as const),
+};
 
 function DraggableTodoList({
   todoList,

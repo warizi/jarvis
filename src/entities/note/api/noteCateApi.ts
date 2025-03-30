@@ -1,5 +1,5 @@
 import NoteCateController from "@backend/domain/note/controller/NoteCateController";
-import { NoteCate } from "../model/type";
+import { NoteCateType } from "../model/type";
 
 export async function fetchGetNoteCate(id: number) {
   await new Promise((resolve) => setTimeout(resolve, 200));
@@ -15,14 +15,18 @@ export async function fetchGetAllNoteCate() {
   return result;
 }
 
-export async function fetchCreateNoteCate(data: NoteCate) {
+export async function fetchCreateNoteCate(
+  data: NoteCateType
+) {
   await new Promise((resolve) => setTimeout(resolve, 200));
   return await NoteCateController.getInstance().create(
     data
   );
 }
 
-export async function fetchUpdateNoteCate(data: NoteCate) {
+export async function fetchUpdateNoteCate(
+  data: NoteCateType
+) {
   await new Promise((resolve) => setTimeout(resolve, 200));
   return await NoteCateController.getInstance().update(
     data

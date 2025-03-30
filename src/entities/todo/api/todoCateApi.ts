@@ -1,5 +1,5 @@
 import TodoCateController from "@backend/domain/todo/controller/TodoCateController";
-import { TodoCate } from "../model/type";
+import { TodoCateType } from "../model/type";
 import { Id } from "@shared/config/type/commonType";
 
 export async function fetchGetTodoCate(id: number) {
@@ -16,7 +16,9 @@ export async function fetchGetAllTodoCate() {
   return result;
 }
 
-export async function fetchCreateTodoCate(data: TodoCate) {
+export async function fetchCreateTodoCate(
+  data: TodoCateType
+) {
   await new Promise((resolve) => setTimeout(resolve, 200));
   return await TodoCateController.getInstance().create(
     data
@@ -24,7 +26,7 @@ export async function fetchCreateTodoCate(data: TodoCate) {
 }
 
 export async function fetchUpdateTodoCate(
-  data: TodoCate & Id
+  data: TodoCateType & Id
 ) {
   await new Promise((resolve) => setTimeout(resolve, 200));
   return await TodoCateController.getInstance().update(

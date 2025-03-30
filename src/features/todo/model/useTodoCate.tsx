@@ -1,20 +1,22 @@
 import { Id } from "@shared/config/type/commonType";
-import { TodoCate } from "../../../entities/todo/model/type";
+import { TodoCateType } from "../../../entities/todo/model/type";
 import { useContextMenuStore } from "@shared/components/contextMenu";
 import { useUpdateTodoCateMutation } from "../../../entities/todo/model/todoCateFetchHooks";
 import { useState } from "react";
 import { useTodoCateDelete } from "./useTodoCateDelete";
 
-export const useTodoCate = (data: TodoCate & Id) => {
+export const useTodoCate = (data: TodoCateType & Id) => {
   const { id } = data;
   const { open, close } = useContextMenuStore();
   const { onDelete } = useTodoCateDelete(id);
   const { mutate: updateTodoCateMutate } =
     useUpdateTodoCateMutation();
   const [isEdit, setIsEdit] = useState(false);
-  const [values, setValues] = useState<TodoCate & Id>(data);
+  const [values, setValues] = useState<TodoCateType & Id>(
+    data
+  );
   const handleValue = (
-    key: keyof (TodoCate & Id),
+    key: keyof (TodoCateType & Id),
     value: string
   ) => {
     setValues({
@@ -23,7 +25,7 @@ export const useTodoCate = (data: TodoCate & Id) => {
     });
   };
 
-  const register = (key: keyof (TodoCate & Id)) => ({
+  const register = (key: keyof (TodoCateType & Id)) => ({
     value: values[key],
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => {
       handleValue(key, e.target.value);

@@ -14,6 +14,7 @@ const sidebarWrapperContainerStyles =
       position: "relative",
       height: "100%",
       zIndex: 1300,
+      backgroundColor: theme.colors.background.deep,
       "& .sidebar-close-btn": {
         position: "absolute",
         top: 0,
@@ -31,22 +32,22 @@ const sidebarWrapperContainerStyles =
       "& .sidebar-close-btn:hover": {
         backgroundColor: theme.colors.background.hover,
       },
+      paddingTop: "10px",
     } as const);
 
-const sidebarWrapperStyles =
-  (isOpen: boolean) => (theme: Theme) =>
-    ({
-      position: "relative",
-      display: "flex",
-      flexDirection: "column",
-      height: "100%",
-      width: isOpen ? "300px" : "0px",
-      boxShadow: theme.shadow.small,
-      // padding: isOpen ? "10px" : "0",
-      overflow: "hidden",
-      transition: "0.3s",
-      zIndex: 99,
-    } as const);
+const sidebarWrapperStyles = (isOpen: boolean) => () =>
+  ({
+    position: "relative",
+    display: "flex",
+    flexDirection: "column",
+    height: "100%",
+    width: isOpen ? "280px" : "0px",
+    // boxShadow: theme.shadow.small,
+    // padding: isOpen ? "10px" : "0",
+    overflow: "hidden",
+    transition: "0.3s",
+    zIndex: 99,
+  } as const);
 
 function SidebarWrapper({ children }: SidebarWrapperProps) {
   const { isOpen, toggleSidebar } = useSidebarToggleStore();
