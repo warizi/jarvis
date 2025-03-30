@@ -75,7 +75,7 @@ export const useGetAllByCateIdAndIsDoneQuery = (
 ) => {
   return useQuery({
     queryFn: () => fetchGetAllByCateIdAndIsDone(cateId),
-    queryKey: [todoDoneQueryKey],
+    queryKey: [todoDoneQueryKey, cateId],
   });
 };
 

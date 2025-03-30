@@ -25,18 +25,23 @@ export const todoSidebarRightStyles = {
       marginTop: "5px",
       padding: isOpen ? "10px" : "0px",
     } as const),
-  toggleButton: () =>
+  toggleButton: (theme: Theme) =>
     ({
       position: "absolute",
-      width: "30px",
-      height: "30px",
+      padding: "8px",
       top: "10px",
       right: "10px",
       display: "flex",
       justifyContent: "center",
       alignItems: "center",
+      color: theme.colors.text.secondary,
       cursor: "pointer",
       zIndex: 1300,
+      borderRadius: theme.radius.medium,
+      "&:hover": {
+        color: theme.colors.text.primary,
+        backgroundColor: theme.colors.background.hover,
+      },
     } as const),
   title: (theme: Theme) => ({
     fontSize: theme.typography.size.large,
@@ -49,6 +54,7 @@ export const todoSidebarRightStyles = {
     height: "17px",
     flexdirection: "row",
     width: "100%",
+    marginTop: "10px",
     "& span": {
       display: "inline-block", // block -> inline-block
       whiteSpace: "nowrap", // 줄바꿈 방지

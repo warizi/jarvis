@@ -20,7 +20,6 @@ function ToggleListWrapper({
     <div css={container}>
       <div css={header}>
         <h4>{title}</h4>
-        <div className="line" />
         <button
           css={button(isOpen)}
           onClick={() => setIsOpen(!isOpen)}

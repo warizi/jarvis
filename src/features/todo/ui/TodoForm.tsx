@@ -72,7 +72,6 @@ function TodoForm({ data }: { data: Todo & Id }) {
           <DragableTodoLabelList
             selectedLabel={field.value}
             onClick={(data) => {
-              console.log("Clicked data:", data);
               const isSame = field.value?.id === data?.id;
               field.onChange(isSame ? null : data);
             }}

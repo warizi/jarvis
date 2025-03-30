@@ -20,24 +20,30 @@ function TodoCatePage() {
     <div>
       <TodoHeader title={data?.name || ""} />
       <TodoCreateBtn cateId={id} />
-      <ToggleListWrapper title="TODO">
-        <DraggableTodoList
-          todoList={
-            getFilteredTodoList(
-              todoList as (Todo & Id)[]
-            ) || []
-          }
-        />
-      </ToggleListWrapper>
-      <ToggleListWrapper title="DONE" defaultOpen={false}>
-        <TodoList
-          todoList={
-            getFilteredTodoList(
-              doneList as (Todo & Id)[]
-            ) || []
-          }
-        />
-      </ToggleListWrapper>
+      <div
+        css={{
+          padding: "0 16px",
+        }}
+      >
+        <ToggleListWrapper title="TODO">
+          <DraggableTodoList
+            todoList={
+              getFilteredTodoList(
+                todoList as (Todo & Id)[]
+              ) || []
+            }
+          />
+        </ToggleListWrapper>
+        <ToggleListWrapper title="DONE" defaultOpen={false}>
+          <TodoList
+            todoList={
+              getFilteredTodoList(
+                doneList as (Todo & Id)[]
+              ) || []
+            }
+          />
+        </ToggleListWrapper>
+      </div>
     </div>
   );
 }

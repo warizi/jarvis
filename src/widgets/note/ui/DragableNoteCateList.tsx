@@ -25,7 +25,7 @@ function DragableNoteCateList() {
 
   return (
     <SidebarListWrapper
-      listTitle="Folder"
+      listTitle="폴더"
       bottom={<NoteCateCreateBtn />}
     >
       <SortableDndContext

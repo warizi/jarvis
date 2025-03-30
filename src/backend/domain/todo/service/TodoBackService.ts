@@ -168,7 +168,22 @@ class TodoBackService {
         todoBack.labelId = undefined;
       }
       delete data.label;
-      return await this.todoRepository.save(todoBack);
+      const result = await this.todoRepository.save(
+        todoBack
+      );
+      const todoLabels =
+        await this.todoLabelRepository.getAll();
+      const labelId2 = result?.labelId;
+      delete result.labelId;
+      if (!labelId2) return result;
+      const todoLabel = todoLabels.find(
+        (label) => label.id === labelId2
+      );
+      if (!todoLabel) return result;
+      const newTodo = { ...result, label: todoLabel };
+      delete newTodo.labelId;
+      console.log("newTodo", newTodo);
+      return newTodo;
     } else {
       const allData = await this.todoRepository.getAll();
       const order =
@@ -249,7 +264,9 @@ class TodoBackService {
 
     todo.isDone = done;
 
-    return await this.todoRepository.save(todo);
+    const result = await this.todoRepository.save(todo);
+
+    return result;
   }
 
   async delete(id: number) {

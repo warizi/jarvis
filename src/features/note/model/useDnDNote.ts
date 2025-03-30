@@ -12,12 +12,9 @@ export const useDnDNote = () => {
     active: Note & Id
   ) => {
     if (!active?.id) return;
-    console.log("active", active);
     const newOrder = getNewOrder(active, newItems);
     active.order = newOrder;
 
-    console.log("newItems", newItems);
-    console.log("new active", active);
     updateNoteMutate(active);
   };
 

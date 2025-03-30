@@ -63,7 +63,7 @@ function TodoItem({ data }: { data: Todo & Id }) {
           }}
         >
           <SunIcon
-            size={22}
+            size={18}
             color={
               isToday(today)
                 ? "#FF5954"

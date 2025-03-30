@@ -113,7 +113,6 @@ class TodoController {
 
   public async update(data: TodoBack) {
     const result = await this.todoService.save(data);
-
     return result;
   }
 

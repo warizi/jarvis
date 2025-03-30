@@ -13,8 +13,8 @@ import { useEffect } from "react";
 
 export const useTodoCateInfo = () => {
   const todoCateId = useTodoCateIdGetByPath();
-  const { data } = useGetTodoCateById(Number(todoCateId));
   const queryClient = useQueryClient();
+  const { data } = useGetTodoCateById(Number(todoCateId));
   const { data: todoList } =
     useGetAllByCateIdQuery(todoCateId);
   const { data: doneList } =

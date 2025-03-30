@@ -66,13 +66,12 @@ function TodoSidebarRight() {
   return (
     <div css={container(isOpen)}>
       <div css={toggleButton} onClick={toggleOpen}>
-        <SidebarIcon />
+        <SidebarIcon size={20} />
       </div>
       <div css={innerContainer(isOpen)}>
         <div css={title}>필터</div>
         <div css={divider}>
           <span>검색</span>
-          <hr />
         </div>
         <SearchBar
           onChange={(e) => handleTextFilter(e)}
@@ -80,7 +79,6 @@ function TodoSidebarRight() {
         />
         <div css={divider}>
           <span>라벨</span>
-          <hr />
         </div>
         <DragableTodoLabelList
           selectedLabel={label}
