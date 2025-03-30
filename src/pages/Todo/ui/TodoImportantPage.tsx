@@ -19,16 +19,22 @@ function TodoImportantPage() {
     <div>
       <TodoHeader title="중요 Todo" />
       <TodoCreateBtn cateId={undefined} isImportant />
-      <ToggleListWrapper title="TODO">
-        <TodoList
-          todoList={getFilteredTodoList(data || [])}
-        />
-      </ToggleListWrapper>
-      <ToggleListWrapper title="DONE" defaultOpen={false}>
-        <TodoList
-          todoList={getFilteredTodoList(doneList || [])}
-        />
-      </ToggleListWrapper>
+      <div
+        css={{
+          padding: "0 16px",
+        }}
+      >
+        <ToggleListWrapper title="TODO">
+          <TodoList
+            todoList={getFilteredTodoList(data || [])}
+          />
+        </ToggleListWrapper>
+        <ToggleListWrapper title="DONE" defaultOpen={false}>
+          <TodoList
+            todoList={getFilteredTodoList(doneList || [])}
+          />
+        </ToggleListWrapper>
+      </div>
     </div>
   );
 }

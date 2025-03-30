@@ -182,7 +182,6 @@ class TodoBackService {
       if (!todoLabel) return result;
       const newTodo = { ...result, label: todoLabel };
       delete newTodo.labelId;
-      console.log("newTodo", newTodo);
       return newTodo;
     } else {
       const allData = await this.todoRepository.getAll();

@@ -18,20 +18,27 @@ function TodoAllPage() {
   return (
     <div>
       <TodoHeader title="모든 할 일" />
-      <ToggleListWrapper title="TODO">
-        <TodoList
-          todoList={getFilteredTodoList(
-            (data as (Todo & Id)[]) || []
-          )}
-        />
-      </ToggleListWrapper>
-      <ToggleListWrapper title="DONE" defaultOpen={false}>
-        <TodoList
-          todoList={getFilteredTodoList(
-            (doneList as (Todo & Id)[]) || []
-          )}
-        />
-      </ToggleListWrapper>
+
+      <div
+        css={{
+          padding: "0 16px",
+        }}
+      >
+        <ToggleListWrapper title="TODO">
+          <TodoList
+            todoList={getFilteredTodoList(
+              (data as (Todo & Id)[]) || []
+            )}
+          />
+        </ToggleListWrapper>
+        <ToggleListWrapper title="DONE" defaultOpen={false}>
+          <TodoList
+            todoList={getFilteredTodoList(
+              (doneList as (Todo & Id)[]) || []
+            )}
+          />
+        </ToggleListWrapper>
+      </div>
     </div>
   );
 }

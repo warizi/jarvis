@@ -16,11 +16,18 @@ function TodoTodayPage() {
     <div>
       <TodoHeader title="오늘 할일" />
       <TodoCreateBtn cateId={undefined} isToday />
-      <ToggleListWrapper title="TODO">
-        <TodoList
-          todoList={getFilteredTodoList(data || [])}
-        />
-      </ToggleListWrapper>
+
+      <div
+        css={{
+          padding: "0 16px",
+        }}
+      >
+        <ToggleListWrapper title="TODO">
+          <TodoList
+            todoList={getFilteredTodoList(data || [])}
+          />
+        </ToggleListWrapper>
+      </div>
     </div>
   );
 }
