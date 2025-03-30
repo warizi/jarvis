@@ -6,6 +6,7 @@ export const customColorPickerStyles = {
       position: "relative",
       width: size,
       height: size,
+      zIndex: 14000,
     } as const),
   colorDisplay: (color: string) => (theme: Theme) => ({
     width: "100%",

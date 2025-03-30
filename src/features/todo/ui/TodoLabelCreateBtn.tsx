@@ -37,11 +37,6 @@ function TodoLabelCreateBtn() {
         name="color"
         control={control}
         render={({ field }) => (
-          // <ColorPicker
-          //   size={30}
-          //   value={field.value}
-          //   onChange={field.onChange}
-          // />
           <CustomColorPicker
             size={30}
             onChange={field.onChange}
