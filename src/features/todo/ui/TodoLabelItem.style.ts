@@ -14,6 +14,7 @@ export const todoLabelItemStyles = {
       borderRadius: theme.radius.small,
       backgroundColor: theme.colors.background.deep,
       paddingRight: "5px",
+      color: theme.colors.text.primary,
       "& button": {
         display: "none",
         border: "none",

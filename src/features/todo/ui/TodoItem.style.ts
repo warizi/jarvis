@@ -31,6 +31,7 @@ export const todoItemStyles = {
     marginRight: "5px",
   }),
   titleSpan: (isDone: boolean) => () => ({
+    fontSize: "14px",
     textDecoration: isDone ? "line-through" : "none",
   }),
   innerContainer: () =>

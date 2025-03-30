@@ -3,13 +3,7 @@
 import { TodoLabel } from "@entities/todo/model/type";
 import { Id } from "@shared/config/type/commonType";
 import { todoLabelItemStyles } from "./TodoLabelItem.style";
-import { TrashIcon } from "@shared/components/icon";
-import {
-  todoQueryKey,
-  useDeleteTodoLabelMutation,
-} from "@entities/todo";
-import { useQueryClient } from "@tanstack/react-query";
-
+import { useTodoLabelContextMenu } from "../model/useTodoLabelContextMenu";
 function TodoLabelItem({
   data,
   onClick,
@@ -18,9 +12,8 @@ function TodoLabelItem({
   onClick?: (data: (TodoLabel & Id) | undefined) => void;
 }) {
   const { container, label } = todoLabelItemStyles;
-  const { name, color } = data;
-  const { mutate } = useDeleteTodoLabelMutation();
-  const queryClient = useQueryClient();
+  const { name, color, id } = data;
+  const { openContextMenu } = useTodoLabelContextMenu(id);
 
   return (
     <div
@@ -30,23 +23,10 @@ function TodoLabelItem({
           onClick(data);
         }
       }}
+      onContextMenu={openContextMenu}
     >
       <div css={label(color)} />
       <span>{name}</span>
-      <button
-        onClick={(e) => {
-          e.stopPropagation();
-          mutate(data.id);
-          if (onClick) {
-            onClick(undefined);
-          }
-          queryClient.invalidateQueries({
-            queryKey: [todoQueryKey],
-          });
-        }}
-      >
-        <TrashIcon size={12} />
-      </button>
     </div>
   );
 }
