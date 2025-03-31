@@ -12,11 +12,15 @@ import { useTodoCate } from "../model/useTodoCate";
 type TodoCateItemProps = {
   data: TodoCateType & Id;
   isActive?: boolean;
+  onClick?: (
+    event: React.MouseEvent<HTMLElement, MouseEvent>
+  ) => void;
 };
 
 function TodoCateItem({
   data,
   isActive,
+  onClick,
 }: TodoCateItemProps) {
   const { id } = data;
   const { openContextMenu, isEdit, register, onSubmit } =
@@ -29,7 +33,10 @@ function TodoCateItem({
       count={cateCount}
       icon={<FileCheckIcon size={18} />}
       isCurrentLink={isActive}
-      linkTo={ROUTE_URL.TODO_CATE + "/" + id}
+      linkTo={
+        onClick ? "#" : ROUTE_URL.TODO_CATE + "/" + id
+      }
+      onClick={onClick}
       onContextMenu={openContextMenu}
     >
       <TodoCate

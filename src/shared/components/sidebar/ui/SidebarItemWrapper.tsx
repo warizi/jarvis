@@ -12,6 +12,9 @@ type SidebarItemWrapperProps = {
     event: React.MouseEvent<HTMLLIElement, MouseEvent>
   ) => void;
   children?: React.ReactNode;
+  onClick?: (
+    event: React.MouseEvent<HTMLElement, MouseEvent>
+  ) => void;
 };
 
 function SidebarItemWrapper({
@@ -21,12 +24,21 @@ function SidebarItemWrapper({
   linkTo,
   onContextMenu,
   children,
+  onClick,
 }: SidebarItemWrapperProps) {
   const { li, innerContainer, link } =
     sidebarItemWrapperStyles;
 
   return (
-    <li onContextMenu={onContextMenu} css={li}>
+    <li
+      onContextMenu={onContextMenu}
+      css={li}
+      onClick={(e) => {
+        if (onClick) {
+          onClick(e);
+        }
+      }}
+    >
       <Link
         to={linkTo || "/"}
         draggable={false}
