@@ -10,18 +10,27 @@ import {
 import NoteItem from "./NoteItem";
 import { useDnDNote } from "../model/useDnDNote";
 import { useNoteSplitModal } from "../model/useNoteSplitModal";
+import NoteCard from "./NoteCard";
 
 function DragableNoteList({
   noteList,
+  isColumn = true,
 }: {
   noteList: (Note & Id)[];
+  isColumn?: boolean;
 }) {
   const { container } = noteListStyles;
   const { handleDragEnd } = useDnDNote();
   const { openNoteSplitModal } = useNoteSplitModal();
 
   return (
-    <div css={container}>
+    <div
+      css={{
+        ...container,
+        flexDirection: isColumn ? "column" : "row",
+        gap: isColumn ? "5px" : "16px",
+      }}
+    >
       {" "}
       <SortableDndContext
         data={noteList || []}
@@ -30,11 +39,19 @@ function DragableNoteList({
         {(item) =>
           item?.map((note) => (
             <DraggableWrapper key={note.id} id={note.id}>
-              <NoteItem
-                key={note.id}
-                data={note}
-                onClick={openNoteSplitModal(note)}
-              />
+              {isColumn ? (
+                <NoteItem
+                  key={note.id}
+                  data={note}
+                  onClick={openNoteSplitModal(note)}
+                />
+              ) : (
+                <NoteCard
+                  key={note.id}
+                  data={note}
+                  onClick={openNoteSplitModal(note)}
+                />
+              )}
             </DraggableWrapper>
           ))
         }

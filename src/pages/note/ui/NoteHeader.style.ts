@@ -19,4 +19,29 @@ export const noteHeaderStyle = {
     margin: 0,
     color: theme.colors.text.primary,
   }),
+  buttonContainer: () =>
+    ({
+      display: "flex",
+      flexDirection: "row",
+      justifyContent: "center",
+      alignItems: "center",
+      gap: "10px",
+    } as const),
+  button: (theme: Theme) =>
+    ({
+      display: "flex",
+      flexDirection: "row",
+      justifyContent: "center",
+      alignItems: "center",
+      gap: "5px",
+      cursor: "pointer",
+      border: "none",
+      padding: "8px 16px",
+      borderRadius: theme.radius.medium,
+      color: theme.colors.text.secondary,
+      ":hover": {
+        backgroundColor: theme.colors.background.hover,
+        color: theme.colors.text.primary,
+      },
+    } as const),
 };

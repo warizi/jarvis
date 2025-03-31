@@ -20,6 +20,7 @@ import {
 } from "@features/todo";
 import {
   DragableNoteLabelList,
+  NoteCard,
   NoteCateItem,
 } from "@features/note";
 // import { useTest } from "../model/useTest";
@@ -77,6 +78,22 @@ function TestPage() {
           }}
         />
         <DragableNoteLabelList onClick={() => {}} />
+        <NoteCard
+          data={{
+            id: 1,
+            title: "test",
+            isImportant: 0,
+            label: {
+              id: 1,
+              name: "test",
+              color: "#d9d9d9",
+              order: 1000,
+            },
+            content: "sldgjklsjdklfjlk",
+            order: 1000,
+            cateId: 1,
+          }}
+        />
       </div>
     </div>
   );

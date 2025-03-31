@@ -15,6 +15,8 @@ import SidebarIcon from "./ui/SidebarIcon";
 import SearchIcon from "./ui/SearchIcon";
 import CloseIcon from "./ui/CloseIcon";
 import NoteIcon from "./ui/NoteIcon";
+import ListIcon from "./ui/ListIcon";
+import GridIcon from "./ui/GridIcon";
 
 export {
   ExitIcon,
@@ -34,4 +36,6 @@ export {
   SearchIcon,
   CloseIcon,
   NoteIcon,
+  ListIcon,
+  GridIcon,
 };
