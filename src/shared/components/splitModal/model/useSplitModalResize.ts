@@ -42,6 +42,7 @@ export const useSplitModalResize = () => {
       );
       window.removeEventListener("mouseup", handleMouseUp);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return {

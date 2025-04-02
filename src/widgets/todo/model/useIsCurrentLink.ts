@@ -8,7 +8,7 @@ export const useIsCurrentLink = () => {
 
   const isCurrentLink = (note: NoteCateType & Id) => {
     if (pathname.includes(ROUTE_URL.NOTE)) {
-      return pathname.includes(String(note.id));
+      return pathname.split("/").includes(String(note.id));
     }
 
     return false;

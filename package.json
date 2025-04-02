@@ -9,7 +9,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "postbuild": "rm -rf docs && cp -r dist docs && cp dist/index.html dist/404.html",
+    "postbuild": "rm -rf docs && cp -r dist docs && cp dist/index.html docs/404.html",
     "deploy": "npm run build && git add docs && git commit -m \"Deploy to GitHub Pages\" && git push origin main"
   },
   "dependencies": {
