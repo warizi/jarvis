@@ -3,11 +3,14 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://warizi.github.io/jarvis",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "postbuild": "rm -rf docs && cp -r dist docs && cp dist/index.html dist/404.html",
+    "deploy": "npm run build && git add docs && git commit -m \"Deploy to GitHub Pages\" && git push origin main"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.2.0",

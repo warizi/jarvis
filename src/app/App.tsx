@@ -37,7 +37,9 @@ function App() {
       <ThemeProvider
         theme={darkMode ? darkTheme : lightTheme}
       >
-        <BrowserRouter>
+        <BrowserRouter
+          basename={import.meta.env.VITE_PUBLIC_BASE_URL}
+        >
           <Routes>
             <Route element={<CommonLayout />}>
               {/* HOME */}

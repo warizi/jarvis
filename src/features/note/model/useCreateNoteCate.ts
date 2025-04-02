@@ -1,5 +1,5 @@
 import {
-  NoteCate,
+  NoteCateType,
   useCreateNoteCateMutation,
 } from "@entities/note";
 import { useForm } from "react-hook-form";
@@ -10,7 +10,7 @@ export const useCreateNoteCate = () => {
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm<NoteCate>({
+  } = useForm<NoteCateType>({
     defaultValues: {
       name: "",
       order: 0,
@@ -19,10 +19,12 @@ export const useCreateNoteCate = () => {
 
   const { mutate } = useCreateNoteCateMutation();
 
-  const onSubmit = handleSubmit(async (data: NoteCate) => {
-    await mutate(data);
-    reset();
-  });
+  const onSubmit = handleSubmit(
+    async (data: NoteCateType) => {
+      await mutate(data);
+      reset();
+    }
+  );
   return {
     register,
     onSubmit,

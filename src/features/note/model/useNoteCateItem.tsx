@@ -1,5 +1,5 @@
 import {
-  NoteCate,
+  NoteCateType,
   useUpdateNoteCateMutation,
 } from "@entities/note";
 import { useContextMenuStore } from "@shared/components/contextMenu";
@@ -7,17 +7,21 @@ import { Id } from "@shared/config/type/commonType";
 import { useNoteCateDelete } from "./useNoteCateDelete";
 import { useState } from "react";
 
-export const useNoteCateItem = (data: NoteCate & Id) => {
+export const useNoteCateItem = (
+  data: NoteCateType & Id
+) => {
   const { id } = data;
   const { open, close } = useContextMenuStore();
   const { onDelete } = useNoteCateDelete(id);
   const { mutate: updateNoteCateMutate } =
     useUpdateNoteCateMutation();
   const [isEdit, setIsEdit] = useState(false);
-  const [values, setValues] = useState<NoteCate & Id>(data);
+  const [values, setValues] = useState<NoteCateType & Id>(
+    data
+  );
 
   const handleValue = (
-    key: keyof (NoteCate & Id),
+    key: keyof (NoteCateType & Id),
     value: string
   ) => {
     setValues({
@@ -26,7 +30,7 @@ export const useNoteCateItem = (data: NoteCate & Id) => {
     });
   };
 
-  const register = (key: keyof (NoteCate & Id)) => ({
+  const register = (key: keyof (NoteCateType & Id)) => ({
     value: values[key],
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => {
       handleValue(key, e.target.value);
