@@ -1,23 +1,26 @@
 import { Theme } from "@emotion/react";
 
 export const taskSplitModalStyles = {
-  container: (theme: Theme) =>
+  container: () =>
     ({
+      zIndex: 3000,
       width: "100%",
+      padding: "10px",
       height: "100%",
-      backgroundColor: theme.colors.success,
       display: "flex",
       flexDirection: "column",
-      justifyContent: "center",
+      // justifyContent: "center",
+      paddingTop: "10px",
       alignItems: "center",
-      gap: "20px",
+      gap: "10px",
     } as const),
   content: (theme: Theme) => ({
-    maxWidth: "800px",
-    minWidth: "400px",
-    height: "calc(100vh - 100px)",
+    width: "100%",
+    minWidth: "100px",
+    height: "calc(100vh - 80px)",
     backgroundColor: theme.colors.background.deep,
     borderRadius: theme.radius.large,
+    overflow: "hidden",
     boxShadow: theme.shadow.medium,
   }),
 };

@@ -36,8 +36,8 @@ const Style = {
       },
     },
     ol: {
-      padding: "0 1rem",
-      margin: "1.5rem 0", // 리스트 상하 간격 조정
+      padding: "0 1.5rem",
+      margin: "0.5rem 0", // 리스트 상하 간격 조정
       li: {
         marginBottom: "0rem", // 리스트 항목 간 여백 추가
         p: {

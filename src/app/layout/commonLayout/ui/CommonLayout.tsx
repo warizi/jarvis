@@ -7,6 +7,7 @@ import {
   useContextMenuStore,
 } from "@shared/components/contextMenu";
 import { SplitModal } from "@shared/components/splitModal";
+import { TaskSplitModal } from "@widgets/todo-note-task";
 import { Outlet } from "react-router-dom";
 
 const commonLayoutStyles = (theme: Theme) =>
@@ -32,7 +33,7 @@ function CommonLayout() {
       <div css={mainStyles}>
         <Outlet />
       </div>
-      <SplitModal />
+      <SplitModal task={<TaskSplitModal />} />
       {isOpen && <ContextMenu />}
     </div>
   );

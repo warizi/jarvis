@@ -52,12 +52,17 @@ const backdropStyles =
       ...backdropAnimation(isCloseStart, theme),
     } as const);
 
-function Backdrop() {
+function Backdrop({ onClick }: { onClick?: () => void }) {
   const { isCloseStart } = useSplitModalStore(
     (state) => state
   );
 
-  return <div css={backdropStyles(isCloseStart)}></div>;
+  return (
+    <div
+      css={backdropStyles(isCloseStart)}
+      onClick={onClick}
+    ></div>
+  );
 }
 
 export default Backdrop;

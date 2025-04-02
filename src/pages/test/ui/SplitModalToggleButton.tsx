@@ -2,6 +2,7 @@
 
 import { Theme } from "@emotion/react";
 import { useSplitModalStore } from "@shared/components/splitModal";
+import { SplitModalType } from "@shared/components/splitModal/model/splitModalStore";
 
 const buttonStyle = (theme: Theme) =>
   ({
@@ -20,6 +21,8 @@ function SplitModalToggleButton() {
       onClick={() =>
         open({
           title: "TEST 제목",
+          itemId: 0,
+          type: SplitModalType.NOTE,
           content: <div>test</div>,
         })
       }

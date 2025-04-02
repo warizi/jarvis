@@ -16,17 +16,19 @@ function TaskSplitModal() {
   return (
     <div css={container}>
       <TaskSplitModalTab />
-      <div css={content}>
-        {activeTab === TASK_SPLIT_MODAL_TAB.SEARCH && (
-          <div>search</div>
-        )}
-        {activeTab === TASK_SPLIT_MODAL_TAB.FINDER && (
-          <TaskFinder />
-        )}
-        {activeTab === TASK_SPLIT_MODAL_TAB.TASK && (
-          <TaskView />
-        )}
-      </div>
+      {activeTab && (
+        <div css={content}>
+          {activeTab === TASK_SPLIT_MODAL_TAB.SEARCH && (
+            <div>search</div>
+          )}
+          {activeTab === TASK_SPLIT_MODAL_TAB.FINDER && (
+            <TaskFinder />
+          )}
+          {activeTab === TASK_SPLIT_MODAL_TAB.TASK && (
+            <TaskView />
+          )}
+        </div>
+      )}
     </div>
   );
 }

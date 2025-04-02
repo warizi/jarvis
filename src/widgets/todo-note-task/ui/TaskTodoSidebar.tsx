@@ -20,17 +20,17 @@ import {
   SidebarTitle,
 } from "@shared/components/sidebar";
 import { Id } from "@shared/config/type/commonType";
-import { ROUTE_URL } from "@shared/constants/route/ROUTE_URL";
 import {
   DraggableWrapper,
   SortableDndContext,
 } from "@shared/hooks/DnDWrapper";
-import { useTodoMenuCurrent } from "@widgets/note/model/useTodoMenuCurrent";
 import { useDnDTodoCate } from "@widgets/todo/model/useDnDTodoCate";
-import { useTodoCateList } from "@widgets/todo/model/useTodoCateList";
+import {
+  TASK_FINDER_TAB,
+  useTaskSplitModalStore,
+} from "../model/useTaskSplitModalStore";
 
 function TaskTodoSidebar() {
-  const isCurrent = useTodoMenuCurrent();
   const { data: allCount } = useGetCountAllTodoQuery();
   const { data: todayCount } =
     useGetCountAllByIsTodayQuery();
@@ -38,8 +38,12 @@ function TaskTodoSidebar() {
     useGetCountAllByImportantQuery();
 
   const { data } = useGetAllTodoCateQuery();
-  const isCurrentLink = useTodoCateList();
   const { handleDragEnd } = useDnDTodoCate();
+
+  const {
+    finderTab: { sideTab },
+    setFinderSideTab,
+  } = useTaskSplitModalStore();
   return (
     <div
       css={{
@@ -52,8 +56,10 @@ function TaskTodoSidebar() {
         <SidebarItemWrapper
           count={todayCount}
           icon={<SunIcon size={18} />}
-          isCurrentLink={isCurrent(ROUTE_URL.TODO_TODAY)}
-          onClick={() => {}}
+          isCurrentLink={sideTab === TASK_FINDER_TAB.TODAY}
+          onClick={() =>
+            setFinderSideTab(TASK_FINDER_TAB.TODAY)
+          }
           linkTo={"#"}
         >
           <span>오늘</span>
@@ -61,9 +67,12 @@ function TaskTodoSidebar() {
         <SidebarItemWrapper
           count={importantCount}
           icon={<StarIcon size={18} />}
-          isCurrentLink={isCurrent(
-            ROUTE_URL.TODO_IMPORTANT
-          )}
+          isCurrentLink={
+            sideTab === TASK_FINDER_TAB.Important
+          }
+          onClick={() =>
+            setFinderSideTab(TASK_FINDER_TAB.Important)
+          }
           linkTo={"#"}
         >
           <span>중요</span>
@@ -71,7 +80,10 @@ function TaskTodoSidebar() {
         <SidebarItemWrapper
           count={allCount}
           icon={<FolderIcon size={18} />}
-          isCurrentLink={isCurrent(ROUTE_URL.TODO_ALL)}
+          isCurrentLink={sideTab === TASK_FINDER_TAB.All}
+          onClick={() =>
+            setFinderSideTab(TASK_FINDER_TAB.All)
+          }
           linkTo={"#"}
         >
           <span>전체</span>
@@ -91,8 +103,8 @@ function TaskTodoSidebar() {
                 <TodoCateItem
                   key={todo.id}
                   data={todo}
-                  isActive={isCurrentLink(todo)}
-                  onClick={() => {}}
+                  isActive={sideTab === todo.id}
+                  onClick={() => setFinderSideTab(todo.id)}
                 />
               </DraggableWrapper>
             ))

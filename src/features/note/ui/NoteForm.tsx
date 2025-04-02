@@ -66,7 +66,7 @@ function NoteForm({ data }: { data: Note & Id }) {
             setValue={(value: string) =>
               field.onChange(value)
             }
-            minHeight="calc(100vh - 150px)"
+            minHeight="calc(100vh - 350px)"
           />
         )}
       />

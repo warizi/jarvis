@@ -10,11 +10,13 @@ import { SidebarItemWrapper } from "@shared/components/sidebar";
 type NoteCateItemProps = {
   data: NoteCateType & Id;
   isActive?: boolean;
+  onClick?: () => void;
 };
 
 function NoteCateItem({
   data,
   isActive,
+  onClick,
 }: NoteCateItemProps) {
   const { id } = data;
 
@@ -26,8 +28,11 @@ function NoteCateItem({
       count={0}
       icon={<FolderIcon size={18} />}
       isCurrentLink={isActive}
-      linkTo={ROUTE_URL.NOTE_CATE + "/" + id}
+      linkTo={
+        onClick ? "#" : ROUTE_URL.NOTE_CATE + "/" + id
+      }
       onContextMenu={openContextMenu}
+      onClick={onClick}
     >
       <NoteCate
         isEdit={isEdit}

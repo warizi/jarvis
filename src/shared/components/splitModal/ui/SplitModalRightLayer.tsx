@@ -25,11 +25,8 @@ const slideOut = keyframes`
 `;
 
 const containerStyles = {
-  position: "fixed",
-  top: 0,
-  right: 0,
-  minWidth: "300px",
-  height: "100vh",
+  width: "100%",
+  height: "100%",
   padding: "10px",
   zIndex: 3000,
 } as const;
@@ -79,7 +76,7 @@ const layerAnimation = (isCloseStart: boolean) => ({
   }s forwards ease-in-out`,
 });
 
-function SplitModalLayer({
+function SplitModalRightLayer({
   children,
 }: {
   children?: React.ReactNode;
@@ -114,4 +111,4 @@ function SplitModalLayer({
   );
 }
 
-export default SplitModalLayer;
+export default SplitModalRightLayer;
