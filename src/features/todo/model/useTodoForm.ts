@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { debounce, isEqual } from "lodash";
 
 export const useTodoform = (data: Todo & Id) => {
+  console.log("data: ", data);
   const { register, control, watch, setValue } = useForm({
     defaultValues: data,
   });
@@ -18,7 +19,7 @@ export const useTodoform = (data: Todo & Id) => {
   const debouncedMutate = useMemo(() => {
     return debounce((formValues: Todo & Id) => {
       if (!formValues.isDone) {
-        formValues.doneDate = "";
+        formValues.doneDate = null;
       }
       const completedForm = subComplete(formValues);
       setValue("isDone", completedForm.isDone);
