@@ -6,8 +6,9 @@ import {
   useTaskSplitModalStore,
 } from "../model/useTaskSplitModalStore";
 import { isToday } from "@shared/lib/isToday";
-import { TodoItem } from "@features/todo";
+import { TodoCreateBtn, TodoItem } from "@features/todo";
 import { useSplitModalStore } from "@shared/components/splitModal";
+import { SplitModalType } from "@shared/components/splitModal/model/splitModalStore";
 
 function TaskFinderTodo() {
   const {
@@ -38,7 +39,7 @@ function TaskFinderTodo() {
   });
 
   const isSameSplitItem = (id: number) => {
-    if (type === "TODO") {
+    if (type === SplitModalType.TODO) {
       return itemId === id;
     }
     return false;
@@ -53,6 +54,19 @@ function TaskFinderTodo() {
         overflowY: "auto",
       }}
     >
+      {sideTab !== TASK_FINDER_TAB.All && (
+        <div>
+          <TodoCreateBtn
+            cateId={
+              typeof sideTab === "number" ? sideTab : 0
+            }
+            isImportant={
+              sideTab === TASK_FINDER_TAB.Important
+            }
+            isToday={sideTab === TASK_FINDER_TAB.TODAY}
+          />
+        </div>
+      )}
       {todoList?.map((todo) => (
         <div
           css={{

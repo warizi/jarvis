@@ -2,7 +2,6 @@
 
 import { Note } from "@entities/note/model/type";
 import { Id } from "@shared/config/type/commonType";
-import { noteListStyles } from "./DragableNoteList.style";
 import {
   DraggableWrapper,
   SortableDndContext,
@@ -19,17 +18,29 @@ function DragableNoteList({
   noteList: (Note & Id)[];
   isColumn?: boolean;
 }) {
-  const { container } = noteListStyles;
   const { handleDragEnd } = useDnDNote();
   const { openNoteSplitModal } = useNoteSplitModal();
 
   return (
     <div
-      css={{
-        ...container,
-        flexDirection: isColumn ? "column" : "row",
-        gap: isColumn ? "5px" : "16px",
-      }}
+      css={
+        isColumn
+          ? {
+              display: "flex",
+              flexDirection: "column",
+              flexWrap: "nowrap",
+              gap: "5px",
+              padding: "10px",
+            }
+          : {
+              display: "grid",
+              gridTemplateColumns:
+                "repeat(auto-fill, minmax(180px, 1fr))",
+              gap: "16px",
+              padding: "10px",
+              width: "100%",
+            }
+      }
     >
       {" "}
       <SortableDndContext

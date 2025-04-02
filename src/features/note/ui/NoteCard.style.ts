@@ -3,7 +3,9 @@ import { Theme } from "@emotion/react";
 export const noteCardStyles = {
   container: (theme: Theme) => ({
     // minWidth: "150px",
-    width: "200px",
+    // width: width ? `${width}px` : "200px",
+    maxWidth: 250,
+    minWidth: 150,
     backgroundColor: theme.colors.background.deep,
     borderRadius: theme.radius.medium,
     overflow: "hidden",

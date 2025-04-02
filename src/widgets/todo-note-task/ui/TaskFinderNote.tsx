@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 
-import { NoteCard } from "@features/note";
+import { NoteCard, NoteCreateBtn } from "@features/note";
 import { useTaskSplitModalStore } from "../model/useTaskSplitModalStore";
 import { useGetAllNoteByCateIdQuery } from "@entities/note";
 import { Note } from "@entities/note/model/type";
@@ -41,51 +41,70 @@ function TaskFinderNote() {
   return (
     <div
       css={{
-        display: "flex",
-        padding: "10px",
-        flexWrap: "wrap",
-        flexDirection: "row",
-        gap: "16px",
         width: "calc(100% - 240px)",
-        // height: "100%",
-        overflowY: "auto",
       }}
     >
-      <SortableDndContext
-        data={(noteList as (Note & Id)[]) || []}
-        handleDragEnd={handleDragEnd}
+      <div>
+        {sideTab !== 0 && typeof sideTab === "number" && (
+          <NoteCreateBtn cateId={sideTab} />
+        )}
+      </div>
+      <div
+        css={{
+          height: "100%",
+          overflowY: "auto",
+        }}
       >
-        {(item) =>
-          item?.map((note) => (
-            <DraggableWrapper key={note.id} id={note.id}>
-              <div
-                css={{
-                  borderRadius: theme.radius.medium,
-                  boxShadow: theme.shadow.medium,
-                }}
-              >
-                <div
-                  css={{
-                    opacity: isSameSplitItem(note.id)
-                      ? 0.5
-                      : 1,
-                  }}
+        <div
+          css={{
+            display: "grid",
+            padding: "10px",
+            gap: "16px",
+            width: "100%",
+            gridTemplateColumns:
+              "repeat(auto-fill, minmax(150px, 1fr))",
+          }}
+        >
+          <SortableDndContext
+            data={(noteList as (Note & Id)[]) || []}
+            handleDragEnd={handleDragEnd}
+          >
+            {(item) =>
+              item?.map((note) => (
+                <DraggableWrapper
+                  key={note.id}
+                  id={note.id}
                 >
-                  <NoteCard
-                    key={note.id}
-                    data={note as Note & Id}
-                    onClick={() =>
-                      isSameSplitItem(note.id)
-                        ? null
-                        : setCUrrentNote(note)
-                    }
-                  />
-                </div>
-              </div>
-            </DraggableWrapper>
-          ))
-        }
-      </SortableDndContext>
+                  <div
+                    css={{
+                      borderRadius: theme.radius.medium,
+                      boxShadow: theme.shadow.medium,
+                    }}
+                  >
+                    <div
+                      css={{
+                        opacity: isSameSplitItem(note.id)
+                          ? 0.5
+                          : 1,
+                      }}
+                    >
+                      <NoteCard
+                        key={note.id}
+                        data={note as Note & Id}
+                        onClick={() =>
+                          isSameSplitItem(note.id)
+                            ? null
+                            : setCUrrentNote(note)
+                        }
+                      />
+                    </div>
+                  </div>
+                </DraggableWrapper>
+              ))
+            }
+          </SortableDndContext>
+        </div>
+      </div>
     </div>
   );
 }

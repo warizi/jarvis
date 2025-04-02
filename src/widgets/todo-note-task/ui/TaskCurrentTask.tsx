@@ -26,6 +26,7 @@ function TaskCurrentTask({
         flexDirection: "column",
         alignItems: "center",
         overflowY: "auto",
+        zIndex: 15000,
       }}
     >
       <div
