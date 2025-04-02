@@ -42,6 +42,9 @@ function TaskFinderNote() {
     <div
       css={{
         width: "calc(100% - 240px)",
+        backgroundColor: theme.colors.background.gray,
+        borderRadius: theme.radius.medium,
+        overflow: "hidden",
       }}
     >
       <div>
@@ -62,7 +65,7 @@ function TaskFinderNote() {
             gap: "16px",
             width: "100%",
             gridTemplateColumns:
-              "repeat(auto-fill, minmax(150px, 1fr))",
+              "repeat(auto-fill, minmax(180px, 1fr))",
           }}
         >
           <SortableDndContext
@@ -74,6 +77,10 @@ function TaskFinderNote() {
                 <DraggableWrapper
                   key={note.id}
                   id={note.id}
+                  css={{
+                    maxWidth: 350,
+                    minWidth: 180,
+                  }}
                 >
                   <div
                     css={{

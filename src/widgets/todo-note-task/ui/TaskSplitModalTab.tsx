@@ -13,14 +13,14 @@ function TaskSplitModalTab() {
 
   return (
     <div css={container}>
-      <button
+      {/* <button
         css={tab(activeTab === TASK_SPLIT_MODAL_TAB.SEARCH)}
         onClick={() =>
           setActiveTab(TASK_SPLIT_MODAL_TAB.SEARCH)
         }
       >
         {TASK_SPLIT_MODAL_TAB.SEARCH}
-      </button>
+      </button> */}
       <button
         css={tab(activeTab === TASK_SPLIT_MODAL_TAB.FINDER)}
         onClick={() =>
@@ -29,14 +29,14 @@ function TaskSplitModalTab() {
       >
         {TASK_SPLIT_MODAL_TAB.FINDER}
       </button>
-      <button
+      {/* <button
         css={tab(activeTab === TASK_SPLIT_MODAL_TAB.TASK)}
         onClick={() =>
           setActiveTab(TASK_SPLIT_MODAL_TAB.TASK)
         }
       >
         {TASK_SPLIT_MODAL_TAB.TASK}
-      </button>
+      </button> */}
     </div>
   );
 }

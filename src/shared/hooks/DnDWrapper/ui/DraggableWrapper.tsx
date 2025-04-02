@@ -1,13 +1,17 @@
 /** @jsxImportSource @emotion/react */
 
+import { Interpolation, Theme } from "@emotion/react";
 import { useDraggableItem } from "../model/useDraggableItem";
 
 function DraggableWrapper({
   id,
   children,
+  css,
+  ...rest
 }: {
   id: number;
   children: React.ReactNode;
+  css?: Interpolation<Theme>;
 }) {
   const { ref, style, listeners, attributes, isDragging } =
     useDraggableItem(id);
@@ -32,6 +36,8 @@ function DraggableWrapper({
       style={style}
       {...listeners}
       {...attributes}
+      {...rest}
+      css={css}
     >
       {children}
     </div>

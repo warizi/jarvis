@@ -4,13 +4,17 @@ export const noteCardStyles = {
   container: (theme: Theme) => ({
     // minWidth: "150px",
     // width: width ? `${width}px` : "200px",
-    maxWidth: 250,
-    minWidth: 150,
+    maxWidth: 350,
+    minWidth: 180,
     backgroundColor: theme.colors.background.deep,
     borderRadius: theme.radius.medium,
     overflow: "hidden",
     cursor: "pointer",
     padding: "0 0 10px 0",
+    ":hover": {
+      boxShadow: theme.shadow.medium,
+      backgroundColor: theme.colors.background.hover,
+    },
   }),
   label: (color: string) => ({
     width: "100%",

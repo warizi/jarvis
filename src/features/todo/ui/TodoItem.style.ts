@@ -10,6 +10,7 @@ export const todoItemStyles = {
       alignItems: "center",
       gap: "10px",
       minHeight: "45px",
+      minWidth: "200px",
       padding: "0 15px 0 0",
       // borderRadius: theme.radius.small,
       backgroundColor: theme.colors.background.deep,
@@ -33,6 +34,11 @@ export const todoItemStyles = {
   titleSpan: (isDone: boolean) => () => ({
     fontSize: "14px",
     textDecoration: isDone ? "line-through" : "none",
+    whiteSpace: "nowrap",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    display: "inline-block",
+    maxWidth: "100%", // 또는 적절한 px 단위
   }),
   innerContainer: () =>
     ({

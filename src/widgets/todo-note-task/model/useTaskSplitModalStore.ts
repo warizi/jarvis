@@ -31,6 +31,7 @@ export type TaskFinderTab = {
 
 export type TaskSplitModalStore = {
   activeTab: TASK_SPLIT_MODAL_TAB | null;
+  closeTabStart: boolean;
   finderTab: TaskFinderTab;
   setActiveTab: (tab: TASK_SPLIT_MODAL_TAB) => void;
   setFinderDomain: (domain: TASK_DOMAIN) => void;
@@ -43,9 +44,10 @@ export type TaskSplitModalStore = {
 
 export const useTaskSplitModalStore =
   create<TaskSplitModalStore>(
-    (set) =>
+    (set, get) =>
       ({
         activeTab: null,
+        closeTabStart: false,
         finderTab: {
           domain: TASK_DOMAIN.TODO,
           sideTab: TASK_FINDER_TAB.TODAY,
@@ -53,13 +55,23 @@ export const useTaskSplitModalStore =
           noteData: null,
           todoData: null,
         },
-        setActiveTab: (tab: TASK_SPLIT_MODAL_TAB) =>
+        setActiveTab: (tab: TASK_SPLIT_MODAL_TAB) => {
+          const { activeTab } = get();
+          if (activeTab === tab) {
+            set({ closeTabStart: true });
+            setTimeout(() => {
+              set({
+                closeTabStart: false,
+                activeTab: null,
+              });
+            }, 300);
+            return;
+          }
+
           set((prev) => {
-            if (prev.activeTab === tab) {
-              return { ...prev, activeTab: null };
-            }
             return { ...prev, activeTab: tab };
-          }),
+          });
+        },
         setFinderDomain: (domain: TASK_DOMAIN) =>
           set((prev) => ({
             ...prev,

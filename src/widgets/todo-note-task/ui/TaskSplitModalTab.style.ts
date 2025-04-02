@@ -6,16 +6,16 @@ export const taskSplitModalTabStyles = {
     justifyContent: "space-between",
     alignItems: "center",
     gap: "10px",
-    width: "200px",
-    height: "50px",
-    backgroundColor: theme.colors.background.gray,
+    width: "fit-content",
+    backgroundColor: theme.colors.background.deep,
     borderRadius: theme.radius.large,
-    boxShadow: theme.shadow.medium,
-    padding: "0 10px",
+    boxShadow: theme.shadow.large,
+    padding: "5px 5px",
   }),
   tab: (isActive: boolean) => (theme: Theme) => ({
     width: "100%",
-    height: "40px",
+    height: "30px",
+    padding: "0 10px",
     backgroundColor: isActive
       ? theme.colors.primary.normal
       : theme.colors.background.deep,
@@ -28,7 +28,6 @@ export const taskSplitModalTabStyles = {
         : theme.colors.background.hover,
     },
     border: "none",
-    borderRadius: theme.radius.small,
-    padding: "0",
+    borderRadius: theme.radius.medium,
   }),
 };

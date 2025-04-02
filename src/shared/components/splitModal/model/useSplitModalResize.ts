@@ -10,7 +10,6 @@ export const useSplitModalResize = () => {
   const handleMouseDown = () => {
     isDraggingRef.current = true;
     document.body.style.userSelect = "none"; // 텍스트 선택 방지
-    document.body.style.cursor = "ew-resize"; // 커서 고정
   };
 
   useEffect(() => {
@@ -31,7 +30,6 @@ export const useSplitModalResize = () => {
     const handleMouseUp = () => {
       isDraggingRef.current = false;
       document.body.style.userSelect = "auto"; // 원래대로 복구
-      document.body.style.cursor = "default";
     };
 
     window.addEventListener("mousemove", handleMouseMove);

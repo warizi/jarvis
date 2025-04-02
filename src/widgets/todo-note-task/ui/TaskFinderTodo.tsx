@@ -9,6 +9,7 @@ import { isToday } from "@shared/lib/isToday";
 import { TodoCreateBtn, TodoItem } from "@features/todo";
 import { useSplitModalStore } from "@shared/components/splitModal";
 import { SplitModalType } from "@shared/components/splitModal/model/splitModalStore";
+import { useTheme } from "@emotion/react";
 
 function TaskFinderTodo() {
   const {
@@ -17,6 +18,7 @@ function TaskFinderTodo() {
   const { data: allTodo } = useGetAllTodoQuery();
   const { setCurrentTodo } = useTaskSplitModalStore();
   const { type, itemId } = useSplitModalStore();
+  const theme = useTheme();
 
   const todoList = allTodo?.filter((todo) => {
     if (sideTab === TASK_FINDER_TAB.All) {
@@ -24,6 +26,8 @@ function TaskFinderTodo() {
     }
 
     if (sideTab === TASK_FINDER_TAB.Important) {
+      console.log("sideTab", sideTab);
+      console.log("todo.cateId", todo.isImportant);
       return todo.isImportant;
     }
 
@@ -52,6 +56,9 @@ function TaskFinderTodo() {
         flexDirection: "column",
         width: "calc(100% - 240px)",
         overflowY: "auto",
+        backgroundColor: theme.colors.background.gray,
+        borderRadius: theme.radius.medium,
+        overflow: "hidden",
       }}
     >
       {sideTab !== TASK_FINDER_TAB.All && (

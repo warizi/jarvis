@@ -32,9 +32,9 @@ function SplitModal({ task }: { task?: React.ReactNode }) {
                   width: "100vw",
                   height: "100vh",
                   display: "grid",
-                  gridTemplateColumns: `${leftWidth}% 10px ${
+                  gridTemplateColumns: `${leftWidth}% 10px calc(${
                     100 - leftWidth
-                  }%`,
+                  }% - 10px)`,
                   gridTemplateRows: "1fr",
                   placeItems: "center",
                 }}

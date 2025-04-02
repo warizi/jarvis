@@ -49,13 +49,26 @@ function TodoItem({
       onClick={onClick}
       onContextMenu={openContextMenu}
     >
-      <div css={innerContainer}>
+      <div
+        css={{
+          ...innerContainer(),
+          width: "calc(100% - 80px)",
+        }}
+      >
         <div css={label(todoLabel?.color || "")} />
         <TodoCheckbox
           checked={isDone}
           onChange={handleCheck(data)}
         />
-        <span css={titleSpan(isDone)}>{title}</span>
+        <div
+          css={{
+            display: "flex",
+            alignItems: "center",
+            width: "calc(100% - 60px)",
+          }}
+        >
+          <span css={titleSpan(isDone)}>{title}</span>
+        </div>
         {doneDate && (
           <span css={spanDoneDate}>
             {formatDate(doneDate, "yyyy-MM-dd")}

@@ -1,16 +1,41 @@
 /** @jsxImportSource @emotion/react */
 
-import { useTheme } from "@emotion/react";
+import { keyframes, useTheme } from "@emotion/react";
 import { ArrowRightIcon } from "@shared/components/icon";
 import { useTaskSplitModalStore } from "../model/useTaskSplitModalStore";
+import { useState } from "react";
 
+const sideIn = keyframes`
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+`;
+const sideOut = keyframes`
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);  
+  }
+`;
 function TaskCurrentTask({
   children,
 }: {
   children: React.ReactNode;
 }) {
   const theme = useTheme();
+  const [isOpen, setIsOpen] = useState(true);
   const { closeCurrentTask } = useTaskSplitModalStore();
+
+  const handleClose = () => {
+    setIsOpen(false);
+    setTimeout(() => {
+      closeCurrentTask();
+    }, 190);
+  };
   return (
     <div
       css={{
@@ -27,6 +52,9 @@ function TaskCurrentTask({
         alignItems: "center",
         overflowY: "auto",
         zIndex: 15000,
+        animation: `${
+          isOpen ? sideIn : sideOut
+        } 0.2s ease-in-out forwards`,
       }}
     >
       <div
@@ -62,7 +90,7 @@ function TaskCurrentTask({
               color: theme.colors.text.primary,
             },
           }}
-          onClick={() => closeCurrentTask()}
+          onClick={() => handleClose()}
         >
           <ArrowRightIcon />
         </button>
