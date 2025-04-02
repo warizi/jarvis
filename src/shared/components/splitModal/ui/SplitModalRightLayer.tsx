@@ -26,7 +26,7 @@ const slideOut = keyframes`
 
 const containerStyles = {
   width: "100%",
-  height: "100%",
+  height: "calc(100vh)",
   padding: "10px",
   paddingLeft: 0,
   zIndex: 3000,

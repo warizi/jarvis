@@ -15,7 +15,8 @@ export const todoLayoutStyle = {
       display: "flex",
       flexDirection: "row",
       height: "100vh",
-      overflow: "auto",
+      overflowX: "hidden",
+      overflowY: "auto",
       width: "100%",
       "& .content": {
         width: "100%",

@@ -17,6 +17,9 @@ export const useTodoform = (data: Todo & Id) => {
 
   const debouncedMutate = useMemo(() => {
     return debounce((formValues: Todo & Id) => {
+      if (!formValues.isDone) {
+        formValues.doneDate = "";
+      }
       const completedForm = subComplete(formValues);
       setValue("isDone", completedForm.isDone);
       mutate(completedForm);
