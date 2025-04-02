@@ -26,7 +26,7 @@ export const useNoteCateItem = (
   ) => {
     setValues({
       ...values,
-      [key]: value.trim(),
+      [key]: value,
     });
   };
 
@@ -39,6 +39,7 @@ export const useNoteCateItem = (
 
   const onSubmit = async () => {
     if (!values.name && !values.name.trim()) return;
+    values.name = values.name.trim();
     await updateNoteCateMutate(values);
     setIsEdit(false);
   };
