@@ -21,6 +21,9 @@ export const subTodoItemStyles = {
       ? theme.colors.text.secondary
       : theme.colors.text.primary,
     textDecoration: isDone ? "line-through" : "none",
+    whiteSpace: "nowrap",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
   }),
   button: (theme: Theme) =>
     ({

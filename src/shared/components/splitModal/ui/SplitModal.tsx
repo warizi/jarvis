@@ -7,10 +7,12 @@ import useSplitModalStore from "../model/splitModalStore";
 import SplitModalLeftLayer from "./SplitModalLeftLayer";
 import { useTheme } from "@emotion/react";
 import { useSplitModalResize } from "../model/useSplitModalResize";
+import { useSplitShortcuts } from "../model/useSplitShortcuts";
 
 function SplitModal({ task }: { task?: React.ReactNode }) {
   const { isOpen, content, close } = useSplitModalStore();
   const theme = useTheme();
+  useSplitShortcuts();
 
   const { containerRef, leftWidth, handleMouseDown } =
     useSplitModalResize();
