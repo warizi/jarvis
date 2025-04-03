@@ -18,6 +18,9 @@ export const noteFormStyles = {
     fontSize: theme.typography.size.large,
     backgroundColor: "transparent",
     color: theme.colors.text.primary,
+    whiteSpace: "nowrap",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
   }),
   label: (theme: Theme) =>
     ({
