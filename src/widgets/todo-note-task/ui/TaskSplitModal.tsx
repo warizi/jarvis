@@ -9,7 +9,6 @@ import TaskFinder from "./TaskFinder";
 import { taskSplitModalStyles } from "./TaskSplitModal.style";
 import TaskSplitModalTab from "./TaskSplitModalTab";
 import TaskView from "./TaskView";
-import { useEffect } from "react";
 
 const sideIn = keyframes`
   0% {
@@ -39,9 +38,6 @@ function TaskSplitModal() {
   const { activeTab, closeTabStart } =
     useTaskSplitModalStore();
 
-  useEffect(() => {
-    console.log("activeTab", activeTab);
-  }, [activeTab]);
   return (
     <div css={container}>
       <TaskSplitModalTab />

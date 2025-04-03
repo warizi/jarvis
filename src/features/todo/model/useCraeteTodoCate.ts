@@ -8,15 +8,12 @@ export const useCreateTodoCate = () => {
     handleSubmit,
     formState: { errors },
     reset,
-    watch,
   } = useForm<TodoCateType>({
     defaultValues: {
       name: "",
       order: 0,
     },
   });
-  const name = watch("name");
-  console.log(name);
   const { mutate } = useCreateTodoCateMutation();
 
   const onSubmit = handleSubmit(

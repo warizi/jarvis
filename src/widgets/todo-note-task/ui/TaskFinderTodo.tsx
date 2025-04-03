@@ -26,8 +26,6 @@ function TaskFinderTodo() {
     }
 
     if (sideTab === TASK_FINDER_TAB.Important) {
-      console.log("sideTab", sideTab);
-      console.log("todo.cateId", todo.isImportant);
       return todo.isImportant;
     }
 
@@ -55,10 +53,10 @@ function TaskFinderTodo() {
         display: "flex",
         flexDirection: "column",
         width: "calc(100% - 240px)",
+        height: "100%",
         overflowY: "auto",
         backgroundColor: theme.colors.background.gray,
         borderRadius: theme.radius.medium,
-        overflow: "hidden",
       }}
     >
       {sideTab !== TASK_FINDER_TAB.All && (
@@ -74,23 +72,37 @@ function TaskFinderTodo() {
           />
         </div>
       )}
-      {todoList?.map((todo) => (
+      <div
+        css={{
+          overflow: "auto",
+          padding: "10px",
+        }}
+      >
         <div
           css={{
-            opacity: isSameSplitItem(todo.id) ? 0.3 : 1,
+            borderRadius: theme.radius.medium,
+            overflowY: "auto",
           }}
         >
-          <TodoItem
-            key={todo.id}
-            data={todo}
-            onClick={() =>
-              isSameSplitItem(todo.id)
-                ? null
-                : setCurrentTodo(todo)
-            }
-          />
+          {todoList?.map((todo) => (
+            <div
+              css={{
+                opacity: isSameSplitItem(todo.id) ? 0.3 : 1,
+              }}
+            >
+              <TodoItem
+                key={todo.id}
+                data={todo}
+                onClick={() =>
+                  isSameSplitItem(todo.id)
+                    ? null
+                    : setCurrentTodo(todo)
+                }
+              />
+            </div>
+          ))}
         </div>
-      ))}
+      </div>
     </div>
   );
 }

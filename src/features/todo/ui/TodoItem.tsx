@@ -63,17 +63,19 @@ function TodoItem({
         <div
           css={{
             display: "flex",
-            alignItems: "center",
+            flexDirection: "column",
+            justifyContent: "center",
+            gap: "3px",
             width: "calc(100% - 60px)",
           }}
         >
           <span css={titleSpan(isDone)}>{title}</span>
+          {doneDate && (
+            <span css={spanDoneDate}>
+              {formatDate(doneDate, "yyyy-MM-dd")}
+            </span>
+          )}
         </div>
-        {doneDate && (
-          <span css={spanDoneDate}>
-            {formatDate(doneDate, "yyyy-MM-dd")}
-          </span>
-        )}
       </div>
       <div css={innerContainer}>
         <button
