@@ -33,4 +33,10 @@ export const noteCardStyles = {
     padding: "0 5px",
     overflow: "hidden",
   }),
+  titleSpan: () => ({
+    whiteSpace: "nowrap",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    width: "100%",
+  }),
 };

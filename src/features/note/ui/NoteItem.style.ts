@@ -36,4 +36,10 @@ export const NoteItemStyles = {
       gap: "10px",
       flexDirection: "row",
     } as const),
+  titleSpan: () => ({
+    whiteSpace: "nowrap",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
+    width: "100%",
+  }),
 };

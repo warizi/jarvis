@@ -17,7 +17,7 @@ function NoteItem({
   const { mutate } = useUpdateNoteMutation();
   const { openContextMenu } = useNoteContextMenu(id);
 
-  const { container, innerContainer, label } =
+  const { container, innerContainer, label, titleSpan } =
     NoteItemStyles;
 
   const handleImportant = (note: Note & Id) => {
@@ -37,7 +37,7 @@ function NoteItem({
     >
       <div css={innerContainer}>
         <div css={label(noteLabel?.color || "")} />
-        <span>{title}</span>
+        <span css={titleSpan}>{title}</span>
       </div>
       <div css={innerContainer}>
         <ImportantCheckBox

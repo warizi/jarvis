@@ -25,8 +25,13 @@ function NoteCard({
   const { mutate } = useUpdateNoteMutation();
   const { openContextMenu } = useNoteContextMenu(id);
 
-  const { container, label, innerContainer, contentDiv } =
-    noteCardStyles;
+  const {
+    container,
+    label,
+    innerContainer,
+    contentDiv,
+    titleSpan,
+  } = noteCardStyles;
 
   const handleImportant = (note: Note & Id) => {
     if (note.isImportant === 0) {
@@ -45,7 +50,7 @@ function NoteCard({
       <div>
         <div css={label(noteLabel?.color || "")} />
         <div css={innerContainer}>
-          <span>{title}</span>
+          <span css={titleSpan}>{title}</span>
           <div>
             <ImportantCheckBox
               checked={isImportant}
