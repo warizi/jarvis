@@ -48,7 +48,7 @@ function TaskTodoSidebar() {
     <div
       css={{
         width: "200px",
-        padding: "5px",
+        padding: "5px 0",
       }}
     >
       <SidebarTitle title="TODO" />
