@@ -7,6 +7,8 @@ export const useSplitShortcuts = () => {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
+        e.stopPropagation();
+        e.preventDefault();
         close();
       }
     };
