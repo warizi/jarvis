@@ -37,6 +37,9 @@ export const todoFormStyles = {
     fontSize: theme.typography.size.large,
     textDecoration: isDone ? "line-through" : "none",
     backgroundColor: "transparent",
+    whiteSpace: "nowrap",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
     color: isDone
       ? theme.colors.text.secondary
       : theme.colors.text.primary,

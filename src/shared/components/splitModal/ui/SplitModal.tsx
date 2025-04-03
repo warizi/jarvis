@@ -72,8 +72,9 @@ function SplitModal({ task }: { task?: React.ReactNode }) {
                     className="split-modal-resize-handle"
                     css={{
                       opacity: 0,
-                      width: "2px",
-                      height: "100%",
+                      width: "3px",
+                      borderRadius: "3px",
+                      height: "calc(100% - 20px)",
                       backgroundColor:
                         theme.colors.primary.light,
                     }}

@@ -20,6 +20,9 @@ const splitModalTitleContainerStyle = (theme: Theme) => ({
     margin: 0,
     fontSize: theme.typography.size.medium,
     color: theme.colors.text.primary,
+    whiteSpace: "nowrap",
+    overflow: "hidden",
+    textOverflow: "ellipsis",
   },
 });
 
