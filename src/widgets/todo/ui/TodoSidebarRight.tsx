@@ -4,7 +4,7 @@ import { SidebarIcon } from "@shared/components/icon";
 import { todoSidebarRightStyles } from "./TodoSidebarRight.style";
 import { useState } from "react";
 import {
-  DragableTodoLabelList,
+  TodoLabelSelector,
   useTodoFilter,
 } from "@features/todo";
 import { TodoLabel } from "@entities/todo/model/type";
@@ -22,12 +22,12 @@ function TodoSidebarRight() {
   };
 
   const handleLabelFilter = (
-    label: (TodoLabel & Id) | undefined
+    label: (TodoLabel & Id) | null
   ) => {
     let selectedLabel = label;
 
     if (selectedLabel?.id === filter.label?.id) {
-      selectedLabel = undefined;
+      selectedLabel = null;
     }
 
     const newFilter = {
@@ -80,9 +80,16 @@ function TodoSidebarRight() {
         <div css={divider}>
           <span>라벨</span>
         </div>
-        <DragableTodoLabelList
-          selectedLabel={label}
-          onClick={handleLabelFilter}
+        <TodoLabelSelector
+          onChange={(lable) => {
+            handleLabelFilter({
+              id: lable?.id || 0,
+              name: lable?.name || "",
+              color: lable?.color || "",
+              order: 0,
+            });
+          }}
+          value={label}
         />
       </div>
     </div>
