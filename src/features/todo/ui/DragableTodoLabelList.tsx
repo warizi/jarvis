@@ -10,7 +10,6 @@ import TodoLabelItem from "./TodoLabelItem";
 import { useGetAllTodoLabelQuery } from "@entities/todo";
 import { dragableTodoLabelListStyles } from "./DragableTodoLabelList.style";
 import { useTheme } from "@emotion/react";
-import TodoLabelCreateBtn from "./TodoLabelCreateBtn";
 
 function DragableTodoLabelList({
   selectedLabel,
@@ -39,11 +38,11 @@ function DragableTodoLabelList({
                 <div
                   css={{
                     width: "fit-content",
-                    borderRadius: theme.radius.small,
-                    border:
+                    borderRadius: theme.radius.medium,
+                    transform:
                       selectedLabel?.id === todoLabel.id
-                        ? `2px solid ${theme.colors.primary.light}`
-                        : "1px solid transparent",
+                        ? "scale(1.1)"
+                        : "scale(1)",
                   }}
                 >
                   <TodoLabelItem
@@ -57,7 +56,7 @@ function DragableTodoLabelList({
           }
         </SortableDndContext>
       </ul>
-      <TodoLabelCreateBtn />
+      {/* <TodoLabelCreateBtn /> */}
     </div>
   );
 }

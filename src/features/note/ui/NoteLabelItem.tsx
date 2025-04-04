@@ -14,12 +14,12 @@ function NoteLabelItem({
   data,
   onClick,
 }: NoteLabelItemProps) {
-  const { container, label } = noteLabelItemStyles;
+  const { container } = noteLabelItemStyles;
   const { id, name, color } = data;
   const { openContextMenu } = useNoteLabelContextMenu(id);
   return (
     <div
-      css={container}
+      css={container(color)}
       onClick={() => {
         if (onClick) {
           onClick(data);
@@ -27,7 +27,6 @@ function NoteLabelItem({
       }}
       onContextMenu={openContextMenu}
     >
-      <div css={label(color)} />
       <span>{name}</span>
     </div>
   );

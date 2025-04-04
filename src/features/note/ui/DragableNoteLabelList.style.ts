@@ -1,18 +1,23 @@
 import { Theme } from "@emotion/react";
 
 export const dragableNoteLabelListStyles = {
-  container: () => ({
-    width: "100%",
-  }),
+  container: () =>
+    ({
+      display: "grid",
+      gridTemplateColumns: "1fr 0.7fr",
+      width: "100%",
+    } as const),
   ul: (theme: Theme) =>
     ({
       display: "flex",
       flexDirection: "row",
-      flexWrap: "wrap",
-      gap: "5px",
+      alignItems: "center",
+      flexWrap: "nowrap", // 줄바꿈 비허용
+      whiteSpace: "nowrap", // 텍스트 줄바꿈도 방지
+      overflow: "auto",
+      gap: "8px",
       padding: "5px",
       backgroundColor: theme.colors.background.gray,
       borderRadius: theme.radius.medium,
-      // border: `1px solid ${theme.colors.border.deepGray}`,
     } as const),
 };

@@ -1,7 +1,7 @@
 import { Theme } from "@emotion/react";
 
 export const noteLabelItemStyles = {
-  container: (theme: Theme) =>
+  container: (color: string) => (theme: Theme) =>
     ({
       display: "flex",
       flexDirection: "row",
@@ -12,26 +12,10 @@ export const noteLabelItemStyles = {
       overflow: "hidden",
       fontSize: theme.typography.size.medium,
       borderRadius: theme.radius.small,
-      backgroundColor: theme.colors.background.deep,
-      paddingRight: "5px",
-      "& button": {
-        display: "none",
-        border: "none",
-        backgroundColor: "transparent",
-        cursor: "pointer",
-        transition: "width 0.3s",
-        overflow: "hidden",
-        color: theme.colors.background.gray,
-        "&:hover": {
-          color: "#FF5954",
-        },
-      },
-      "&:hover": {
-        "& button": {
-          display: "block",
-          width: "20px",
-        },
-      },
+      backgroundColor: color,
+      padding: "0 8px",
+      color: "white",
+      fontWeght: 600,
     } as const),
   label: (color: string) => ({
     width: "8px",

@@ -11,13 +11,13 @@ function TodoLabelItem({
   data: TodoLabel & Id;
   onClick?: (data: (TodoLabel & Id) | undefined) => void;
 }) {
-  const { container, label } = todoLabelItemStyles;
+  const { container } = todoLabelItemStyles;
   const { name, color, id } = data;
   const { openContextMenu } = useTodoLabelContextMenu(id);
 
   return (
     <div
-      css={container}
+      css={container(color)}
       onClick={() => {
         if (onClick) {
           onClick(data);
@@ -25,7 +25,7 @@ function TodoLabelItem({
       }}
       onContextMenu={openContextMenu}
     >
-      <div css={label(color)} />
+      {/* <div css={label(color)} /> */}
       <span>{name}</span>
     </div>
   );

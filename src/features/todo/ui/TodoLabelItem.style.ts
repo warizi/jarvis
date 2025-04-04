@@ -1,7 +1,7 @@
 import { Theme } from "@emotion/react";
 
 export const todoLabelItemStyles = {
-  container: (theme: Theme) =>
+  container: (color: string) => (theme: Theme) =>
     ({
       display: "flex",
       flexDirection: "row",
@@ -10,28 +10,15 @@ export const todoLabelItemStyles = {
       width: "fit-content",
       height: "22px",
       overflow: "hidden",
-      fontSize: theme.typography.size.medium,
+      fontSize: theme.typography.size.small,
       borderRadius: theme.radius.small,
-      backgroundColor: theme.colors.background.deep,
-      paddingRight: "5px",
-      color: theme.colors.text.primary,
-      "& button": {
-        display: "none",
-        border: "none",
-        backgroundColor: "transparent",
-        cursor: "pointer",
-        transition: "width 0.3s",
-        overflow: "hidden",
-        color: theme.colors.background.gray,
-        "&:hover": {
-          color: "#FF5954",
-        },
-      },
+      backgroundColor: color,
+      padding: "0 8px",
+      color: "white",
+      fontWeight: 600,
       "&:hover": {
-        "& button": {
-          display: "block",
-          width: "20px",
-        },
+        transform: "scale(1.05)",
+        transition: "transform 0.2s ease-in-out",
       },
     } as const),
   label: (color: string) => ({
