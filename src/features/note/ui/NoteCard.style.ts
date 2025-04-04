@@ -26,7 +26,7 @@ export const noteCardStyles = {
       display: "flex",
       justifyContent: "space-between",
       alignItems: "center",
-      padding: "5px 0 0 10px",
+      padding: "0 0 0 10px",
     } as const),
   contentDiv: () => ({
     height: "200px",
@@ -34,9 +34,11 @@ export const noteCardStyles = {
     overflow: "hidden",
   }),
   titleSpan: () => ({
+    display: "inline-block",
     whiteSpace: "nowrap",
     overflow: "hidden",
     textOverflow: "ellipsis",
     width: "100%",
+    padding: "5px 0",
   }),
 };

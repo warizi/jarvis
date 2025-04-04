@@ -8,7 +8,6 @@ export const todoSidebarRightStyles = {
       width: isOpen ? "300px" : "0px",
       transition: "width 0.3s",
       backgroundColor: theme.colors.background.deep,
-      boxShadow: theme.shadow.small,
       zIndex: 1300,
     } as const),
   innerContainer: (isOpen: boolean) => (theme: Theme) =>
