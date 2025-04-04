@@ -51,6 +51,7 @@ function SearchBar({
         css={input}
         value={text}
         onChange={handleChange}
+        aria-label="검색어 입력"
       />
       {text.length > 0 && (
         <button

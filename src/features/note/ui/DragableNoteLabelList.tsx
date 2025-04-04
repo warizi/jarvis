@@ -37,7 +37,7 @@ function DragableNoteLabelList({
                 key={noteLabel.id}
                 id={noteLabel.id}
               >
-                <div
+                <li
                   css={{
                     width: "fit-content",
                     borderRadius: theme.radius.small,
@@ -52,7 +52,7 @@ function DragableNoteLabelList({
                     data={noteLabel}
                     onClick={onClick}
                   />
-                </div>
+                </li>
               </DraggableWrapper>
             ))
           }

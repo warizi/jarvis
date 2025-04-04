@@ -19,10 +19,11 @@ function ToggleListWrapper({
   return (
     <div css={container}>
       <div css={header}>
-        <h4>{title}</h4>
+        <h3>{title}</h3>
         <button
           css={button(isOpen)}
           onClick={() => setIsOpen(!isOpen)}
+          aria-label={isOpen ? "접기" : "펴기"}
         >
           <ArrowDown />
         </button>

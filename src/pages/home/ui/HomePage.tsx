@@ -13,14 +13,7 @@ function HomePage() {
         fontSize: "30px",
       }}
     >
-      <h1>Welcome to the Home Page</h1>
-      <br />
-      <p>This is the home page of the application.</p>
-      <br />
-      <p>
-        Dashboard is a place where you can manage your tasks
-        and notes.
-      </p>
+      <h1>Flow-Assistant</h1>
     </div>
   );
 }

@@ -37,9 +37,6 @@ function TestPage() {
               order: MOCK_LABELS.length + 1,
             });
           }}
-          onSelectLabel={(label) => {
-            console.log(label);
-          }}
           onDeleteLabel={(id) => {
             const index = MOCK_LABELS.findIndex(
               (label) => label.id === id

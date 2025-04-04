@@ -29,6 +29,7 @@ function NavLink() {
           <LinkItem
             icon={link.icon}
             to={link.url}
+            title={link.title}
             isCurrent={isCurrentLink(link.url)}
           />
         </li>

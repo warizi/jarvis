@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 type LinkItemProps = {
   icon: React.ReactNode;
   to: string;
+  title?: string;
   isCurrent?: boolean;
 };
 
@@ -39,10 +40,11 @@ const linkItemStyles =
 function LinkItem({
   icon,
   to,
+  title = "",
   isCurrent = false,
 }: LinkItemProps) {
   return (
-    <Link to={to} draggable="false">
+    <Link to={to} draggable="false" aria-label={title}>
       <div css={linkItemStyles(isCurrent)}>{icon}</div>
     </Link>
   );

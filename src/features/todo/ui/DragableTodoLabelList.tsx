@@ -36,7 +36,7 @@ function DragableTodoLabelList({
                 key={todoLabel.id}
                 id={todoLabel.id}
               >
-                <div
+                <li
                   css={{
                     width: "fit-content",
                     borderRadius: theme.radius.medium,
@@ -51,7 +51,7 @@ function DragableTodoLabelList({
                     data={todoLabel}
                     onClick={onClick}
                   />
-                </div>
+                </li>
               </DraggableWrapper>
             ))
           }
