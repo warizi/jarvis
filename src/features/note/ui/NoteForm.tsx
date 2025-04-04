@@ -28,8 +28,8 @@ function NoteForm({ data }: { data: Note & Id }) {
           render={({ field }) => (
             <ImportantCheckBox
               checked={field.value}
-              onChange={(e) =>
-                field.onChange(e.target.checked)
+              onChange={() =>
+                field.onChange(field.value === 0 ? 1 : 0)
               }
             />
           )}
