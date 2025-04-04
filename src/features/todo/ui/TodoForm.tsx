@@ -10,8 +10,8 @@ import {
 import { Controller } from "react-hook-form";
 import { useTodoform } from "../model/useTodoForm";
 import SubTodoForm from "./SubTodoForm";
-import DragableTodoLabelList from "./DragableTodoLabelList";
 import { CommonEditor } from "@shared/components/editor";
+import TodoLabelSelector from "./TodoLabelSelector";
 
 function TodoForm({ data }: { data: Todo & Id }) {
   const { container, label, input } = todoFormStyles;
@@ -69,11 +69,10 @@ function TodoForm({ data }: { data: Todo & Id }) {
         name="label"
         control={control}
         render={({ field }) => (
-          <DragableTodoLabelList
-            selectedLabel={field.value}
-            onClick={(data) => {
-              const isSame = field.value?.id === data?.id;
-              field.onChange(isSame ? null : data);
+          <TodoLabelSelector
+            value={field.value}
+            onChange={(data) => {
+              field.onChange(data);
             }}
           />
         )}

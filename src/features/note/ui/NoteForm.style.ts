@@ -15,20 +15,23 @@ export const noteFormStyles = {
     marginLeft: "10px",
     outline: "none",
     border: "none",
-    fontSize: theme.typography.size.large,
+    fontSize: "28px",
+    height: "50px",
     backgroundColor: "transparent",
     color: theme.colors.text.primary,
     whiteSpace: "nowrap",
     overflow: "hidden",
     textOverflow: "ellipsis",
   }),
-  label: (theme: Theme) =>
+  label: () =>
     ({
       display: "flex",
       flexDirection: "row",
       justifyContent: "space-between",
       overflow: "hidden",
-      borderBottom: `1px solid ${theme.colors.border.deepGray}`,
+      alignItems: "center",
+      height: "50px",
+      borderBottom: "1px solid #eaeaea",
       padding: "10px 0",
     } as const),
 };

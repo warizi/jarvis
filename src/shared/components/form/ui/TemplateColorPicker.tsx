@@ -40,7 +40,11 @@ function TemplateColorPicker({
                 : "transparent"
             }`,
           }}
-          onClick={() => onClick(c)}
+          onClick={(e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            onClick(c);
+          }}
         />
       ))}
     </div>

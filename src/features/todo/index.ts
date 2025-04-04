@@ -22,6 +22,7 @@ import DragableTodoLabelList from "./ui/DragableTodoLabelList";
 import useTodoPageFilterStore from "./model/useTodoPageFilterStore";
 import { useTodoFilter } from "./model/useTodoFilter";
 import { useTodoSplitModal } from "./model/useTodoSplitModal";
+import TodoLabelSelector from "./ui/TodoLabelSelector";
 export {
   TodoCateCreateBtn,
   TodoCreateBtn,
@@ -44,4 +45,5 @@ export {
   useTodoPageFilterStore,
   useTodoFilter,
   useTodoSplitModal,
+  TodoLabelSelector,
 };

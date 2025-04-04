@@ -6,6 +6,7 @@ import ColorPicker from "./ui/ColorPicker";
 import SearchBar from "./ui/SearchBar";
 import TemplateColorPicker from "./ui/TemplateColorPicker";
 import CustomColorPicker from "./ui/CustomColorPicker";
+import LabelSelector from "./ui/LabelSelector";
 
 export {
   OneLineTextForm,
@@ -16,4 +17,5 @@ export {
   SearchBar,
   TemplateColorPicker,
   CustomColorPicker,
+  LabelSelector,
 };

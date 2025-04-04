@@ -30,6 +30,7 @@ function CustomColorPicker({ size = 40, onChange }: Props) {
       if (!color) return;
       if (onChange) onChange(color);
       setSelectedColor(color);
+      setIsOpen(false);
     },
     [onChange]
   );
@@ -71,6 +72,7 @@ function CustomColorPicker({ size = 40, onChange }: Props) {
         css={colorDisplay(selectedColor)}
         onClick={(e) => {
           e.stopPropagation();
+          e.preventDefault();
           toggleOpen();
         }}
       />

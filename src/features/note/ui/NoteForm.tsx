@@ -7,8 +7,7 @@ import { useNoteForm } from "../model/useNoteForm";
 import { Controller } from "react-hook-form";
 import { CommonEditor } from "@shared/components/editor";
 import { ImportantCheckBox } from "@shared/components/form";
-import DragableNoteLabelList from "./DragableNoteLabelList";
-import { Theme } from "@emotion/react";
+import NoteLabelSelector from "./NoteLabelSelector";
 
 function NoteForm({ data }: { data: Note & Id }) {
   const { container, input, label } = noteFormStyles;
@@ -41,16 +40,14 @@ function NoteForm({ data }: { data: Note & Id }) {
         control={control}
         render={({ field }) => (
           <div
-            css={(theme: Theme) => ({
-              zIndex: 14000,
-              borderBottom: `1px solid ${theme.colors.border.deepGray}`,
-            })}
+            css={{
+              borderBottom: "1px solid #eaeaea",
+            }}
           >
-            <DragableNoteLabelList
-              selectedLabel={field.value}
-              onClick={(data) => {
-                const isSame = field.value?.id === data?.id;
-                field.onChange(isSame ? null : data);
+            <NoteLabelSelector
+              value={field.value}
+              onChange={(data) => {
+                field.onChange(data);
               }}
             />
           </div>

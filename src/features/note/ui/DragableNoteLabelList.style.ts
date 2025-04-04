@@ -3,8 +3,6 @@ import { Theme } from "@emotion/react";
 export const dragableNoteLabelListStyles = {
   container: () =>
     ({
-      display: "grid",
-      gridTemplateColumns: "1fr 0.7fr",
       width: "100%",
     } as const),
   ul: (theme: Theme) =>
