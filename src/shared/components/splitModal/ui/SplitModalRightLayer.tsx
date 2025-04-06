@@ -44,6 +44,9 @@ const layerStyles = (theme: Theme) =>
     alignItems: "center",
     zIndex: 3000,
     ".content": {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
       width: "100%",
       height: "100%",
       overflow: "auto",

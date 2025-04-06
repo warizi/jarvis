@@ -6,6 +6,7 @@ export const noteFormStyles = {
       display: "flex",
       flexDirection: "column",
       width: "100%",
+      maxWidth: "1200px",
       gap: "10px",
       padding: "10px",
       backgroundColor: theme.colors.background.deep,

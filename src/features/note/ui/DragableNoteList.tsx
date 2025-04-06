@@ -35,7 +35,7 @@ function DragableNoteList({
           : {
               display: "grid",
               gridTemplateColumns:
-                "repeat(auto-fill, minmax(180px, 1fr))",
+                "repeat(auto-fill, minmax(200px, 1fr))",
               gap: "16px",
               padding: "10px",
               width: "100%",
