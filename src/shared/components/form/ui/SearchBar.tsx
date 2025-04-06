@@ -42,7 +42,7 @@ function SearchBar({
         }
       }}
     >
-      <button css={button} type="submit">
+      <button css={button} type="submit" aria-label="검색">
         <SearchIcon />
       </button>
       <input
