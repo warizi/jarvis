@@ -5,18 +5,18 @@ import { Id } from "@shared/config/type/commonType";
 export const useTodoFilter = () => {
   const { filter, setFilter, resetFilter } =
     useTodoPageFilterStore();
-
+  console.log("filter", filter);
   const getFilteredTodoList = (todoList: (Todo & Id)[]) => {
     let result = todoList;
 
     if (filter?.label) {
-      result = result.filter(
+      result = result?.filter(
         (todo) => todo.label?.id === filter.label?.id
       );
     }
 
     if (filter?.text) {
-      result = result.filter((todo) => {
+      result = result?.filter((todo) => {
         const { title } = todo;
         const searchText = title
           .replace(/\s+/g, "")
@@ -28,7 +28,7 @@ export const useTodoFilter = () => {
       });
     }
 
-    return result;
+    return result || [];
   };
 
   return {

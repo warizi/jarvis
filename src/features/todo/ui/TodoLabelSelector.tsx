@@ -22,6 +22,7 @@ function TodoLabelSelector({
       id: number;
       name: string;
       color: string;
+      order?: number;
     } | null
   ) => void;
 }) {

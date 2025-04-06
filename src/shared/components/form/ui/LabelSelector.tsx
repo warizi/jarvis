@@ -231,6 +231,7 @@ function LabelSelector({
           {filteredLabels.length > 0 &&
             filteredLabels?.map((label) => (
               <div
+                key={label.id}
                 css={{
                   display: "flex",
                   flexDirection: "row",

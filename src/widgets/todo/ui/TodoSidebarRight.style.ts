@@ -5,7 +5,7 @@ export const todoSidebarRightStyles = {
     ({
       position: "relative",
       height: "100vh",
-      width: isOpen ? "300px" : "0px",
+      width: isOpen ? "350px" : "0px",
       transition: "width 0.3s",
       backgroundColor: theme.colors.background.deep,
       zIndex: 1300,
@@ -17,12 +17,12 @@ export const todoSidebarRightStyles = {
       gap: "10px",
       position: "relative",
       height: "100vh",
-      width: "300px",
+      width: "350px",
       transition: "width 0.3s",
       overflow: "hidden",
       backgroundColor: theme.colors.background.deep,
       marginTop: "5px",
-      padding: isOpen ? "10px" : "0px",
+      padding: isOpen ? "15px" : "0px",
     } as const),
   toggleButton: (theme: Theme) =>
     ({

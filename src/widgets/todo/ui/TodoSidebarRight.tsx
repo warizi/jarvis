@@ -82,12 +82,16 @@ function TodoSidebarRight() {
         </div>
         <TodoLabelSelector
           onChange={(lable) => {
-            handleLabelFilter({
-              id: lable?.id || 0,
-              name: lable?.name || "",
-              color: lable?.color || "",
-              order: 0,
-            });
+            handleLabelFilter(
+              lable
+                ? {
+                    id: lable?.id || 0,
+                    name: lable?.name || "",
+                    color: lable?.color || "",
+                    order: 0,
+                  }
+                : null
+            );
           }}
           value={label}
         />
