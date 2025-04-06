@@ -10,7 +10,6 @@ export const noteHeaderStyle = {
       justifyContent: "space-between",
       alignItems: "center",
       padding: "0 30px",
-      borderBottom: `1px solid ${theme.colors.border.deepGray}`,
       height: "60px",
       zIndex: 1200,
     } as const),
@@ -39,6 +38,7 @@ export const noteHeaderStyle = {
       padding: "8px 16px",
       borderRadius: theme.radius.medium,
       color: theme.colors.text.secondary,
+      backgroundColor: theme.colors.background.deep,
       ":hover": {
         backgroundColor: theme.colors.background.hover,
         color: theme.colors.text.primary,

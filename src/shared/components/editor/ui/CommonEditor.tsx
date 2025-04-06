@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import ContextEditorMenu from "./ContextEditorMenu";
 import Placeholder from "@tiptap/extension-placeholder";
 import TextFormattingBubbleMenu from "./TextFormattingBubbleMenu";
+import { useTheme } from "@emotion/react";
 const Style = {
   ".ProseMirror": {
     // minHeight: "calc(100vh - 150px)", // 최소 높이 설정 유지
@@ -270,6 +271,8 @@ function CommonEditor({
     editable: !readOnly,
   });
 
+  const theme = useTheme();
+
   useEffect(() => {
     if (editor && editor.getHTML() !== value) {
       editor.commands.setContent(value);
@@ -284,7 +287,13 @@ function CommonEditor({
           : {
               ...Style,
               ...(minHeight
-                ? { ".ProseMirror": { minHeight } }
+                ? {
+                    ".ProseMirror": {
+                      ...Style[".ProseMirror"],
+                      minHeight,
+                      color: theme.colors.text.primary,
+                    },
+                  }
                 : {}),
             }),
       }}

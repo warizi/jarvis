@@ -20,7 +20,7 @@ export const toggleListWrapperStyles = {
       padding: "0 10px",
       fontSize: "12px",
       color: theme.colors.text.secondary,
-      borderBottom: `1px solid ${theme.colors.background.gray}`,
+      borderBottom: `1px solid ${theme.colors.border.gray}`,
       "& .line": {
         width: "100%",
         height: "1px",

@@ -1,27 +1,28 @@
 /** @jsxImportSource @emotion/react */
 
 import { BubbleMenu } from "@tiptap/react";
-import { css } from "@emotion/react";
+import { Theme } from "@emotion/react";
 import { Editor } from "@tiptap/react";
 
 const Style = {
-  container: css({
+  container: (theme: Theme) => ({
     display: "flex",
     gap: "10px",
     padding: "5px",
-    border: "1px solid #ccc",
+    border: `1px solid ${theme.colors.border.gray}`,
     borderRadius: "8px",
-    backgroundColor: "white",
-    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+    backgroundColor: theme.colors.background.deep,
+    boxShadow: theme.shadow.medium,
   }),
-  button: css({
+  button: (theme: Theme) => ({
     cursor: "pointer",
     padding: "5px 10px",
     border: "none",
     borderRadius: "4px",
-    backgroundColor: "#f0f0f0",
+    color: theme.colors.text.primary,
+    backgroundColor: theme.colors.background.gray,
     "&:hover": {
-      backgroundColor: "#e0e0e0",
+      backgroundColor: theme.colors.primary.light,
     },
   }),
 };

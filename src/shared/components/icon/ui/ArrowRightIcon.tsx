@@ -3,7 +3,7 @@
 import { IconProps } from "../model/type";
 
 function ArrowRightIcon({
-  color = "#12131A",
+  color = "currentColor",
   size = 24,
 }: IconProps) {
   return (

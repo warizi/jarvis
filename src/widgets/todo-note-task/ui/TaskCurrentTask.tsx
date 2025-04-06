@@ -73,8 +73,8 @@ function TaskCurrentTask({
       >
         <button
           css={{
-            width: "30px",
-            height: "30px",
+            width: "35px",
+            height: "35px",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
@@ -92,7 +92,7 @@ function TaskCurrentTask({
           }}
           onClick={() => handleClose()}
         >
-          <ArrowRightIcon />
+          <ArrowRightIcon size={30} />
         </button>
       </div>
       {children}

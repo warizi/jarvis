@@ -32,7 +32,6 @@ export const noteFormStyles = {
       overflow: "hidden",
       alignItems: "center",
       height: "50px",
-      borderBottom: "1px solid #eaeaea",
       padding: "10px 0",
     } as const),
 };

@@ -18,11 +18,12 @@ const sidebarWrapperContainerStyles =
       "& .sidebar-close-btn": {
         position: "absolute",
         top: 0,
-        right: isOpen ? "0" : "-24px",
-        width: "24px",
-        height: "24px",
+        right: isOpen ? "0" : "-30px",
+        width: "30px",
+        height: "30px",
         transition: "0.3s",
-        color: theme.colors.text.primary,
+        marginTop: "12px",
+        color: theme.colors.text.secondary,
         // backgroundColor: theme.colors.background.gray,
         border: "none",
         cursor: "pointer",
@@ -31,6 +32,7 @@ const sidebarWrapperContainerStyles =
       },
       "& .sidebar-close-btn:hover": {
         backgroundColor: theme.colors.background.hover,
+        color: theme.colors.text.primary,
       },
       paddingTop: "10px",
     } as const);
@@ -58,7 +60,7 @@ function SidebarWrapper({ children }: SidebarWrapperProps) {
         className="sidebar-close-btn"
         onClick={toggleSidebar}
       >
-        <ArrowRightIcon color="currentColor" />
+        <ArrowRightIcon color="currentColor" size={30} />
       </div>
       <div css={sidebarWrapperStyles(isOpen)}>
         {children}

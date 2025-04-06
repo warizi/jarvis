@@ -56,8 +56,8 @@ export const lightTheme: Theme = {
 export const darkTheme: Theme = {
   colors: {
     primary: {
-      light: "rgb(72, 98, 199)",
-      normal: "rgb(46, 77, 200)",
+      light: "rgb(87, 114, 225)",
+      normal: "rgb(47, 80, 209)",
       dark: "rgb(17, 53, 197)",
     },
     secondary: {
@@ -66,8 +66,8 @@ export const darkTheme: Theme = {
       dark: "rgb(153, 13, 192)",
     },
     background: {
-      deep: "rgb(18, 18, 18)",
-      gray: "rgb(28, 28, 28)",
+      deep: "rgb(38, 38, 38)",
+      gray: "rgb(48, 48, 48)",
       hover: "rgba(116, 116, 116, 0.1)",
       backdrop: "rgba(75, 75, 75, 0.3)",
     },
@@ -76,7 +76,7 @@ export const darkTheme: Theme = {
       secondary: "rgb(155, 155, 155)",
     },
     border: {
-      gray: "rgb(133, 133, 133)",
+      gray: "rgb(50, 50, 50)",
       deepGray: "rgb(221, 221, 221)",
     },
     important: {
@@ -92,8 +92,8 @@ export const darkTheme: Theme = {
   radius: { small: "4px", medium: "8px", large: "12px" },
   shadow: {
     superSmall: "0px 1px 2px rgba(0, 0, 0, 0.1)",
-    small: "0px 2px 4px rgba(0, 0, 0, 0.9)",
-    medium: "0px 4px 8px rgba(0, 0, 0, 0.9)",
-    large: "0px 8px 16px rgba(0, 0, 0, 0.9)",
+    small: "0px 2px 4px rgba(0, 0, 0, 0.6)",
+    medium: "0px 4px 8px rgba(0, 0, 0, 0.6)",
+    large: "0px 8px 16px rgba(0, 0, 0, 0.6)",
   },
 };

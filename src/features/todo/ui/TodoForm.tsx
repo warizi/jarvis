@@ -12,9 +12,11 @@ import { useTodoform } from "../model/useTodoForm";
 import SubTodoForm from "./SubTodoForm";
 import { CommonEditor } from "@shared/components/editor";
 import TodoLabelSelector from "./TodoLabelSelector";
+import { useTheme } from "@emotion/react";
 
 function TodoForm({ data }: { data: Todo & Id }) {
   const { container, label, input } = todoFormStyles;
+  const theme = useTheme();
 
   const { register, control, isDone } = useTodoform(data);
 
@@ -84,7 +86,7 @@ function TodoForm({ data }: { data: Todo & Id }) {
         render={({ field }) => (
           <div
             css={{
-              border: "1px solid #d9d9d9",
+              color: theme.colors.text.primary,
               borderRadius: "5px",
             }}
           >

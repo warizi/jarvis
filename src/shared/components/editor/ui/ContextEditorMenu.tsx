@@ -13,9 +13,9 @@ const Style = {
       width: "150px",
       minHeight: "40px",
       maxHeight: "200px",
-      border: "1px solid #ccc",
+      border: `1px solid ${theme.colors.border.gray}`,
       borderRadius: theme.radius.small,
-      backgroundColor: "white",
+      backgroundColor: theme.colors.background.deep,
       overflowY: "scroll",
       overflowX: "hidden",
       scrollbarWidth: "none", // Firefox
@@ -33,8 +33,9 @@ const Style = {
       height: "40px",
       cursor: "pointer",
       border: "none",
-      borderBottom: "1px solid #ccc",
-      backgroundColor: "white",
+      borderBottom: `1px solid ${theme.colors.border.gray}`,
+      color: theme.colors.text.primary,
+      backgroundColor: theme.colors.background.deep,
       "&:hover": {
         backgroundColor: theme.colors.primary.light,
         color: "white",

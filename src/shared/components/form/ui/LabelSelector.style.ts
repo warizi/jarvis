@@ -11,6 +11,7 @@ export const labelSelectorStyles = {
       width: "100%",
       height: "40px",
       padding: "0 10px",
+      color: theme.colors.text.primary,
       backgroundColor: theme.colors.background.deep,
       borderRadius: theme.radius.medium,
     } as const),

@@ -156,6 +156,7 @@ function LabelSelector({
               cursor: "pointer",
               padding: 0,
               margin: 0,
+              color: theme.colors.text.primary,
               ":hover": {
                 backgroundColor:
                   theme.colors.background.hover,

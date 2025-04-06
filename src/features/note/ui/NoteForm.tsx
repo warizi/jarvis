@@ -39,11 +39,7 @@ function NoteForm({ data }: { data: Note & Id }) {
         name="label"
         control={control}
         render={({ field }) => (
-          <div
-            css={{
-              borderBottom: "1px solid #eaeaea",
-            }}
-          >
+          <div>
             <NoteLabelSelector
               value={field.value}
               onChange={(data) => {
