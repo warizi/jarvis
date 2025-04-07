@@ -3,10 +3,12 @@ import {
   TodoCateCreateBack,
 } from "../entities/TodoCateBack";
 import TodoCateRepository from "../repository/TodoCateRepository";
+import TodoBackService from "./TodoBackService";
 
 class TodoCateBackService {
   todoCateRepository: TodoCateRepository =
     new TodoCateRepository();
+  todoBackService: TodoBackService = new TodoBackService();
 
   async getAll() {
     return (await this.todoCateRepository.getAll()).sort(
@@ -30,6 +32,15 @@ class TodoCateBackService {
   }
 
   async delete(id: number) {
+    const todoListByCateId =
+      await this.todoBackService.findByCateId(id);
+    // 하위 todo가 있는 경우 삭제
+    if (todoListByCateId.length > 0) {
+      for (const todo of todoListByCateId) {
+        await this.todoBackService.delete(todo.id);
+      }
+    }
+
     return await this.todoCateRepository.delete(id);
   }
 

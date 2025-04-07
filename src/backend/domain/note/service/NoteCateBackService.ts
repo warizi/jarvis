@@ -3,10 +3,12 @@ import {
   NoteCateCreateBack,
 } from "../entities/NoteCateBack";
 import NoteCateRepository from "../repository/NoteCateRepository";
+import NoteBackService from "./NoteBackService";
 
 class NoteCateBackService {
   noteCateRepository: NoteCateRepository =
     new NoteCateRepository();
+  noteBackService: NoteBackService = new NoteBackService();
 
   async getAll() {
     return (await this.noteCateRepository.getAll()).sort(
@@ -30,6 +32,15 @@ class NoteCateBackService {
   }
 
   async delete(id: number) {
+    const noteListByCateId =
+      await this.noteBackService.findByCateId(id);
+    // 하위 note가 있는 경우 삭제
+    if (noteListByCateId.length > 0) {
+      for (const note of noteListByCateId) {
+        await this.noteBackService.delete(note.id);
+      }
+    }
+    // 카테고리 삭제
     return await this.noteCateRepository.delete(id);
   }
 
