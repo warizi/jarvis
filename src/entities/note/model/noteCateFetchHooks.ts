@@ -11,7 +11,10 @@ import {
   fetchGetNoteCate,
   fetchUpdateNoteCate,
 } from "../api/noteCateApi";
-import { noteCateQueryKey } from "./constants";
+import {
+  noteCateQueryKey,
+  noteQueryKey,
+} from "./constants";
 
 export const useCreateNoteCateMutation = () => {
   const queryClient = useQueryClient();
@@ -46,6 +49,9 @@ export const useDeleteNoteCateMutation = () => {
     onSuccess: () => {
       queryClient.invalidateQueries({
         queryKey: [noteCateQueryKey],
+      });
+      queryClient.invalidateQueries({
+        queryKey: [noteQueryKey],
       });
     },
   });

@@ -12,6 +12,7 @@ import {
   fetchUpdateTodoCate,
 } from "../api/todoCateApi";
 import { Id } from "@shared/config/type/commonType";
+import { todoQueryKey } from "./todoFetchHooks";
 
 const queryKey = "todoCate";
 export const queryKeyByIsDone = "done";
@@ -61,6 +62,9 @@ export const useDeleteTodoCateMutation = () => {
       });
       queryClient.invalidateQueries({
         queryKey: [queryKey],
+      });
+      queryClient.invalidateQueries({
+        queryKey: [todoQueryKey],
       });
     },
   });
