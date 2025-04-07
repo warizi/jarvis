@@ -29,10 +29,10 @@ export const useNavItems = () => {
       url: ROUTE_URL.NOTE,
       icon: <NoteIcon size={20} />,
     },
-    {
-      title: "Test",
-      url: ROUTE_URL.TEST,
-      icon: <MonitorIcon size={20} />,
-    },
+    // {
+    //   title: "Test",
+    //   url: ROUTE_URL.TEST,
+    //   icon: <MonitorIcon size={20} />,
+    // },
   ];
 };

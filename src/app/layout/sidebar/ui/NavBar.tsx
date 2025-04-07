@@ -3,6 +3,7 @@
 import { Theme } from "@emotion/react";
 import { Logo } from "@shared/components/logo";
 import NavLink from "./NavLink";
+import { ThemeToggleButton } from "@shared/components/button";
 
 const navBarStyles = (theme: Theme) =>
   ({
@@ -23,6 +24,13 @@ function NavBar() {
     <div css={navBarStyles}>
       <Logo size="sm" />
       <NavLink />
+      <div
+        css={{
+          marginBottom: "10px",
+        }}
+      >
+        <ThemeToggleButton />
+      </div>
     </div>
   );
 }

@@ -57,8 +57,8 @@ export const darkTheme: Theme = {
   colors: {
     primary: {
       light: "rgb(87, 114, 225)",
-      normal: "rgb(47, 80, 209)",
-      dark: "rgb(17, 53, 197)",
+      normal: "rgb(52, 91, 245)",
+      dark: "rgb(11, 49, 199)",
     },
     secondary: {
       light: "rgb(164, 77, 188)",
@@ -72,7 +72,7 @@ export const darkTheme: Theme = {
       backdrop: "rgba(75, 75, 75, 0.3)",
     },
     text: {
-      primary: "rgb(241, 241, 241)",
+      primary: "rgb(221, 221, 221)",
       secondary: "rgb(155, 155, 155)",
     },
     border: {

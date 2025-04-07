@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 
+import { ThemeToggleButton } from "@shared/components/button";
 import { SidebarWrapper } from "@shared/components/sidebar";
-import ThemeToggleButton from "./ThemeToggleButton";
 // import { useTest } from "../model/useTest";
 
 const pageContainerStyles = {
