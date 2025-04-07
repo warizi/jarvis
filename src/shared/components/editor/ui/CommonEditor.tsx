@@ -28,7 +28,7 @@ const Style = {
     outline: "none",
     ul: {
       padding: "0 1rem", // 리스트 내부 여백 유지
-      margin: "1.5rem 0", // 리스트 상하 간격 조정 (가독성 개선)
+      margin: "0.3rem 0", // 리스트 상하 간격 조정 (가독성 개선)
       li: {
         marginBottom: "0rem", // 리스트 항목 간 여백 추가
         p: {
@@ -38,7 +38,7 @@ const Style = {
     },
     ol: {
       padding: "0 1.5rem",
-      margin: "0.5rem 0", // 리스트 상하 간격 조정
+      margin: "0.3rem 0", // 리스트 상하 간격 조정
       li: {
         marginBottom: "0rem", // 리스트 항목 간 여백 추가
         p: {
