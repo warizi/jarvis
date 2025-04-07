@@ -9,6 +9,7 @@ import {
 import { SplitModal } from "@shared/components/splitModal";
 import { TaskSplitModal } from "@widgets/todo-note-task";
 import { Outlet } from "react-router-dom";
+import { useThemeColor } from "../model/useThemeColor";
 
 const commonLayoutStyles = (theme: Theme) =>
   ({
@@ -27,6 +28,7 @@ const mainStyles = {
 
 function CommonLayout() {
   const { isOpen } = useContextMenuStore();
+  useThemeColor();
   return (
     <div css={commonLayoutStyles}>
       <NavBar />

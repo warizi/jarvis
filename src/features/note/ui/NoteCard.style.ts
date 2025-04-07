@@ -11,6 +11,7 @@ export const noteCardStyles = {
     overflow: "hidden",
     cursor: "pointer",
     padding: "0 0 10px 0",
+    color: theme.colors.text.primary,
     boxShadow: theme.shadow.medium,
     ":hover": {
       backgroundColor: theme.colors.background.hover,

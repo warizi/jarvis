@@ -2,7 +2,7 @@ import HomeIcon from "@shared/components/icon/ui/HomeIcon";
 import TaskIcon from "@shared/components/icon/ui/TaskIcon";
 import { ROUTE_URL } from "@shared/constants/route/ROUTE_URL";
 import {
-  MonitorIcon,
+  // MonitorIcon,
   NoteIcon,
 } from "@shared/components/icon";
 

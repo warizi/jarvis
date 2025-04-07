@@ -9,6 +9,8 @@ import TaskFinder from "./TaskFinder";
 import { taskSplitModalStyles } from "./TaskSplitModal.style";
 import TaskSplitModalTab from "./TaskSplitModalTab";
 import TaskView from "./TaskView";
+import { useSplitModalStore } from "@shared/components/splitModal";
+import { useEffect } from "react";
 
 const sideIn = keyframes`
   0% {
@@ -35,9 +37,13 @@ const sideOut = keyframes`
 function TaskSplitModal() {
   const { container, content } = taskSplitModalStyles;
   const theme = useTheme();
-  const { activeTab, closeTabStart } =
+  const { activeTab, closeTabStart, closeCurrentTask } =
     useTaskSplitModalStore();
+  const { isOpen } = useSplitModalStore();
 
+  useEffect(() => {
+    closeCurrentTask();
+  }, [isOpen, closeCurrentTask]);
   return (
     <div css={container}>
       <TaskSplitModalTab />

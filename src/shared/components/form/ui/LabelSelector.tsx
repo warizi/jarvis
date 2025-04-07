@@ -97,7 +97,7 @@ function LabelSelector({
   const handleCloseDropdown = () => {
     setTimeout(() => {
       setIsDropdownOpen(false);
-    }, 200);
+    }, 50);
   };
 
   useEffect(() => {
