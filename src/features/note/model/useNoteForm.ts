@@ -15,7 +15,6 @@ export const useNoteForm = (data: Note & Id) => {
 
   const debouncedMutate = useMemo(() => {
     return debounce((formValues: Note & Id) => {
-      console.log("mutate", formValues);
       mutate(formValues);
     }, 300);
   }, [mutate]);
