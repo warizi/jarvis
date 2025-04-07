@@ -37,6 +37,7 @@ const sideOut = keyframes`
 function TaskSplitModal() {
   const { container, content } = taskSplitModalStyles;
   const theme = useTheme();
+
   const { activeTab, closeTabStart, closeCurrentTask } =
     useTaskSplitModalStore();
   const { isOpen } = useSplitModalStore();
