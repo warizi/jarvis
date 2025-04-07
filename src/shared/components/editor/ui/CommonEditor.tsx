@@ -90,14 +90,14 @@ const Style = {
       marginBottom: "0rem", // 하단 여백 조정
     },
     code: {
-      backgroundColor: "#f4f4f4",
+      backgroundColor: "#c3c2c2",
       borderRadius: "0.4rem",
       fontSize: "0.75rem", // 코드 글자 크기 감소
       padding: "0.2em 0.25em", // 패딩 축소
       color: "#000",
     },
     pre: {
-      backgroundColor: "#f4f4f4",
+      backgroundColor: "#c3c2c2",
       borderRadius: "0.4rem",
       fontFamily: "'JetBrainsMono', monospace",
       margin: "0.8rem 0", // 상하 여백 축소
@@ -201,14 +201,14 @@ const UltraMiniStyle = {
       fontSize: "0.25rem",
     },
     code: {
-      backgroundColor: "#f4f4f4",
+      backgroundColor: "#c3c2c2",
       borderRadius: "0.1rem", // border-radius 최소화
       fontSize: "0.2rem", // 글자 크기 최소화
       padding: "0.05em 0.075em", // padding 더 축소
       color: "#000",
     },
     pre: {
-      backgroundColor: "#f4f4f4",
+      backgroundColor: "#c3c2c2",
       borderRadius: "0.1rem", // 둥근 모서리 최소화
       fontFamily: "'JetBrainsMono', monospace",
       margin: "0.125rem 0", // margin 더 축소
