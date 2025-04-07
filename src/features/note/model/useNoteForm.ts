@@ -1,7 +1,7 @@
 import { useUpdateNoteMutation } from "@entities/note";
 import { Note } from "@entities/note/model/type";
 import { Id } from "@shared/config/type/commonType";
-import { debounce } from "lodash";
+import { debounce, isEqual } from "lodash";
 import { useEffect, useMemo, useRef } from "react";
 import { useForm } from "react-hook-form";
 
@@ -15,12 +15,13 @@ export const useNoteForm = (data: Note & Id) => {
 
   const debouncedMutate = useMemo(() => {
     return debounce((formValues: Note & Id) => {
+      console.log("mutate", formValues);
       mutate(formValues);
     }, 300);
   }, [mutate]);
 
   useEffect(() => {
-    if (prevValuesRef.current !== watch()) {
+    if (!isEqual(prevValuesRef.current, allValues)) {
       prevValuesRef.current = watch();
       debouncedMutate({ ...watch(), id: data.id });
     }

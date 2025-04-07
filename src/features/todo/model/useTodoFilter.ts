@@ -5,7 +5,6 @@ import { Id } from "@shared/config/type/commonType";
 export const useTodoFilter = () => {
   const { filter, setFilter, resetFilter } =
     useTodoPageFilterStore();
-  console.log("filter", filter);
   const getFilteredTodoList = (todoList: (Todo & Id)[]) => {
     let result = todoList;
 

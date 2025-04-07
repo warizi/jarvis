@@ -73,6 +73,7 @@ function TaskFinderNote() {
             handleDragEnd={handleDragEnd}
           >
             {(item) =>
+              item?.length > 0 &&
               item?.map((note) => (
                 <DraggableWrapper
                   key={note.id}
