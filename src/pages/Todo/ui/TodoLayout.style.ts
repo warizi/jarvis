@@ -8,6 +8,7 @@ export const todoLayoutStyle = {
       flexDirection: "row",
       width: "100%",
       height: "100vh",
+      overflow: "hidden",
     } as const),
   content: () =>
     ({
