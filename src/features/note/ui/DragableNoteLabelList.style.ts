@@ -14,7 +14,7 @@ export const dragableNoteLabelListStyles = {
       whiteSpace: "nowrap", // 텍스트 줄바꿈도 방지
       overflow: "auto",
       gap: "8px",
-      padding: "5px",
+      padding: "5px 10px",
       backgroundColor: theme.colors.background.gray,
       borderRadius: theme.radius.medium,
     } as const),
