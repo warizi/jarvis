@@ -18,7 +18,6 @@ export const useNoteSplitModal = () => {
     const { title } = data;
     open({
       title: `NOTE > ${title}`,
-
       itemId: data.id,
       type: SplitModalType.NOTE,
       content: <NoteForm data={data} />,

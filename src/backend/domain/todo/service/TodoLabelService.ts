@@ -18,8 +18,9 @@ class TodoLabelBackService {
     if ("id" in data) {
       return await this.todoLabelRepository.save(data);
     } else {
-      const allData =
-        await this.todoLabelRepository.getAll();
+      const allData = (
+        await this.todoLabelRepository.getAll()
+      ).sort((a, b) => a.order - b.order);
       const order =
         allData.length > 0
           ? allData[allData.length - 1].order + 1000

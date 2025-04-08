@@ -17,7 +17,7 @@ export const noteFormStyles = {
     outline: "none",
     border: "none",
     fontSize: "28px",
-    height: "50px",
+    height: "40px",
     backgroundColor: "transparent",
     color: theme.colors.text.primary,
     whiteSpace: "nowrap",
@@ -31,7 +31,7 @@ export const noteFormStyles = {
       justifyContent: "space-between",
       overflow: "hidden",
       alignItems: "center",
-      height: "50px",
+      height: "40px",
       padding: "10px 0",
     } as const),
 };

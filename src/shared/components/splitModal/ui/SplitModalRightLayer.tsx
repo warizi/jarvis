@@ -53,9 +53,14 @@ const layerStyles = (theme: Theme) =>
     },
     ".footer": {
       display: "flex",
-      justifyContent: "flex-end",
+      justifyContent: "space-between",
+      alignItems: "center",
       width: "100%",
       padding: "10px",
+      "& span": {
+        fontSize: theme.typography.size.small,
+        color: theme.colors.text.secondary,
+      },
     },
   } as const);
 
@@ -98,6 +103,7 @@ function SplitModalRightLayer({
         <SplitModalTitle title={title} />
         <div className="content">{children}</div>
         <div className="footer">
+          <div></div>
           {onDelete && (
             <button
               css={deleteBtnStyles}

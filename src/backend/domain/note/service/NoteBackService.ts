@@ -66,7 +66,9 @@ class NoteBackService {
       delete data.label;
       return await this.noteRepository.save(noteBack);
     } else {
-      const allData = await this.noteRepository.getAll();
+      const allData = (
+        await this.noteRepository.getAll()
+      ).sort((a, b) => a.order - b.order);
       const order =
         allData.length > 0
           ? allData[allData.length - 1].order + 1000

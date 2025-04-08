@@ -20,8 +20,9 @@ class TodoCateBackService {
     if ("id" in data) {
       return await this.todoCateRepository.save(data);
     } else {
-      const allData =
-        await this.todoCateRepository.getAll();
+      const allData = (
+        await this.todoCateRepository.getAll()
+      ).sort((a, b) => a.order - b.order);
       const order =
         allData.length > 0
           ? allData[allData.length - 1].order + 1000

@@ -18,8 +18,9 @@ class NoteLabelBackService {
     if ("id" in data) {
       return await this.noteLabelRepository.save(data);
     } else {
-      const allData =
-        await this.noteLabelRepository.getAll();
+      const allData = (
+        await this.noteLabelRepository.getAll()
+      ).sort((a, b) => a.order - b.order);
       const order =
         allData.length > 0
           ? allData[allData.length - 1].order + 1000

@@ -30,6 +30,7 @@ const useSplitModalStore = create<SplitModalState>(
   (set) => ({
     title: "",
     content: undefined,
+    footerText: undefined,
     itemId: null,
     type: null,
     onDelete: undefined,

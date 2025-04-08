@@ -20,6 +20,8 @@ export type Todo = {
   repeatType?: string;
   repeatDate?: string;
   label?: (TodoLabel & Id) | null;
+  updatedAt?: string;
+  createdAt?: string;
 };
 
 export type TodoSub = {

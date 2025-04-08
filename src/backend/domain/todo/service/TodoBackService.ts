@@ -184,7 +184,9 @@ class TodoBackService {
       delete newTodo.labelId;
       return newTodo;
     } else {
-      const allData = await this.todoRepository.getAll();
+      const allData = (
+        await this.todoRepository.getAll()
+      ).sort((a, b) => a.order - b.order);
       const order =
         allData.length > 0
           ? allData[allData.length - 1].order + 1000

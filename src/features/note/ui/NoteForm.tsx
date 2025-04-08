@@ -24,36 +24,38 @@ function NoteForm({ data }: { data: Note & Id }) {
 
   return (
     <div css={container}>
-      <label htmlFor={`todo-${data.id}`} css={label}>
-        <input
-          id={`todo-${data.id}`}
-          css={input}
-          type="text"
-          {...register("title")}
-        />
+      <div>
+        <label htmlFor={`todo-${data.id}`} css={label}>
+          <input
+            id={`todo-${data.id}`}
+            css={input}
+            type="text"
+            {...register("title")}
+          />
+          <Controller
+            name="isImportant"
+            control={control}
+            render={({ field }) => (
+              <ImportantCheckBox
+                checked={field.value}
+                onChange={() =>
+                  field.onChange(field.value === 0 ? 1 : 0)
+                }
+              />
+            )}
+          />
+        </label>
         <Controller
-          name="isImportant"
+          name="label"
           control={control}
           render={({ field }) => (
-            <ImportantCheckBox
-              checked={field.value}
-              onChange={() =>
-                field.onChange(field.value === 0 ? 1 : 0)
-              }
+            <NoteLabelSelector
+              value={field.value}
+              onChange={field.onChange}
             />
           )}
         />
-      </label>
-      <Controller
-        name="label"
-        control={control}
-        render={({ field }) => (
-          <NoteLabelSelector
-            value={field.value}
-            onChange={field.onChange}
-          />
-        )}
-      />
+      </div>
       <Controller
         name="content"
         control={control}
