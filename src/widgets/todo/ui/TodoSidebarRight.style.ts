@@ -8,6 +8,7 @@ export const todoSidebarRightStyles = {
       width: isOpen ? "350px" : "0px",
       transition: "width 0.3s",
       backgroundColor: theme.colors.background.deep,
+      // overflow: "hidden",
       zIndex: 1300,
     } as const),
   innerContainer: (isOpen: boolean) => (theme: Theme) =>
@@ -17,7 +18,7 @@ export const todoSidebarRightStyles = {
       gap: "10px",
       position: "relative",
       height: "100vh",
-      width: "350px",
+      width: isOpen ? "350px" : "0px",
       transition: "width 0.3s",
       overflow: "hidden",
       backgroundColor: theme.colors.background.deep,
