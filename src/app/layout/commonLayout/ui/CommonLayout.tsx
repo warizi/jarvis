@@ -10,6 +10,7 @@ import { SplitModal } from "@shared/components/splitModal";
 import { TaskSplitModal } from "@widgets/todo-note-task";
 import { Outlet } from "react-router-dom";
 import { useThemeColor } from "../model/useThemeColor";
+import { Modal } from "@shared/components/modal";
 
 const commonLayoutStyles = (theme: Theme) =>
   ({
@@ -28,6 +29,7 @@ const mainStyles = {
 
 function CommonLayout() {
   const { isOpen } = useContextMenuStore();
+
   useThemeColor();
   return (
     <div css={commonLayoutStyles}>
@@ -36,6 +38,7 @@ function CommonLayout() {
         <Outlet />
       </div>
       <SplitModal task={<TaskSplitModal />} />
+      <Modal />
       {isOpen && <ContextMenu />}
     </div>
   );

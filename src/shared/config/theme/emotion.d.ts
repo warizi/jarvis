@@ -29,6 +29,7 @@ declare module "@emotion/react" {
       };
       important: {
         heigh: string;
+        heighHover: string;
         meduim: string;
         low: string;
       };

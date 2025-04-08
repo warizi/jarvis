@@ -1,6 +1,7 @@
 /** @jsxImportSource @emotion/react */
 
 import { ThemeToggleButton } from "@shared/components/button";
+import { useModalStore } from "@shared/components/modal";
 import { SidebarWrapper } from "@shared/components/sidebar";
 // import { useTest } from "../model/useTest";
 
@@ -12,6 +13,8 @@ const pageContainerStyles = {
 
 function TestPage() {
   // useTest();
+  const { open, close } = useModalStore();
+
   return (
     <div css={pageContainerStyles}>
       <SidebarWrapper>sidebar</SidebarWrapper>
@@ -22,6 +25,29 @@ function TestPage() {
         }}
       >
         <ThemeToggleButton />
+        <button
+          onClick={() => {
+            open({
+              title: "Test Modal",
+              content: (
+                <div>
+                  <h2>Test Modal</h2>
+                  <p>This is a test modal.</p>
+                </div>
+              ),
+              onCancel: () => {
+                console.log("cancel");
+                close();
+              },
+              onConfirm: () => {
+                console.log("confirm");
+                close();
+              },
+            });
+          }}
+        >
+          modal
+        </button>
       </div>
     </div>
   );

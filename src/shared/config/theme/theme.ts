@@ -28,6 +28,7 @@ export const lightTheme: Theme = {
     },
     important: {
       heigh: "rgba(255, 0, 0, 1)",
+      heighHover: "rgb(216, 0, 0)",
       meduim: "rgb(255, 179, 0)",
       low: "rgb(255, 238, 0)",
     },
@@ -81,6 +82,7 @@ export const darkTheme: Theme = {
     },
     important: {
       heigh: "rgba(255, 0, 0, 1)",
+      heighHover: "rgb(216, 0, 0)",
       meduim: "rgb(255, 179, 0)",
       low: "rgb(255, 238, 0)",
     },
