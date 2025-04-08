@@ -2,7 +2,10 @@
 
 import { SidebarWrapper } from "@shared/components/sidebar";
 import { noteLayoutStyle } from "./NoteLayout.style";
-import { NoteSidebar } from "@widgets/note";
+import {
+  NoteSidebar,
+  NoteSidebarRight,
+} from "@widgets/note";
 import { Outlet } from "react-router-dom";
 
 function NoteLayout() {
@@ -16,6 +19,7 @@ function NoteLayout() {
         <div className="content">
           <Outlet />
         </div>
+        <NoteSidebarRight />
       </div>
     </div>
   );

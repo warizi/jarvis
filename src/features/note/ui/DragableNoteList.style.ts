@@ -3,5 +3,6 @@ export const noteListStyles = {
     display: "flex",
     padding: "10px",
     flexWrap: "wrap",
+    overflow: "hidden",
   } as const,
 };

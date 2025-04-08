@@ -8,6 +8,7 @@ export const noteLayoutStyle = {
       flexDirection: "row",
       width: "100%",
       height: "100vh",
+      overflow: "hidden",
     } as const),
   content: () =>
     ({
@@ -15,7 +16,8 @@ export const noteLayoutStyle = {
       display: "flex",
       flexDirection: "row",
       height: "100vh",
-      overflow: "auto",
+      overflowX: "hidden",
+      overflowY: "auto",
       width: "100%",
       "& .content": {
         width: "100%",

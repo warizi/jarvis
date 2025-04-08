@@ -25,6 +25,7 @@ export const noteHeaderStyle = {
       justifyContent: "center",
       alignItems: "center",
       gap: "10px",
+      marginRight: "25px",
     } as const),
   button: (theme: Theme) =>
     ({
