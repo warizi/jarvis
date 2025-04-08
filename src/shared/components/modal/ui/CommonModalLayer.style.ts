@@ -54,6 +54,7 @@ export const CommonModalLayerStyles = {
       flexDirection: "column",
       justifyContent: "center",
       alignItems: "center",
+      gap: "5px",
       width: "100%",
       padding: "10px",
     } as const),

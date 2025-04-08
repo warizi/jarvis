@@ -10,6 +10,7 @@ const todoCateStyles = {
     background: "none",
     padding: "0",
     // width: "100%",
+    color: theme.colors.text.primary,
     "&::placeholder": {
       color: theme.colors.primary.normal,
     },

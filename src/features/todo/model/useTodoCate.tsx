@@ -4,6 +4,7 @@ import { useContextMenuStore } from "@shared/components/contextMenu";
 import { useUpdateTodoCateMutation } from "../../../entities/todo/model/todoCateFetchHooks";
 import { useState } from "react";
 import { useTodoCateDelete } from "./useTodoCateDelete";
+import { useModalStore } from "@shared/components/modal";
 
 export const useTodoCate = (data: TodoCateType & Id) => {
   const { id } = data;
@@ -12,6 +13,8 @@ export const useTodoCate = (data: TodoCateType & Id) => {
   const { mutate: updateTodoCateMutate } =
     useUpdateTodoCateMutation();
   const [isEdit, setIsEdit] = useState(false);
+  const { open: modalOpen, close: modalClose } =
+    useModalStore();
   const [values, setValues] = useState<TodoCateType & Id>(
     data
   );
@@ -45,7 +48,23 @@ export const useTodoCate = (data: TodoCateType & Id) => {
   };
 
   const handleDelete = async () => {
-    await onDelete();
+    modalOpen({
+      title: "삭제",
+      content: (
+        <>
+          <p>정말 삭제하시겠습니까?</p>
+          <p>하위 Todo는 모두 삭제됩니다.</p>
+          <p>삭제된 데이터는 복구할 수 없습니다.</p>
+        </>
+      ),
+      onCancel: () => {
+        modalClose();
+      },
+      onConfirm: async () => {
+        await onDelete();
+        modalClose();
+      },
+    });
     setIsEdit(false);
     close();
   };

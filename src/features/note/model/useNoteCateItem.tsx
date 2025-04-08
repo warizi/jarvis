@@ -6,6 +6,7 @@ import { useContextMenuStore } from "@shared/components/contextMenu";
 import { Id } from "@shared/config/type/commonType";
 import { useNoteCateDelete } from "./useNoteCateDelete";
 import { useState } from "react";
+import { useModalStore } from "@shared/components/modal";
 
 export const useNoteCateItem = (
   data: NoteCateType & Id
@@ -15,6 +16,8 @@ export const useNoteCateItem = (
   const { onDelete } = useNoteCateDelete(id);
   const { mutate: updateNoteCateMutate } =
     useUpdateNoteCateMutation();
+  const { open: modalOpen, close: modalClose } =
+    useModalStore();
   const [isEdit, setIsEdit] = useState(false);
   const [values, setValues] = useState<NoteCateType & Id>(
     data
@@ -50,7 +53,23 @@ export const useNoteCateItem = (
   };
 
   const handleDelete = async () => {
-    await onDelete();
+    modalOpen({
+      title: "삭제",
+      content: (
+        <>
+          <p>정말 삭제하시겠습니까?</p>
+          <p>하위 Note는 모두 삭제됩니다.</p>
+          <p>삭제된 데이터는 복구할 수 없습니다.</p>
+        </>
+      ),
+      onCancel: () => {
+        modalClose();
+      },
+      onConfirm: async () => {
+        await onDelete();
+        modalClose();
+      },
+    });
     setIsEdit(false);
     close();
   };

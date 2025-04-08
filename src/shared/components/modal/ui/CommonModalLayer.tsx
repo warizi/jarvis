@@ -72,12 +72,12 @@ function CommonModalLayer({
       <div css={footer}>
         {onCancel && (
           <button css={cancelButton} onClick={onCancel}>
-            Cancel
+            취소
           </button>
         )}
         {onConfirm && (
           <button css={confirmButton} onClick={onConfirm}>
-            Confirm
+            확인
           </button>
         )}
       </div>
