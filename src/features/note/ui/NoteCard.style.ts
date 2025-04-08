@@ -8,20 +8,23 @@ export const noteCardStyles = {
     minWidth: 200,
     backgroundColor: theme.colors.background.deep,
     borderRadius: theme.radius.medium,
-    overflow: "hidden",
+    // overflowY: "hidden",
     cursor: "pointer",
-    padding: "0 0 10px 0",
+    padding: "10px 0 10px 0",
     color: theme.colors.text.primary,
     boxShadow: theme.shadow.medium,
     ":hover": {
       backgroundColor: theme.colors.background.hover,
     },
   }),
-  label: (color: string) => ({
-    width: "100%",
-    height: "6px",
-    backgroundColor: color,
-  }),
+  label: () =>
+    ({
+      position: "absolute",
+      top: "-16px",
+      left: "-10px",
+      width: "fit-content",
+      height: "fit-content",
+    } as const),
   innerContainer: () =>
     ({
       display: "flex",
@@ -34,12 +37,13 @@ export const noteCardStyles = {
     padding: "0 5px",
     overflow: "hidden",
   }),
-  titleSpan: () => ({
+  titleSpan: (isLabel: boolean) => () => ({
     display: "inline-block",
     whiteSpace: "nowrap",
     overflow: "hidden",
     textOverflow: "ellipsis",
     width: "100%",
     padding: "5px 0",
+    paddingLeft: isLabel ? "15px" : "0px",
   }),
 };

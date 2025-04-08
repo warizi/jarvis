@@ -19,12 +19,14 @@ function TodoCatePage() {
   return (
     <div>
       <TodoHeader title={data?.name || ""} />
-      <TodoCreateBtn cateId={id} />
       <div
         css={{
           padding: "0 16px",
+          // maxWidth: "800px",
+          // margin: "0 auto",
         }}
       >
+        <TodoCreateBtn cateId={id} />
         <ToggleListWrapper title="TODO">
           <DraggableTodoList
             todoList={

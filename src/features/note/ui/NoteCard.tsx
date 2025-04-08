@@ -7,6 +7,7 @@ import { useNoteContextMenu } from "../model/useNoteContextMenu";
 import { CommonEditor } from "@shared/components/editor";
 import { noteCardStyles } from "./NoteCard.style";
 import { ImportantCheckBox } from "@shared/components/form";
+import { BookMarkIcon } from "@shared/components/icon";
 
 function NoteCard({
   data,
@@ -41,16 +42,33 @@ function NoteCard({
     }
     mutate(note);
   };
+  console.log("noteLabel", noteLabel);
   return (
     <div
       css={container}
       onClick={onClick}
       onContextMenu={openContextMenu}
     >
-      <div>
-        <div css={label(noteLabel?.color || "")} />
+      <div
+        css={{
+          position: "relative",
+        }}
+      >
+        {noteLabel?.color && (
+          <div css={label}>
+            <BookMarkIcon
+              size={34}
+              color={noteLabel?.color}
+              isFilled
+            />
+          </div>
+        )}
         <div css={innerContainer}>
-          <span css={titleSpan}>{title}</span>
+          <span
+            css={titleSpan(noteLabel?.color ? true : false)}
+          >
+            {title}
+          </span>
           <div>
             <ImportantCheckBox
               checked={isImportant}
