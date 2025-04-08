@@ -24,7 +24,7 @@ export const useTodoform = (data: Todo & Id) => {
       }
       const completedForm = subComplete(formValues);
       setValue("isDone", completedForm.isDone);
-      console.log("mutate", completedForm);
+
       mutate(completedForm);
     }, 300);
   }, [mutate, setValue]);

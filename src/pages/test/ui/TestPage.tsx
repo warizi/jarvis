@@ -36,11 +36,9 @@ function TestPage() {
                 </div>
               ),
               onCancel: () => {
-                console.log("cancel");
                 close();
               },
               onConfirm: () => {
-                console.log("confirm");
                 close();
               },
             });

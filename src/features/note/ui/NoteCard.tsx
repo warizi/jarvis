@@ -42,7 +42,7 @@ function NoteCard({
     }
     mutate(note);
   };
-  console.log("noteLabel", noteLabel);
+
   return (
     <div
       css={container}
