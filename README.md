@@ -18,6 +18,10 @@ React 기반으로 개발되었으며, Feature-Sliced Design(FSD) 아키텍처�
 ---
 
 <img src="./demo/demo.gif" alt="Jarvis demo" width="600" />
+<<<<<<< HEAD
+=======
+
+>>>>>>> eb33f5384040e9cd41531f19fd8a8e0bf12fa137
 
 ## ✨ Features
 
