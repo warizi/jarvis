@@ -4,6 +4,7 @@ import { Id } from "@shared/config/type/commonType";
 import { useEffect, useMemo, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { debounce, isEqual } from "lodash";
+import moment from "moment";
 
 export const useTodoform = (data: Todo & Id) => {
   const { register, control, watch, setValue } = useForm({
@@ -20,7 +21,9 @@ export const useTodoform = (data: Todo & Id) => {
       if (!formValues.isDone) {
         formValues.doneDate = null;
       } else {
-        formValues.doneDate = new Date().toISOString();
+        formValues.doneDate = moment()
+          .tz("Asia/Seoul")
+          .format();
       }
       const completedForm = subComplete(formValues);
       setValue("isDone", completedForm.isDone);
@@ -59,7 +62,7 @@ function subComplete(value: Todo & Id) {
     return {
       ...value,
       isDone: true,
-      doneDate: new Date().toISOString(),
+      doneDate: moment().tz("Asia/Seoul").format(),
     };
   }
 

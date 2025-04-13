@@ -7,6 +7,7 @@ import {
   TodoBackDto,
   TodoCreateBackDto,
 } from "../dto/TodoDto";
+import moment from "moment";
 
 class TodoBackService {
   todoRepository: TodoRepository = new TodoRepository();
@@ -24,7 +25,10 @@ class TodoBackService {
         }
         if (
           formatDate(doneDate, "yyyy-MM-dd") ===
-          formatDate(new Date(), "yyyy-MM-dd")
+          formatDate(
+            moment().tz("Asia/Seoul").format(),
+            "yyyy-MM-dd"
+          )
         ) {
           return true;
         }
@@ -78,7 +82,10 @@ class TodoBackService {
         }
         if (
           formatDate(doneDate, "yyyy-MM-dd") ===
-          formatDate(new Date(), "yyyy-MM-dd")
+          formatDate(
+            moment().tz("Asia/Seoul").format(),
+            "yyyy-MM-dd"
+          )
         ) {
           return true;
         }
@@ -135,7 +142,10 @@ class TodoBackService {
         if (!doneDate) return true;
         if (
           formatDate(doneDate, "yyyy-MM-dd") ===
-          formatDate(new Date(), "yyyy-MM-dd")
+          formatDate(
+            moment().tz("Asia/Seoul").format(),
+            "yyyy-MM-dd"
+          )
         ) {
           return true;
         }
@@ -213,7 +223,10 @@ class TodoBackService {
         }
         if (
           formatDate(doneDate, "yyyy-MM-dd") ===
-          formatDate(new Date(), "yyyy-MM-dd")
+          formatDate(
+            moment().tz("Asia/Seoul").format(),
+            "yyyy-MM-dd"
+          )
         ) {
           return true;
         }

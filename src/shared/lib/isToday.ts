@@ -1,13 +1,13 @@
-import { formatDate } from "./formatDate";
+import moment from "moment-timezone";
 
 export const isToday = (date1?: Date | string | null) => {
   if (!date1) return false;
 
-  const date = new Date(date1);
-  const today = new Date();
+  const inputDate = moment.tz(date1, "Asia/Seoul");
+  const today = moment.tz("Asia/Seoul");
 
   return (
-    formatDate(today, "yyyy-MM-dd") ===
-    formatDate(date, "yyyy-MM-dd")
+    inputDate.format("YYYY-MM-DD") ===
+    today.format("YYYY-MM-DD")
   );
 };

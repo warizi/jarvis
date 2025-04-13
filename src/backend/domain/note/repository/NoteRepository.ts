@@ -3,6 +3,7 @@ import {
   NoteBack,
   NoteCreateBack,
 } from "../entities/NoteBack";
+import moment from "moment-timezone";
 
 class NoteRepository {
   async getAll() {
@@ -15,14 +16,20 @@ class NoteRepository {
       isImportant: data.isImportant ? 1 : 0, // boolean → number 변환
     };
     if ("id" in convertedData) {
-      convertedData.updatedAt = new Date().toISOString();
+      convertedData.updatedAt = moment()
+        .tz("Asia/Seoul")
+        .format();
       await flowaDb.note.update(
         convertedData.id,
         convertedData
       );
     } else {
-      convertedData.createdAt = new Date().toISOString();
-      convertedData.updatedAt = new Date().toISOString();
+      convertedData.createdAt = moment()
+        .tz("Asia/Seoul")
+        .format();
+      convertedData.updatedAt = moment()
+        .tz("Asia/Seoul")
+        .format();
       await flowaDb.note.add(convertedData);
     }
 

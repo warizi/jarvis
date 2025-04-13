@@ -1,5 +1,6 @@
 import { useCreateTodoMutaion } from "@entities/todo";
 import { Todo } from "@entities/todo/model/type";
+import moment from "moment";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 
@@ -24,8 +25,8 @@ export const useCreateTodo = ({
   const { mutate } = useCreateTodoMutaion(cateId);
   const onSubmit = handleSubmit(async (data: Todo) => {
     if (isToday) {
-      const date = new Date();
-      data.isToday = date.toISOString();
+      const dateString = moment().tz("Asia/Seoul").format();
+      data.isToday = dateString;
     }
     if (isImportant) {
       data.isImportant = 1;

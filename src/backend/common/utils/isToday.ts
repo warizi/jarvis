@@ -1,12 +1,20 @@
-import { formatDate } from "./formatDate";
+import { formatDate } from "./formatDate"; // moment 기반
 
-export const isToday = (date?: Date | string | null) => {
+export const isToday = (
+  date?: Date | string | null
+): boolean => {
   if (!date) return false;
-  const today = new Date();
-  const target = new Date(date);
 
-  return (
-    formatDate(today, "yyyy-MM-dd") ===
-    formatDate(target, "yyyy-MM-dd")
+  const today = formatDate(
+    new Date(),
+    "YYYY-MM-DD",
+    "Asia/Seoul"
   );
+  const target = formatDate(
+    date,
+    "YYYY-MM-DD",
+    "Asia/Seoul"
+  );
+
+  return today === target;
 };
