@@ -1,8 +1,8 @@
-import { Theme } from "@emotion/react";
+import { css, Theme } from "@emotion/react";
 
 export const todoSidebarRightStyles = {
   container: (isOpen: boolean) => (theme: Theme) =>
-    ({
+    css({
       position: "relative",
       height: "100vh",
       width: isOpen ? "350px" : "0px",
@@ -10,9 +10,9 @@ export const todoSidebarRightStyles = {
       backgroundColor: theme.colors.background.deep,
       // overflow: "hidden",
       zIndex: 1300,
-    } as const),
+    }),
   innerContainer: (isOpen: boolean) => (theme: Theme) =>
-    ({
+    css({
       display: "flex",
       flexDirection: "column",
       gap: "10px",
@@ -24,7 +24,7 @@ export const todoSidebarRightStyles = {
       backgroundColor: theme.colors.background.deep,
       marginTop: "5px",
       padding: isOpen ? "15px" : "0px",
-    } as const),
+    }),
   toggleButton: (theme: Theme) =>
     ({
       position: "absolute",
