@@ -61,11 +61,11 @@ function TaskFinderNote() {
         <div
           css={{
             display: "grid",
-            padding: "10px",
-            gap: "16px",
-            width: "100%",
             gridTemplateColumns:
-              "repeat(auto-fill, minmax(180px, 1fr))",
+              "repeat(auto-fill, minmax(200px, 1fr))",
+            gap: "16px",
+            padding: "16px",
+            width: "100%",
           }}
         >
           <SortableDndContext
@@ -85,27 +85,20 @@ function TaskFinderNote() {
                 >
                   <div
                     css={{
-                      borderRadius: theme.radius.medium,
-                      boxShadow: theme.shadow.medium,
+                      opacity: isSameSplitItem(note.id)
+                        ? 0.5
+                        : 1,
                     }}
                   >
-                    <div
-                      css={{
-                        opacity: isSameSplitItem(note.id)
-                          ? 0.5
-                          : 1,
-                      }}
-                    >
-                      <NoteCard
-                        key={note.id}
-                        data={note as Note & Id}
-                        onClick={() =>
-                          isSameSplitItem(note.id)
-                            ? null
-                            : setCUrrentNote(note)
-                        }
-                      />
-                    </div>
+                    <NoteCard
+                      key={note.id}
+                      data={note as Note & Id}
+                      onClick={() =>
+                        isSameSplitItem(note.id)
+                          ? null
+                          : setCUrrentNote(note)
+                      }
+                    />
                   </div>
                 </DraggableWrapper>
               ))
