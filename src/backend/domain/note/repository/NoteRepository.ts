@@ -22,6 +22,7 @@ class NoteRepository {
       );
     } else {
       convertedData.createdAt = new Date().toISOString();
+      convertedData.updatedAt = new Date().toISOString();
       await flowaDb.note.add(convertedData);
     }
 
