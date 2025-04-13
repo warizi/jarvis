@@ -68,6 +68,14 @@ class NoteRepository {
       .delete();
   }
 
+  async findRecentByUpdatedAt(count: number) {
+    return (await flowaDb.note
+      .orderBy("updatedAt")
+      .reverse()
+      .limit(count)
+      .toArray()) as NoteBack[];
+  }
+
   async get(id: number) {
     return await flowaDb.note.get(id);
   }

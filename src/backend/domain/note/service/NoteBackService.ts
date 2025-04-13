@@ -125,6 +125,28 @@ class NoteBackService {
   async delete(id: number) {
     await this.noteRepository.delete(id);
   }
+
+  async findRecentByUpdatedAt(count: number) {
+    const noteLabels =
+      await this.noteLabelRepository.getAll();
+    return (
+      await this.noteRepository.findRecentByUpdatedAt(count)
+    )
+      .map((note) => {
+        const labelId = note?.labelId;
+        delete note.labelId;
+
+        if (!labelId) return note;
+        const noteLabel = noteLabels.find(
+          (label) => label.id === labelId
+        );
+        if (!noteLabel) return note;
+        const newNote = { ...note, label: noteLabel };
+        delete newNote.labelId;
+        return newNote;
+      })
+      .sort((a, b) => a.order - b.order);
+  }
 }
 
 export default NoteBackService;

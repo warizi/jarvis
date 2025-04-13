@@ -39,6 +39,13 @@ class NoteController {
     return data;
   }
 
+  public async getRecentAllByUpdatedAt(count: number) {
+    const data =
+      await this.noteService.findRecentByUpdatedAt(count);
+
+    return data;
+  }
+
   public async update(data: NoteBackDto) {
     const updatedData = await this.noteService.save(data);
 
