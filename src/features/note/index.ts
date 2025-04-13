@@ -8,6 +8,10 @@ import DragableNoteList from "./ui/DragableNoteList";
 import NoteCreateBtn from "./ui/NoteCreateBtn";
 import NoteCard from "./ui/NoteCard";
 import { useNoteSplitModal } from "./model/useNoteSplitModal";
+import {
+  useGetRecentNote,
+  useGetAllByImportantQuery,
+} from "./model/noteFetchHook";
 
 export {
   NoteCateItem,
@@ -20,4 +24,6 @@ export {
   NoteCreateBtn,
   useNoteSplitModal,
   NoteCard,
+  useGetRecentNote,
+  useGetAllByImportantQuery,
 };

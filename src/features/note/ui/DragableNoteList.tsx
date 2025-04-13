@@ -15,9 +15,11 @@ import { noteListStyles } from "./DragableNoteList.style";
 function DragableNoteList({
   noteList,
   isColumn = true,
+  disabled = false,
 }: {
   noteList: (Note & Id)[];
   isColumn?: boolean;
+  disabled?: boolean;
 }) {
   const { handleDragEnd } = useDnDNote();
   const { openNoteSplitModal } = useNoteSplitModal();
@@ -28,6 +30,7 @@ function DragableNoteList({
       <SortableDndContext
         data={noteList || []}
         handleDragEnd={handleDragEnd}
+        disabled={disabled}
       >
         {(item) =>
           item?.map((note) => (

@@ -7,5 +7,8 @@ export const ROUTE_URL = {
   TODO_ALL: "/todo/all",
   NOTE: "/note",
   NOTE_CATE: "/note/cate",
+  NOTE_IMPORTANT: "/note/important",
+  NOTE_RECENT: "/note/recent",
+  NOTE_ALL: "/note/all",
   TEST: "/test",
 };
