@@ -7,28 +7,27 @@ export const useNoteFilter = () => {
     useNotePageFilterStore();
 
   const getFilteredNoteList = (noteList: (Note & Id)[]) => {
-    let result = noteList;
+    let filtered = noteList;
 
     if (filter?.label) {
-      result = result?.filter(
+      filtered = filtered?.filter(
         (note) => note.label?.id === filter.label?.id
       );
     }
 
     if (filter?.text) {
-      result = result?.filter((note) => {
-        const { title } = note;
-        const searchText = title
+      const filterText = filter.text
+        .replace(/\s+/g, "")
+        .toLowerCase();
+      filtered = filtered?.filter((note) => {
+        const searchText = note.title
           .replace(/\s+/g, "")
           .toLowerCase();
-        const filterText =
-          filter?.text?.replace(/\s+/g, "").toLowerCase() ??
-          "";
         return searchText.includes(filterText);
       });
     }
 
-    return result || [];
+    return filtered;
   };
   return {
     filter,

@@ -6,28 +6,27 @@ export const useTodoFilter = () => {
   const { filter, setFilter, resetFilter } =
     useTodoPageFilterStore();
   const getFilteredTodoList = (todoList: (Todo & Id)[]) => {
-    let result = todoList;
+    let filtered = todoList;
 
     if (filter?.label) {
-      result = result?.filter(
-        (todo) => todo.label?.id === filter.label?.id
+      filtered = filtered?.filter(
+        (note) => note.label?.id === filter.label?.id
       );
     }
 
     if (filter?.text) {
-      result = result?.filter((todo) => {
-        const { title } = todo;
-        const searchText = title
+      const filterText = filter.text
+        .replace(/\s+/g, "")
+        .toLowerCase();
+      filtered = filtered?.filter((note) => {
+        const searchText = note.title
           .replace(/\s+/g, "")
           .toLowerCase();
-        const filterText =
-          filter?.text?.replace(/\s+/g, "").toLowerCase() ??
-          "";
         return searchText.includes(filterText);
       });
     }
 
-    return result || [];
+    return filtered;
   };
 
   return {
