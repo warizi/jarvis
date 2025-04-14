@@ -29,6 +29,7 @@ import {
   NoteCatePage,
   NoteImportantPage,
   NoteLayout,
+  NoteRecentPage,
 } from "@pages/note";
 
 const queryClient = new QueryClient();
@@ -81,6 +82,10 @@ function App() {
                 <Route
                   path={ROUTE_URL.NOTE_IMPORTANT}
                   element={<NoteImportantPage />}
+                />
+                <Route
+                  path={ROUTE_URL.NOTE_RECENT}
+                  element={<NoteRecentPage />}
                 />
                 <Route
                   path={ROUTE_URL.NOTE_CATE + "/:id"}

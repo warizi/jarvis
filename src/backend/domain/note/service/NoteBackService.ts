@@ -145,7 +145,11 @@ class NoteBackService {
         delete newNote.labelId;
         return newNote;
       })
-      .sort((a, b) => a.order - b.order);
+      .sort(
+        (a, b) =>
+          new Date(b.updatedAt || new Date()).getTime() -
+          new Date(a.updatedAt || new Date()).getTime()
+      );
   }
 }
 
