@@ -15,7 +15,7 @@ function NoteSidebarMenu() {
       <SidebarItemWrapper
         count={0}
         icon={<StarIcon size={18} />}
-        isCurrentLink={isCurrent(ROUTE_URL.NOTE_ALL)}
+        isCurrentLink={isCurrent(ROUTE_URL.NOTE_IMPORTANT)}
         linkTo={ROUTE_URL.NOTE_IMPORTANT}
       >
         <span>중요</span>
@@ -23,7 +23,7 @@ function NoteSidebarMenu() {
       <SidebarItemWrapper
         count={0}
         icon={<StarIcon size={18} />}
-        isCurrentLink={isCurrent(ROUTE_URL.NOTE_ALL)}
+        isCurrentLink={isCurrent(ROUTE_URL.NOTE_RECENT)}
         linkTo={ROUTE_URL.NOTE_RECENT}
       >
         <span>최근</span>
