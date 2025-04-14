@@ -72,7 +72,7 @@ function TodoItem({
           <span css={titleSpan(isDone)}>{title}</span>
           {doneDate && (
             <span css={spanDoneDate}>
-              {formatDate(doneDate, "yyyy-MM-dd")}
+              {formatDate(doneDate, "YYYY-MM-DD")}
             </span>
           )}
         </div>
