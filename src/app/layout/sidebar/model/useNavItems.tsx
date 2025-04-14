@@ -26,7 +26,7 @@ export const useNavItems = () => {
     },
     {
       title: "Note",
-      url: ROUTE_URL.NOTE,
+      url: ROUTE_URL.NOTE_IMPORTANT,
       icon: <NoteIcon size={20} />,
     },
     // {
