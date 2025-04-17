@@ -19,6 +19,7 @@ import ListIcon from "./ui/ListIcon";
 import GridIcon from "./ui/GridIcon";
 import BookMarkIcon from "./ui/BookMarkIcon";
 import MoonIcon from "./ui/MoonIcon";
+import CalendarIcon from "./ui/CalendarIcon";
 
 export {
   ExitIcon,
@@ -42,4 +43,5 @@ export {
   GridIcon,
   BookMarkIcon,
   MoonIcon,
+  CalendarIcon,
 };

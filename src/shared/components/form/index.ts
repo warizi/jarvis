@@ -7,6 +7,7 @@ import SearchBar from "./ui/SearchBar";
 import TemplateColorPicker from "./ui/TemplateColorPicker";
 import CustomColorPicker from "./ui/CustomColorPicker";
 import LabelSelector from "./ui/LabelSelector";
+import InputPeriod from "./ui/InputPeriod";
 
 export {
   OneLineTextForm,
@@ -18,4 +19,5 @@ export {
   TemplateColorPicker,
   CustomColorPicker,
   LabelSelector,
+  InputPeriod,
 };

@@ -5,6 +5,7 @@ import { todoFormStyles } from "./TodoForm.style";
 import { Id } from "@shared/config/type/commonType";
 import {
   ImportantCheckBox,
+  InputPeriod,
   TodoCheckbox,
 } from "@shared/components/form";
 import { Controller } from "react-hook-form";
@@ -79,6 +80,7 @@ function TodoForm({ data }: { data: Todo & Id }) {
           />
         )}
       />
+      <InputPeriod />
       <Controller
         name="memo"
         control={control}
