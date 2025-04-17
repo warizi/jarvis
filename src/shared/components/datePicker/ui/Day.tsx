@@ -2,6 +2,7 @@
 
 import { getDayString } from "../lib/dateUtils";
 import { DayType } from "../model/types";
+import { useDatePickerStore } from "../model/useDatePickerStore";
 import { dayStyles } from "./Day.style";
 
 type DayProps = {
@@ -11,16 +12,21 @@ type DayProps = {
 function Day({ data }: DayProps) {
   const { container, innerContainer, span } = dayStyles;
   const { date, isCurrentMonth, isToday, isHoliday } = data;
+  const { isSelectedDate, onSelectDate } =
+    useDatePickerStore();
 
   return (
     <div css={container}>
-      <div css={innerContainer(false)}>
+      <div
+        css={innerContainer(isSelectedDate(date))}
+        onClick={() => onSelectDate(date)}
+      >
         <span
           css={span({
             isCurrentMonth,
             isToday,
             isHoliday,
-            isSelected: false,
+            isSelected: isSelectedDate(date),
           })}
         >
           {getDayString(date)}

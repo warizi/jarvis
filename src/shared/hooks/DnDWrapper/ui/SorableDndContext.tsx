@@ -35,7 +35,7 @@ const SortableDndContext = <T extends Id>({
       sensors={sensors}
     >
       <SortableContext items={items} disabled={disabled}>
-        {children(items || [])}
+        {children(items)}
       </SortableContext>
     </DndContext>
   );

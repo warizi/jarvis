@@ -5,6 +5,7 @@ export const weekStyles = {
     css({
       width: "100%",
       height: "100%",
+      minHeight: "35px",
       display: "grid",
       gridTemplateColumns: "repeat(7, 1fr)",
       gridTemplateRows: "repeat(1, 1fr)",

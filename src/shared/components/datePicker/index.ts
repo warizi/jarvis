@@ -1,3 +1,3 @@
-import Month from "./ui/Month";
+import DatePicker from "./ui/DatePicker";
 
-export { Month };
+export { DatePicker };

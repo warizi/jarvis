@@ -1,8 +1,7 @@
 /** @jsxImportSource @emotion/react */
 
 import { ThemeToggleButton } from "@shared/components/button";
-import { Month } from "@shared/components/datePicker";
-import { generateMonthData } from "@shared/components/datePicker/lib/dateUtils";
+import { DatePicker } from "@shared/components/datePicker";
 import { useModalStore } from "@shared/components/modal";
 import { SidebarWrapper } from "@shared/components/sidebar";
 // import { useTest } from "../model/useTest";
@@ -17,11 +16,6 @@ function TestPage() {
   // useTest();
   const { open, close } = useModalStore();
 
-  const monthData = generateMonthData({
-    year: 2025,
-    month: 1,
-  });
-  console.log("month data: ", monthData);
   return (
     <div css={pageContainerStyles}>
       <SidebarWrapper>sidebar</SidebarWrapper>
@@ -53,12 +47,10 @@ function TestPage() {
         >
           modal
         </button>
-
-        <Month
-          width="300px"
-          height="300px"
-          year={2025}
-          month={4}
+        <DatePicker
+          onChange={(dates) => {
+            console.log("Selected dates:", dates);
+          }}
         />
       </div>
     </div>

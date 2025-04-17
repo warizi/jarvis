@@ -63,7 +63,7 @@ function setTextColor(
   theme: Theme
 ) {
   const { isCurrentMonth, isHoliday, isSelected } = props;
-  if (isSelected) return theme.colors.text.primary;
+  if (isSelected) return "white";
   if (!isCurrentMonth) return theme.colors.text.secondary;
   if (isHoliday) return "rgba(180, 0, 0, 1)";
   return theme.colors.text.primary;
