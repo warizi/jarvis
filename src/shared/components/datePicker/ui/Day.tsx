@@ -2,7 +2,7 @@
 
 import { getDayString } from "../lib/dateUtils";
 import { DayType } from "../model/types";
-import { useDatePickerStore } from "../model/useDatePickerStore";
+import { useDatePickerContext } from "../model/useDatePickerContext";
 import { dayStyles } from "./Day.style";
 
 type DayProps = {
@@ -20,7 +20,7 @@ function Day({ data }: DayProps) {
   } = dayStyles;
   const { date, isCurrentMonth, isToday, isHoliday } = data;
   const { isSelectedDate, onSelectDate, isRange } =
-    useDatePickerStore();
+    useDatePickerContext();
 
   return (
     <div css={container}>

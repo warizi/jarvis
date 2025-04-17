@@ -2,13 +2,13 @@
 
 import { ArrowRightIcon } from "@shared/components/icon";
 import { dateHandlerStyles } from "./Datehandler.style";
-import { useDatePickerStore } from "../model/useDatePickerStore";
+import { useDatePickerContext } from "../model/useDatePickerContext";
 
 function DateHandler() {
   const { container, btnContainer, prevBtn, nextBtn } =
     dateHandlerStyles;
   const { getYear, getMonth, onNextMonth, onPrevMonth } =
-    useDatePickerStore();
+    useDatePickerContext();
 
   return (
     <div css={container}>

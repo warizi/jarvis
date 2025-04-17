@@ -52,7 +52,7 @@ function InputPeriod({
       />
       {isPickerOpen && (
         <div css={pickerContainer}>
-          <DatePicker onChange={handleChange} />
+          <DatePicker data={data} onChange={handleChange} />
         </div>
       )}
     </div>

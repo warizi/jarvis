@@ -1,3 +1,4 @@
-import DatePicker from "./ui/DatePicker";
+// import DatePicker from "./ui/DatePicker";
+import DatePickerContainer from "./ui/DatePickerContainer";
 
-export { DatePicker };
+export { DatePickerContainer as DatePicker };

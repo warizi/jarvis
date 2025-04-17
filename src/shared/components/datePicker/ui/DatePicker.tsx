@@ -1,10 +1,10 @@
 /** @jsxImportSource @emotion/react */
 
 import { useEffect } from "react";
-import { useDatePickerStore } from "../model/useDatePickerStore";
 import DateHandler from "./DateHandler";
 import { datePickerStyles } from "./DatePicker.style";
 import Month from "./Month";
+import { useDatePickerContext } from "../model/useDatePickerContext";
 
 type DatePickerProps = {
   onChange?: (date: Date[]) => void;
@@ -13,7 +13,7 @@ type DatePickerProps = {
 function DatePicker({ onChange }: DatePickerProps) {
   const { container } = datePickerStyles;
   const { getYear, getMonth, selectedDates } =
-    useDatePickerStore();
+    useDatePickerContext();
 
   useEffect(() => {
     if (onChange) {
