@@ -14,12 +14,14 @@ import SubTodoForm from "./SubTodoForm";
 import { CommonEditor } from "@shared/components/editor";
 import TodoLabelSelector from "./TodoLabelSelector";
 import { useTheme } from "@emotion/react";
+import { formatDate } from "@shared/lib/formatDate";
 
 function TodoForm({ data }: { data: Todo & Id }) {
   const { container, label, input } = todoFormStyles;
   const theme = useTheme();
 
-  const { register, control, isDone } = useTodoform(data);
+  const { register, control, isDone, dates, setValue } =
+    useTodoform(data);
 
   return (
     <div css={container}>
@@ -80,7 +82,24 @@ function TodoForm({ data }: { data: Todo & Id }) {
           />
         )}
       />
-      <InputPeriod />
+
+      <InputPeriod
+        data={dates()}
+        onChange={([start, end]) => {
+          if (start) {
+            setValue(
+              "startDate",
+              formatDate(start, "YYYY-MM-DD")
+            );
+          }
+          if (end) {
+            setValue(
+              "endDate",
+              formatDate(end, "YYYY-MM-DD")
+            );
+          }
+        }}
+      />
       <Controller
         name="memo"
         control={control}

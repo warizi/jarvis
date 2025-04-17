@@ -34,7 +34,7 @@ export const useInputPeriod = (data: Date[]) => {
     } else {
       setInputText("");
     }
-  }, [dates]);
+  }, [dates, data]);
 
   useEffect(() => {
     if (!isPickerOpen) return;

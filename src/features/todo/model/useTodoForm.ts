@@ -16,6 +16,19 @@ export const useTodoform = (data: Todo & Id) => {
 
   const { mutate } = useUpdateTodoMutation();
 
+  const dates = () => {
+    const startDate = allValues.startDate;
+    const endDate = allValues.endDate;
+
+    if (startDate && !endDate) {
+      return [new Date(startDate)];
+    } else if (startDate && endDate) {
+      return [new Date(startDate), new Date(endDate)];
+    } else {
+      return [];
+    }
+  };
+
   const debouncedMutate = useMemo(() => {
     return debounce((formValues: Todo & Id) => {
       if (!formValues.isDone) {
@@ -47,6 +60,9 @@ export const useTodoform = (data: Todo & Id) => {
     control,
     isDone: allValues.isDone,
     allValues,
+    setValue,
+    dates,
+    watch,
   };
 };
 
