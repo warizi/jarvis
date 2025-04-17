@@ -10,6 +10,10 @@ type DatePickerStore = {
   getYear: () => number;
   getMonth: () => number;
   isSelectedDate: (date: Date) => boolean;
+  isRange: (date: Date) => {
+    right: boolean;
+    left: boolean;
+  };
 };
 
 export const useDatePickerStore = create<DatePickerStore>(
@@ -61,6 +65,29 @@ export const useDatePickerStore = create<DatePickerStore>(
         isSameDay(d, date)
       );
     },
+    isRange: (date: Date) => {
+      const { selectedDates } = get();
+      if (selectedDates.length < 2)
+        return { right: false, left: false };
+
+      const [start, end] = selectedDates;
+
+      if (isRangeIn(start, end, date))
+        return { right: true, left: true };
+
+      if (isSameDay(start, date)) {
+        return { right: true, left: false };
+      }
+
+      if (isSameDay(end, date)) {
+        return { right: false, left: true };
+      }
+
+      const isLeft = isSameDay(start, date);
+      const isRight = isSameDay(end, date);
+
+      return { right: isRight, left: isLeft };
+    },
   })
 );
 
@@ -69,5 +96,16 @@ const isSameDay = (d1: Date, d2: Date) => {
     d1.getFullYear() === d2.getFullYear() &&
     d1.getMonth() === d2.getMonth() &&
     d1.getDate() === d2.getDate()
+  );
+};
+
+const isRangeIn = (
+  start: Date,
+  end: Date,
+  date: Date
+): boolean => {
+  return (
+    date.getTime() > start.getTime() &&
+    date.getTime() < end.getTime()
   );
 };

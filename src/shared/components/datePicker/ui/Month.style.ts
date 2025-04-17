@@ -16,9 +16,6 @@ export const monthStyles = {
     return css({
       width: width,
       height: height,
-      display: "grid",
-      gridTemplateColumns: "repeat(1, 1fr)",
-      gridTemplateRows: "repeat(6, 1fr)",
       gap: "0px",
       justifyItems: "center",
       alignItems: "center",

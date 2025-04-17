@@ -10,9 +10,16 @@ type DayProps = {
 };
 
 function Day({ data }: DayProps) {
-  const { container, innerContainer, span } = dayStyles;
+  const {
+    container,
+    innerContainer,
+    span,
+    rangeLeft,
+    rangeRight,
+    rangeAll,
+  } = dayStyles;
   const { date, isCurrentMonth, isToday, isHoliday } = data;
-  const { isSelectedDate, onSelectDate } =
+  const { isSelectedDate, onSelectDate, isRange } =
     useDatePickerStore();
 
   return (
@@ -21,6 +28,9 @@ function Day({ data }: DayProps) {
         css={innerContainer(isSelectedDate(date))}
         onClick={() => onSelectDate(date)}
       >
+        <div css={rangeLeft(isRange(date).left)} />
+        <div css={rangeRight(isRange(date).right)} />
+        <div css={rangeAll(isSelectedDate(date))} />
         <span
           css={span({
             isCurrentMonth,

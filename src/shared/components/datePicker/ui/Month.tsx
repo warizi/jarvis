@@ -2,6 +2,7 @@
 
 import { generateMonthData } from "../lib/dateUtils";
 import { monthStyles } from "./Month.style";
+import MonthHeader from "./MonthHeader";
 import Week from "./Week";
 
 type MonthProps = {
@@ -14,8 +15,10 @@ type MonthProps = {
 function Month({ width, height, year, month }: MonthProps) {
   const { container } = monthStyles;
   const monthData = generateMonthData({ year, month });
+  console.log(monthData);
   return (
     <div css={container({ width, height })}>
+      <MonthHeader />
       {monthData.map((week) => (
         <Week key={week[0].date.toString()} data={week} />
       ))}

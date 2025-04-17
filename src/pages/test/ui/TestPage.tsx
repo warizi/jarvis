@@ -47,11 +47,7 @@ function TestPage() {
         >
           modal
         </button>
-        <DatePicker
-          onChange={(dates) => {
-            console.log("Selected dates:", dates);
-          }}
-        />
+        <DatePicker onChange={(dates) => {}} />
       </div>
     </div>
   );
