@@ -33,7 +33,9 @@ function TodoItem({
     id,
     title,
     isDone,
-    doneDate,
+    // doneDate,
+    startDate,
+    endDate,
     isImportant,
     isToday: today,
     label: todoLabel,
@@ -70,9 +72,17 @@ function TodoItem({
           }}
         >
           <span css={titleSpan(isDone)}>{title}</span>
-          {doneDate && (
+          {/* {doneDate && (
             <span css={spanDoneDate}>
               {formatDate(doneDate, "YYYY-MM-DD")}
+            </span>
+          )} */}
+          {(startDate || endDate) && (
+            <span css={spanDoneDate}>
+              {startDate &&
+                formatDate(startDate, "YYYY-MM-DD")}
+              {endDate &&
+                ` ~ ${formatDate(endDate, "YYYY-MM-DD")}`}
             </span>
           )}
         </div>

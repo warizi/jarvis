@@ -5,6 +5,7 @@ import { create } from "zustand";
 export type TodoPageFilter = {
   label?: TodoLabel & Id;
   text?: string;
+  period?: Date[];
 };
 
 type TodoPageFilterStore = {
@@ -17,6 +18,7 @@ const useTodoPageFilterStore = create<TodoPageFilterStore>(
     filter: {
       label: undefined,
       text: undefined,
+      period: undefined,
     },
     setFilter: (filter: TodoPageFilter) => set({ filter }),
     resetFilter: () =>

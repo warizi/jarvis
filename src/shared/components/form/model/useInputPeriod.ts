@@ -2,7 +2,13 @@ import { formatDate } from "@shared/lib/formatDate";
 import { useRef, useEffect, useState } from "react";
 
 export const useInputPeriod = (data: Date[]) => {
-  const [dates, setDates] = useState<Date[]>(data);
+  const validDates =
+    Array.isArray(data) &&
+    data.every((d) => d instanceof Date)
+      ? data
+      : [];
+
+  const [dates, setDates] = useState<Date[]>(validDates);
   const [inputText, setInputText] = useState<string>("");
   const [isPickerOpen, setPickerOpen] =
     useState<boolean>(false);

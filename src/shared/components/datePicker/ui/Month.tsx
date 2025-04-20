@@ -15,7 +15,6 @@ type MonthProps = {
 function Month({ width, height, year, month }: MonthProps) {
   const { container } = monthStyles;
   const monthData = generateMonthData({ year, month });
-  console.log(monthData);
   return (
     <div css={container({ width, height })}>
       <MonthHeader />

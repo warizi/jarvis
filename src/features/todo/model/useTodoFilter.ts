@@ -10,7 +10,7 @@ export const useTodoFilter = () => {
 
     if (filter?.label) {
       filtered = filtered?.filter(
-        (note) => note.label?.id === filter.label?.id
+        (todo) => todo.label?.id === filter.label?.id
       );
     }
 
@@ -18,11 +18,35 @@ export const useTodoFilter = () => {
       const filterText = filter.text
         .replace(/\s+/g, "")
         .toLowerCase();
-      filtered = filtered?.filter((note) => {
-        const searchText = note.title
+      filtered = filtered?.filter((todo) => {
+        const searchText = todo.title
           .replace(/\s+/g, "")
           .toLowerCase();
         return searchText.includes(filterText);
+      });
+    }
+
+    if (filter?.period && filter?.period?.length > 0) {
+      const startDate = filter.period[0];
+      const endDate = filter.period[1];
+      filtered = filtered?.filter((todo) => {
+        if (!todo.startDate) {
+          return false;
+        }
+
+        if (startDate && endDate) {
+          return isDateInRange(
+            new Date(todo.startDate),
+            startDate,
+            endDate
+          );
+        }
+        if (startDate) {
+          return isDateInRange(
+            new Date(todo.startDate),
+            startDate
+          );
+        }
       });
     }
 
@@ -36,3 +60,27 @@ export const useTodoFilter = () => {
     resetFilter,
   };
 };
+
+function isDateInRange(
+  date: Date,
+  startDate: Date,
+  endDate?: Date
+) {
+  const d = toDateOnly(date);
+  const s = toDateOnly(startDate);
+  const e = endDate ? toDateOnly(endDate) : undefined;
+
+  if (e) {
+    return d >= s && d <= e;
+  }
+  return d.getTime() === s.getTime();
+}
+
+// 날짜만 비교할 수 있도록 시, 분, 초 제거
+function toDateOnly(date: Date): Date {
+  return new Date(
+    date.getFullYear(),
+    date.getMonth(),
+    date.getDate()
+  );
+}

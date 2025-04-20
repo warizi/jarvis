@@ -10,12 +10,15 @@ import {
 import { TodoLabel } from "@entities/todo/model/type";
 import { TodoPageFilter } from "@features/todo/model/useTodoPageFilterStore";
 import { Id } from "@shared/config/type/commonType";
-import { SearchBar } from "@shared/components/form";
+import {
+  InputPeriod,
+  SearchBar,
+} from "@shared/components/form";
 
 function TodoSidebarRight() {
   const [isOpen, setIsOpen] = useState(false);
   const { setFilter, filter } = useTodoFilter();
-  const { label } = filter;
+  const { label, period } = filter;
 
   const toggleOpen = () => {
     setIsOpen((prev) => !prev);
@@ -52,6 +55,13 @@ function TodoSidebarRight() {
     const newFilter = {
       ...filter,
       text,
+    };
+    setFilter(newFilter as TodoPageFilter);
+  };
+  const handlePeriod = (period: Date[]) => {
+    const newFilter = {
+      ...filter,
+      period,
     };
     setFilter(newFilter as TodoPageFilter);
   };
@@ -94,6 +104,13 @@ function TodoSidebarRight() {
             );
           }}
           value={label}
+        />
+        <div css={divider}>
+          <span>기간</span>
+        </div>
+        <InputPeriod
+          onChange={handlePeriod}
+          data={period}
         />
       </div>
     </div>
