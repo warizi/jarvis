@@ -1,6 +1,9 @@
 /** @jsxImportSource @emotion/react */
 
-import { StarIcon } from "@shared/components/icon";
+import {
+  StarIcon,
+  StopWatchIcon,
+} from "@shared/components/icon";
 import {
   SidebarItemWrapper,
   SidebarListWrapper,
@@ -22,7 +25,7 @@ function NoteSidebarMenu() {
       </SidebarItemWrapper>
       <SidebarItemWrapper
         count={0}
-        icon={<StarIcon size={18} />}
+        icon={<StopWatchIcon size={18} />}
         isCurrentLink={isCurrent(ROUTE_URL.NOTE_RECENT)}
         linkTo={ROUTE_URL.NOTE_RECENT}
       >
