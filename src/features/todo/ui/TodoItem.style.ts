@@ -31,15 +31,17 @@ export const todoItemStyles = {
     backgroundColor: color,
     marginRight: "5px",
   }),
-  titleSpan: (isDone: boolean) => () => ({
-    fontSize: "14px",
-    textDecoration: isDone ? "line-through" : "none",
-    whiteSpace: "nowrap",
-    overflow: "hidden",
-    textOverflow: "ellipsis",
-    display: "inline-block",
-    maxWidth: "100%", // 또는 적절한 px 단위
-  }),
+  titleSpan: (isDone: boolean) => () =>
+    ({
+      fontSize: "14px",
+      height: "16px",
+      textDecoration: isDone ? "line-through" : "none",
+      whiteSpace: "nowrap",
+      overflowY: "hidden",
+      textOverflow: "ellipsis",
+      display: "inline-block",
+      maxWidth: "100%", // 또는 적절한 px 단위
+    } as const),
   innerContainer: () =>
     ({
       display: "flex",
