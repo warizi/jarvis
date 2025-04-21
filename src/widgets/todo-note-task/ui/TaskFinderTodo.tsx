@@ -30,6 +30,35 @@ function TaskFinderTodo() {
     }
 
     if (sideTab === TASK_FINDER_TAB.TODAY) {
+      const start = todo?.startDate;
+      const end = todo?.endDate;
+      console.log("start", start);
+
+      if (start && end) {
+        const startDate = new Date(start)
+          .toISOString()
+          .split("T")[0];
+        const endDate = new Date(end)
+          .toISOString()
+          .split("T")[0];
+        const today = new Date()
+          .toISOString()
+          .split("T")[0];
+
+        return startDate <= today && endDate >= today;
+      }
+
+      if (start) {
+        const startDate = new Date(start)
+          .toISOString()
+          .split("T")[0];
+        const today = new Date()
+          .toISOString()
+          .split("T")[0];
+
+        return startDate <= today;
+      }
+
       return isToday(todo.isToday);
     }
 

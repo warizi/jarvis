@@ -49,11 +49,16 @@ export const todoItemStyles = {
       gap: "10px",
       flexDirection: "row",
     } as const),
-  spanDoneDate: (theme: Theme) => ({
-    color: theme.colors.text.secondary,
-    fontSize: theme.typography.size.small,
-    textDecoration: "none !important",
-  }),
+  spanDoneDate: (theme: Theme) =>
+    ({
+      color: theme.colors.text.secondary,
+      fontSize: theme.typography.size.small,
+      whiteSpace: "nowrap",
+      overflowY: "hidden",
+      textOverflow: "ellipsis",
+      display: "inline-block",
+      textDecoration: "none !important",
+    } as const),
   todayButton: () => ({
     border: "none",
     backgroundColor: "transparent",
