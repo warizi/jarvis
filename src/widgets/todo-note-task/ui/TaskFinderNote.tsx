@@ -1,7 +1,15 @@
 /** @jsxImportSource @emotion/react */
 
-import { NoteCard, NoteCreateBtn } from "@features/note";
-import { useTaskSplitModalStore } from "../model/useTaskSplitModalStore";
+import {
+  NoteCard,
+  NoteCreateBtn,
+  useGetAllByImportantQuery,
+  useGetRecentNote,
+} from "@features/note";
+import {
+  TASK_FINDER_TAB,
+  useTaskSplitModalStore,
+} from "../model/useTaskSplitModalStore";
 import { useGetAllNoteByCateIdQuery } from "@entities/note";
 import { Note } from "@entities/note/model/type";
 import { Id } from "@shared/config/type/commonType";
@@ -26,6 +34,9 @@ function TaskFinderNote() {
   const { data: noteList } = useGetAllNoteByCateIdQuery(
     cateId || 0
   );
+  const { data: importantNoteList } =
+    useGetAllByImportantQuery();
+  const { data: recentNoteList } = useGetRecentNote(10);
   const { handleDragEnd } = useDnDNote();
   const theme = useTheme();
   const { type, itemId } = useSplitModalStore();
@@ -68,42 +79,124 @@ function TaskFinderNote() {
             width: "100%",
           }}
         >
-          <SortableDndContext
-            data={(noteList as (Note & Id)[]) || []}
-            handleDragEnd={handleDragEnd}
-          >
-            {(item) =>
-              item?.length > 0 &&
-              item?.map((note) => (
-                <DraggableWrapper
-                  key={note.id}
-                  id={note.id}
-                  css={{
-                    maxWidth: 350,
-                    minWidth: 180,
-                  }}
-                >
-                  <div
+          {typeof sideTab === "number" && (
+            <SortableDndContext
+              data={(noteList as (Note & Id)[]) || []}
+              handleDragEnd={handleDragEnd}
+            >
+              {(item) =>
+                item?.length > 0 &&
+                item?.map((note) => (
+                  <DraggableWrapper
+                    key={note.id}
+                    id={note.id}
                     css={{
-                      opacity: isSameSplitItem(note.id)
-                        ? 0.5
-                        : 1,
+                      maxWidth: 350,
+                      minWidth: 180,
                     }}
                   >
-                    <NoteCard
-                      key={note.id}
-                      data={note as Note & Id}
-                      onClick={() =>
-                        isSameSplitItem(note.id)
-                          ? null
-                          : setCUrrentNote(note)
-                      }
-                    />
-                  </div>
-                </DraggableWrapper>
-              ))
-            }
-          </SortableDndContext>
+                    <div
+                      css={{
+                        opacity: isSameSplitItem(note.id)
+                          ? 0.5
+                          : 1,
+                      }}
+                    >
+                      <NoteCard
+                        key={note.id}
+                        data={note as Note & Id}
+                        onClick={() =>
+                          isSameSplitItem(note.id)
+                            ? null
+                            : setCUrrentNote(note)
+                        }
+                      />
+                    </div>
+                  </DraggableWrapper>
+                ))
+              }
+            </SortableDndContext>
+          )}
+          {sideTab === TASK_FINDER_TAB.Important && (
+            <SortableDndContext
+              data={
+                (importantNoteList as (Note & Id)[]) || []
+              }
+              disabled={false}
+              handleDragEnd={handleDragEnd}
+            >
+              {(item) =>
+                item?.length > 0 &&
+                item?.map((note) => (
+                  <DraggableWrapper
+                    key={note.id}
+                    id={note.id}
+                    css={{
+                      maxWidth: 350,
+                      minWidth: 180,
+                    }}
+                  >
+                    <div
+                      css={{
+                        opacity: isSameSplitItem(note.id)
+                          ? 0.5
+                          : 1,
+                      }}
+                    >
+                      <NoteCard
+                        key={note.id}
+                        data={note as Note & Id}
+                        onClick={() =>
+                          isSameSplitItem(note.id)
+                            ? null
+                            : setCUrrentNote(note)
+                        }
+                      />
+                    </div>
+                  </DraggableWrapper>
+                ))
+              }
+            </SortableDndContext>
+          )}
+          {sideTab === TASK_FINDER_TAB.Recent && (
+            <SortableDndContext
+              data={(recentNoteList as (Note & Id)[]) || []}
+              disabled={false}
+              handleDragEnd={handleDragEnd}
+            >
+              {(item) =>
+                item?.length > 0 &&
+                item?.map((note) => (
+                  <DraggableWrapper
+                    key={note.id}
+                    id={note.id}
+                    css={{
+                      maxWidth: 350,
+                      minWidth: 180,
+                    }}
+                  >
+                    <div
+                      css={{
+                        opacity: isSameSplitItem(note.id)
+                          ? 0.5
+                          : 1,
+                      }}
+                    >
+                      <NoteCard
+                        key={note.id}
+                        data={note as Note & Id}
+                        onClick={() =>
+                          isSameSplitItem(note.id)
+                            ? null
+                            : setCUrrentNote(note)
+                        }
+                      />
+                    </div>
+                  </DraggableWrapper>
+                ))
+              }
+            </SortableDndContext>
+          )}
         </div>
       </div>
     </div>

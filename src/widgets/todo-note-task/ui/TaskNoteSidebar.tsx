@@ -9,6 +9,7 @@ import {
   NoteCateItem,
 } from "@features/note";
 import {
+  SidebarItemWrapper,
   SidebarListWrapper,
   SidebarTitle,
 } from "@shared/components/sidebar";
@@ -18,7 +19,14 @@ import {
   SortableDndContext,
 } from "@shared/hooks/DnDWrapper";
 import { useDnDNoteCate } from "@widgets/note/model/useDnDNoteCate";
-import { useTaskSplitModalStore } from "../model/useTaskSplitModalStore";
+import {
+  TASK_FINDER_TAB,
+  useTaskSplitModalStore,
+} from "../model/useTaskSplitModalStore";
+import {
+  StarIcon,
+  StopWatchIcon,
+} from "@shared/components/icon";
 
 function TaskNoteSidebar() {
   const { handleDragEnd } = useDnDNoteCate();
@@ -35,6 +43,30 @@ function TaskNoteSidebar() {
       }}
     >
       <SidebarTitle title="NOTE" />
+      <SidebarListWrapper listTitle="모아보기">
+        <SidebarItemWrapper
+          icon={<StarIcon size={18} />}
+          isCurrentLink={
+            sideTab === TASK_FINDER_TAB.Important
+          }
+          onClick={() =>
+            setFinderSideTab(TASK_FINDER_TAB.Important)
+          }
+          linkTo="#"
+        >
+          <span>중요</span>
+        </SidebarItemWrapper>
+        <SidebarItemWrapper
+          icon={<StopWatchIcon size={18} />}
+          isCurrentLink={sideTab === TASK_FINDER_TAB.Recent}
+          onClick={() =>
+            setFinderSideTab(TASK_FINDER_TAB.Recent)
+          }
+          linkTo="#"
+        >
+          <span>최근</span>
+        </SidebarItemWrapper>
+      </SidebarListWrapper>
       <SidebarListWrapper
         listTitle="폴더"
         bottom={<NoteCateCreateBtn />}

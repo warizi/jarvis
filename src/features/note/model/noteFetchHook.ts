@@ -5,7 +5,7 @@ import { fetchGetAllNoteByImportant } from "@entities/note/api/noteApi";
 
 export const useGetRecentNote = (count: number) => {
   return useQuery({
-    queryKey: [noteQueryKey],
+    queryKey: [noteQueryKey, "recent"],
     queryFn: async () => {
       const res = await fetchGetRecentAllByUpdatedAt(count);
       return res;
@@ -15,7 +15,7 @@ export const useGetRecentNote = (count: number) => {
 
 export const useGetAllByImportantQuery = () => {
   return useQuery({
-    queryKey: [noteQueryKey],
+    queryKey: [noteQueryKey, "important"],
     queryFn: () => fetchGetAllNoteByImportant(),
   });
 };

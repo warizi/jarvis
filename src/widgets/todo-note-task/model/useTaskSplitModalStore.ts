@@ -17,6 +17,7 @@ export enum TASK_DOMAIN {
 export enum TASK_FINDER_TAB {
   TODAY = "Today",
   Important = "Important",
+  Recent = "Recent",
   All = "All",
 }
 export type TaskFinderSideTab = TASK_FINDER_TAB | number;
