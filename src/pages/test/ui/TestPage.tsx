@@ -1,6 +1,7 @@
 /** @jsxImportSource @emotion/react */
 
 import { ThemeToggleButton } from "@shared/components/button";
+import { DashboardCard } from "@shared/components/container";
 import { useModalStore } from "@shared/components/modal";
 import { SidebarWrapper } from "@shared/components/sidebar";
 // import { useTest } from "../model/useTest";
@@ -47,6 +48,9 @@ function TestPage() {
           modal
         </button>
         {/* <DatePicker onChange={(dates) => {}} /> */}
+        <DashboardCard>
+          <span>test</span>
+        </DashboardCard>
       </div>
     </div>
   );
