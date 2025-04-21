@@ -304,7 +304,7 @@ function CommonEditor({
           ...(readOnly ? readOnlyStyle : {}),
         }}
       >
-        <EditorContent editor={editor} />
+        <EditorContent editor={editor} spellCheck={false} />
         {readOnly ? null : (
           <ContextEditorMenu editor={editor} />
         )}
