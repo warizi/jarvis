@@ -83,6 +83,13 @@ export async function fetchGetAllByIsToday() {
   return res;
 }
 
+export async function fetchGetAllTodayByStartDateAndEndDate() {
+  const res =
+    await TodoController.getInstance().getAllTodayByStartDateAndEndDate();
+  console.log(res);
+  return res;
+}
+
 export async function fetchGetCountAllByIsToday() {
   const res =
     await TodoController.getInstance().getCountAllByIsToday();

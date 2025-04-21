@@ -11,6 +11,7 @@ import {
   fetchGetAllByImportantAndIsDone,
   fetchGetAllByIsDone,
   fetchGetAllByIsToday,
+  fetchGetAllTodayByStartDateAndEndDate,
   fetchGetCountAllByCateId,
   fetchGetCountAllByImportant,
   fetchGetCountAllByIsToday,
@@ -113,6 +114,15 @@ export const useGetCountAllByIsTodayQuery = () => {
     queryKey: [todoQueryKey, "todayCount"],
   });
 };
+
+export const useGetAllTodayByStartDateAndEndDateQuery =
+  () => {
+    return useQuery({
+      queryFn: () =>
+        fetchGetAllTodayByStartDateAndEndDate(),
+      queryKey: [todoQueryKey, "today", "period"],
+    });
+  };
 
 export const useGetAllByIsDoneQuery = () => {
   return useQuery({

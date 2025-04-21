@@ -84,7 +84,12 @@ class TodoController {
 
   public async getAllByIsToday() {
     const data = await this.todoService.findByIsToday();
+    return data;
+  }
 
+  public async getAllTodayByStartDateAndEndDate() {
+    const data =
+      await this.todoService.findTodayByStartDateAndEndDate();
     return data;
   }
 
@@ -93,7 +98,11 @@ class TodoController {
       await this.todoService.findByIsToday()
     ).filter((todo) => !todo.isDone);
 
-    return data.length;
+    const todayData = (
+      await this.todoService.findTodayByStartDateAndEndDate()
+    ).filter((todo) => !todo.isDone);
+
+    return data.length + todayData.length;
   }
 
   public async updateDone(id: number, done: boolean) {

@@ -132,6 +132,44 @@ class TodoBackService {
       .sort((a, b) => a.order - b.order);
   }
 
+  async findTodayByStartDateAndEndDate() {
+    const todoLabels =
+      await this.todoLabelRepository.getAll();
+    return (
+      await this.todoRepository.findTodayByStartDateAndEndDate()
+    )
+      .filter((todo: TodoBack) => {
+        const { doneDate, isToday: today } = todo;
+        if (isToday(today)) return false;
+        if (!doneDate) {
+          return true;
+        }
+        if (
+          formatDate(doneDate, "yyyy-MM-dd") ===
+          formatDate(
+            moment().tz("Asia/Seoul").format(),
+            "yyyy-MM-dd"
+          )
+        ) {
+          return true;
+        }
+        return false;
+      })
+      .map((todo) => {
+        const labelId = todo?.labelId;
+        delete todo.labelId;
+        if (!labelId) return todo;
+        const todoLabel = todoLabels.find(
+          (label) => label.id === labelId
+        );
+        if (!todoLabel) return todo;
+        const newTodo = { ...todo, label: todoLabel };
+        delete newTodo.labelId;
+        return newTodo;
+      })
+      .sort((a, b) => a.order - b.order);
+  }
+
   async findByIsToday() {
     const todoLabels =
       await this.todoLabelRepository.getAll();

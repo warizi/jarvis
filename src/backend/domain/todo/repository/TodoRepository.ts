@@ -4,6 +4,7 @@ import {
   TodoCreateBack,
 } from "../entities/TodoBack";
 import { isToday } from "@backend/common/utils/isToday";
+import moment from "moment";
 
 class TodoRepository {
   async getAll() {
@@ -56,7 +57,42 @@ class TodoRepository {
     return (await flowaDb.todo
       .filter((todo: TodoBack) => {
         const { isToday } = todo;
+
         if (isToday) return true;
+
+        return false;
+      })
+      .toArray()) as TodoBack[];
+  }
+
+  async findTodayByStartDateAndEndDate() {
+    return (await flowaDb.todo
+      .filter((todo: TodoBack) => {
+        const { startDate, endDate } = todo;
+        const today = moment()
+          .tz("Asia/Seoul")
+          .format("YYYY-MM-DD");
+        const start = moment(startDate)
+          .tz("Asia/Seoul")
+          .format("YYYY-MM-DD");
+        const end = moment(endDate)
+          .tz("Asia/Seoul")
+          .format("YYYY-MM-DD");
+        if (startDate && endDate) {
+          return (
+            moment(today).isBetween(
+              start,
+              end,
+              undefined,
+              "[]"
+            ) ||
+            moment(today).isSame(start) ||
+            moment(today).isSame(end)
+          );
+        }
+        if (startDate) {
+          return moment(today).isSame(start);
+        }
         return false;
       })
       .toArray()) as TodoBack[];
