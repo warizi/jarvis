@@ -68,7 +68,6 @@ export const DatePickerProvider = ({
         newDates = [...prev, selected];
         if (newDates.length > 2) return [];
       }
-
       return newDates.sort(
         (a, b) => a.getTime() - b.getTime()
       );

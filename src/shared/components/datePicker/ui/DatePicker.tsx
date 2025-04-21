@@ -17,6 +17,7 @@ function DatePicker({ onChange }: DatePickerProps) {
 
   useEffect(() => {
     if (onChange) {
+      console.log("onChange", selectedDates);
       onChange(selectedDates);
     }
   }, [onChange, selectedDates]);

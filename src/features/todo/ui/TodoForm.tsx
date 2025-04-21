@@ -86,6 +86,10 @@ function TodoForm({ data }: { data: Todo & Id }) {
       <InputPeriod
         data={dates()}
         onChange={([start, end]) => {
+          if (!start && !end) {
+            setValue("startDate", "");
+            setValue("endDate", "");
+          }
           if (start) {
             setValue(
               "startDate",
