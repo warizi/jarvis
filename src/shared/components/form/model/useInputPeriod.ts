@@ -29,13 +29,13 @@ export const useInputPeriod = (data: Date[]) => {
     const endDate = dates[1];
 
     if (startDate && !endDate) {
-      setInputText(formatDate(startDate, "YYYY-MM-DD"));
+      setInputText(formatDate(startDate, "yyyy-MM-dd"));
     } else if (startDate && endDate) {
       setInputText(
         `${formatDate(
           startDate,
-          "YYYY-MM-DD"
-        )} ~ ${formatDate(endDate, "YYYY-MM-DD")}`
+          "yyyy-MM-dd"
+        )} ~ ${formatDate(endDate, "yyyy-MM-dd")}`
       );
     } else {
       setInputText("");

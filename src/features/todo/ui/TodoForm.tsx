@@ -93,13 +93,13 @@ function TodoForm({ data }: { data: Todo & Id }) {
           if (start) {
             setValue(
               "startDate",
-              formatDate(start, "YYYY-MM-DD")
+              formatDate(start, "yyyy-MM-dd")
             );
           }
           if (end) {
             setValue(
               "endDate",
-              formatDate(end, "YYYY-MM-DD")
+              formatDate(end, "yyyy-MM-dd")
             );
           }
         }}

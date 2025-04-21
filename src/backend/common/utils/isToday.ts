@@ -5,16 +5,8 @@ export const isToday = (
 ): boolean => {
   if (!date) return false;
 
-  const today = formatDate(
-    new Date(),
-    "YYYY-MM-DD",
-    "Asia/Seoul"
-  );
-  const target = formatDate(
-    date,
-    "YYYY-MM-DD",
-    "Asia/Seoul"
-  );
+  const today = formatDate(new Date(), "yyyy-MM-dd");
+  const target = formatDate(date, "yyyy-MM-dd");
 
   return today === target;
 };

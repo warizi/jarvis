@@ -4,6 +4,7 @@ import { dashboardCardStyles } from "./DashboardCard.style";
 
 type DashboardCardProps = {
   children: React.ReactNode;
+  title?: string;
   onClick?: (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => void;
@@ -12,13 +13,15 @@ type DashboardCardProps = {
 function DashboardCard({
   children,
   onClick,
+  title,
 }: DashboardCardProps) {
-  const { container } = dashboardCardStyles;
+  const { container, titleSpan } = dashboardCardStyles;
   return (
     <div
       css={container}
       onClick={(event) => onClick && onClick(event)}
     >
+      {title && <span css={titleSpan}>{title}</span>}
       {children}
     </div>
   );

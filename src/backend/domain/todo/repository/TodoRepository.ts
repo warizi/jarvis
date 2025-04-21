@@ -5,6 +5,7 @@ import {
 } from "../entities/TodoBack";
 import { isToday } from "@backend/common/utils/isToday";
 import moment from "moment";
+import { formatDate } from "@backend/common/utils/formatDate";
 
 class TodoRepository {
   async getAll() {
@@ -69,15 +70,13 @@ class TodoRepository {
     return (await flowaDb.todo
       .filter((todo: TodoBack) => {
         const { startDate, endDate } = todo;
-        const today = moment()
-          .tz("Asia/Seoul")
-          .format("YYYY-MM-DD");
-        const start = moment(startDate)
-          .tz("Asia/Seoul")
-          .format("YYYY-MM-DD");
-        const end = moment(endDate)
-          .tz("Asia/Seoul")
-          .format("YYYY-MM-DD");
+        const today = formatDate(new Date(), "yyyy-MM-dd");
+        const start = startDate
+          ? formatDate(startDate, "yyyy-MM-dd")
+          : undefined;
+        const end = endDate
+          ? formatDate(endDate, "yyyy-MM-dd")
+          : undefined;
         if (startDate && endDate) {
           return (
             moment(today).isBetween(

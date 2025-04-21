@@ -4,7 +4,8 @@ export const dashboardCardStyles = {
   container: (theme: Theme) => ({
     width: "fit-content",
     height: "fit-content",
-    padding: "12px",
+    padding: "16px",
+    fontSize: theme.typography.size.medium,
     backgroundColor: theme.colors.background.deep,
     borderRadius: theme.radius.medium,
     boxShadow: theme.shadow.superSmall,
@@ -12,5 +13,11 @@ export const dashboardCardStyles = {
     "&:hover": {
       transform: "scale(1.03)",
     },
+  }),
+  titleSpan: (theme: Theme) => ({
+    display: "block",
+    marginBottom: "12px",
+    fontSize: theme.typography.size.large,
+    fontWeight: 600,
   }),
 };

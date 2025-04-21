@@ -82,11 +82,12 @@ class TodoBackService {
         }
         if (
           formatDate(doneDate, "yyyy-MM-dd") ===
-          formatDate(
-            moment().tz("Asia/Seoul").format(),
-            "yyyy-MM-dd"
-          )
+          formatDate(new Date(), "yyyy-MM-dd")
         ) {
+          console.log(
+            "today: ",
+            formatDate(new Date(), "yyyy-MM-dd")
+          );
           return true;
         }
 
