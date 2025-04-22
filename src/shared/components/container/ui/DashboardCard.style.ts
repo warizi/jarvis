@@ -14,10 +14,14 @@ export const dashboardCardStyles = {
       transform: "scale(1.03)",
     },
   }),
-  titleSpan: (theme: Theme) => ({
-    display: "block",
-    marginBottom: "12px",
-    fontSize: theme.typography.size.large,
-    fontWeight: 600,
-  }),
+  titleSpan: (theme: Theme) =>
+    ({
+      display: "flex",
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "space-between",
+      marginBottom: "16px",
+      fontSize: theme.typography.size.large,
+      fontWeight: 600,
+    } as const),
 };
